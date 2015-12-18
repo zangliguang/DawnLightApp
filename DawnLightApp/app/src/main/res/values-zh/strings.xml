@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DawnLightApp</string>
+    <string name="common_test">测试</string>
+    <string name="common_news">新闻</string>
+    <string name="common_image">图片</string>
+    <string name="common_music">音乐</string>
+</resources>
