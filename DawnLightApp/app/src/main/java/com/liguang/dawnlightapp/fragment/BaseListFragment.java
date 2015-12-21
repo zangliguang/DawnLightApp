@@ -46,7 +46,7 @@ public class BaseListFragment extends Fragment implements AbsListView.OnItemClic
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
-    private ListAdapter mAdapter;
+    protected ListAdapter mAdapter;
 
     // TODO: Rename and change types of parameters
     public static BaseListFragment newInstance(String param1, String param2) {
@@ -73,7 +73,12 @@ public class BaseListFragment extends Fragment implements AbsListView.OnItemClic
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        initAdapter();
 
+
+    }
+
+    protected void initAdapter() {
         // TODO: Change Adapter to display your content
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
@@ -82,18 +87,25 @@ public class BaseListFragment extends Fragment implements AbsListView.OnItemClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_base_item, container, false);
+        View view = inflater.inflate(getLayoutId(), container, false);
+        initView(view);
 
+
+        return view;
+    }
+
+    protected void initView(View view) {
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
         ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
         mListView.setOnItemClickListener(this);
-
-        return view;
     }
 
+    protected int getLayoutId() {
+        return R.layout.fragment_base_item;
+    }
 
 
     @Override

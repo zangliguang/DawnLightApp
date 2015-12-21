@@ -9,7 +9,6 @@
     http://developer.android.com/training/multiscreen/screensizes.html#TaskUseAliasFilters
     -->
     <item name="fragment_video_item" type="layout">@layout/fragment_video_item_grid</item>
-    <item name="fragment_image_item" type="layout">@layout/fragment_image_item_grid</item>
 
     <!--
     Layout alias to replace the single-pane version of the layout with a
