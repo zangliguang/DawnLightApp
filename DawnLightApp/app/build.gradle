@@ -29,9 +29,6 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.1.1'
     compile 'com.nshmura:recyclertablayout:0.1.3'
     compile 'com.android.support:cardview-v7:23.1.1'
-//    compile 'com.github.agrosner:DBFlow:1.0.3'
-//    compile 'com.github.agrosner:DBFlow-Core:1.0.3'
-//    compile 'com.github.agrosner:DBFlow-Compiler:1.0.3'
     apt 'com.github.Raizlabs.DBFlow:dbflow-processor:develop-SNAPSHOT'
     compile "com.github.Raizlabs.DBFlow:dbflow-core:develop-SNAPSHOT"
     compile "com.github.Raizlabs.DBFlow:dbflow:develop-SNAPSHOT"
