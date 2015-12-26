@@ -46,6 +46,7 @@ public class ImageFragment extends BaseFragment  {
      */
     private ListAdapter mAdapter;
 
+
     // TODO: Rename and change types of parameters
     public static ImageFragment newInstance(String param1, String param2) {
         ImageFragment fragment = new ImageFragment();
@@ -68,6 +69,9 @@ public class ImageFragment extends BaseFragment  {
         return R.layout.fragment_image_content;
     }
 
+
+
+
     @Override
     protected void initView() {
         String[] BeautyTitles = getContext().getResources().getStringArray(R.array.beauty_image_titles);
@@ -86,4 +90,16 @@ public class ImageFragment extends BaseFragment  {
     public void onStart() {
         super.onStart();
     }
+
+    @Override
+    public void onDestroy() {
+//        if(null!=cursor&&!cursor.isClosed()){
+//            cursor.close();
+//        }
+//        if(null!=database&&database.isOpen()){
+//            database.close();
+//        }
+        super.onDestroy();
+    }
+
 }

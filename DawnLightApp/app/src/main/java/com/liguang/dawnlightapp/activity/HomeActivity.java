@@ -1,6 +1,8 @@
 package com.liguang.dawnlightapp.activity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -20,6 +22,7 @@ import android.widget.TabHost;
 import android.widget.TextView;
 
 import com.liguang.dawnlightapp.R;
+import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
 import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 import com.liguang.dawnlightapp.ui.MainTab;
 
@@ -38,6 +41,10 @@ public class HomeActivity extends AppCompatActivity
     @Bind(R.id.tabhost)
     FragmentTabHost mTabHost;
 
+    DawnLightSQLiteHelper dlsh;
+    SQLiteDatabase database;
+    Cursor cursor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,8 +52,12 @@ public class HomeActivity extends AppCompatActivity
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-
         initViews();
+    }
+
+    private void initDB() {
+        dlsh = new DawnLightSQLiteHelper(this);
+        database = dlsh.getWritableDatabase();
     }
 
     private void initViews() {
@@ -172,6 +183,18 @@ public class HomeActivity extends AppCompatActivity
     private Fragment getCurrentFragment() {
         return getSupportFragmentManager().findFragmentByTag(
                 mTabHost.getCurrentTabTag());
+    }
+
+    @Override
+    protected void onDestroy() {
+//        if(!cursor.isClosed()){
+//            cursor.close();
+//        }
+//        if(database.isOpen()){
+//            database.close();
+//        }
+        super.onDestroy();
+
     }
 }
 

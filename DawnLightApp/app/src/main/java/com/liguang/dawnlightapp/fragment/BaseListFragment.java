@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
@@ -46,7 +47,7 @@ public class BaseListFragment extends Fragment implements AbsListView.OnItemClic
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
-    protected ListAdapter mAdapter;
+    protected BaseAdapter mAdapter;
 
     // TODO: Rename and change types of parameters
     public static BaseListFragment newInstance(String param1, String param2) {
