@@ -1,5 +1,6 @@
 package com.liguang.dawnlightapp.fragment;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.net.Uri;
@@ -126,4 +127,7 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
         }
         return null;
     }
+    public interface  fragmentListener{
+        public SQLiteDatabase getDatabase();
+    };
 }

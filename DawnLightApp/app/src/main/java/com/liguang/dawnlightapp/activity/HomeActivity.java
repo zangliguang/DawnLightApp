@@ -1,7 +1,6 @@
 package com.liguang.dawnlightapp.activity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -23,6 +22,7 @@ import android.widget.TextView;
 
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
+import com.liguang.dawnlightapp.fragment.BaseFragment;
 import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 import com.liguang.dawnlightapp.ui.MainTab;
 
@@ -30,7 +30,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,BaseFragment.fragmentListener {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -43,7 +43,6 @@ public class HomeActivity extends AppCompatActivity
 
     DawnLightSQLiteHelper dlsh;
     SQLiteDatabase database;
-    Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +50,7 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
-
+        initDB();
         initViews();
     }
 
@@ -187,14 +186,16 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     protected void onDestroy() {
-//        if(!cursor.isClosed()){
-//            cursor.close();
-//        }
-//        if(database.isOpen()){
-//            database.close();
-//        }
+        if(database.isOpen()){
+            database.close();
+        }
         super.onDestroy();
 
+    }
+
+    @Override
+    public SQLiteDatabase getDatabase() {
+        return database;
     }
 }
 

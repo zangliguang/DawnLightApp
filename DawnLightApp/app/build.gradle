@@ -33,4 +33,5 @@ dependencies {
     compile 'com.github.Raizlabs.DBFlow:dbflow-core:develop-SNAPSHOT'
     compile 'com.github.Raizlabs.DBFlow:dbflow:develop-SNAPSHOT'
     compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.marshalchen.ultimaterecyclerview:library:0.3.11'
 }

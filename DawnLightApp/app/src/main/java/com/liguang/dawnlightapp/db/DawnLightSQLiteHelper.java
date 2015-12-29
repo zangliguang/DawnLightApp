@@ -11,19 +11,18 @@ import com.liguang.dawnlightapp.constants.LocalConstants;
  * Created by zangliguang on 15/12/19.
  */
 public class DawnLightSQLiteHelper extends SQLiteOpenHelper {
-    private static final String DATABASE_NAME = "dawnlight.db";
     private static final int DATABASE_VERSION = 1;
     private SQLiteDatabase mDatabase = null;
 
     public DawnLightSQLiteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
-        super(context, context.getFilesDir().getAbsolutePath()+"/"+ LocalConstants.dbname, factory, DATABASE_VERSION, errorHandler);
+        super(context,  LocalConstants.Paths.DB_PATH, factory, DATABASE_VERSION, errorHandler);
     }
 
     public DawnLightSQLiteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, context.getFilesDir().getAbsolutePath()+"/"+ LocalConstants.dbname, null, DATABASE_VERSION);
+        super(context, LocalConstants.Paths.DB_PATH, null, DATABASE_VERSION);
     }
     public DawnLightSQLiteHelper(Context context) {
-        super(context, context.getFilesDir().getAbsolutePath()+"/"+ LocalConstants.dbname, null, DATABASE_VERSION);
+        super(context, LocalConstants.Paths.DB_PATH, null, DATABASE_VERSION);
     }
 
     @Override
