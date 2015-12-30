@@ -1,11 +1,9 @@
 package com.liguang.dawnlightapp.ui.adapter;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-
-import com.liguang.dawnlightapp.fragment.ImageListFragment;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,19 +13,16 @@ import java.util.List;
  */
 public class ImageListFragmentAdapter extends FragmentPagerAdapter {
     private List<String> mItems = new ArrayList<>();
+    private List<Fragment> fragmentList = new ArrayList<>();
 
-    public ImageListFragmentAdapter(FragmentManager fm) {
+    public ImageListFragmentAdapter(FragmentManager fm, List<Fragment> lists) {
         super(fm);
+        this.fragmentList=lists;
     }
 
     @Override
     public Fragment getItem(int position) {
-        final Bundle bundle = new Bundle();
-        bundle.putInt(ImageListFragment.EXTRA_POSITION, position);
-
-        final ImageListFragment fragment = new ImageListFragment();
-        fragment.setArguments(bundle);
-        return fragment;
+        return fragmentList.get(position);
     }
 
     @Override
@@ -42,5 +37,10 @@ public class ImageListFragmentAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         return mItems.get(position);
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+//        super.destroyItem(container, position, object);
     }
 }

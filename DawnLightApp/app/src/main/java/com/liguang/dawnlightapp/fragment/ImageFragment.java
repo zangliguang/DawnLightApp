@@ -1,6 +1,7 @@
 package com.liguang.dawnlightapp.fragment;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
@@ -9,6 +10,7 @@ import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.ui.adapter.ImageListFragmentAdapter;
 import com.nshmura.recyclertablayout.RecyclerTabLayout;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -76,7 +78,20 @@ public class ImageFragment extends BaseFragment  {
     protected void initView() {
         String[] BeautyTitles = getContext().getResources().getStringArray(R.array.beauty_image_titles);
         List<String> items = Arrays.asList(BeautyTitles);
-        ImageListFragmentAdapter adapter = new ImageListFragmentAdapter(getFragmentManager());
+        Bundle bundle = new Bundle();
+        List<Fragment> lists=new ArrayList<>();
+        for(int position=0;position<items.size();position++){
+            bundle.putInt(ImageListFragment.EXTRA_POSITION, position);
+
+            ImageListFragment fragment = new ImageListFragment();
+            fragment.setArguments(bundle);
+            lists.add(fragment);
+        }
+
+
+
+
+        ImageListFragmentAdapter adapter = new ImageListFragmentAdapter(getFragmentManager(),lists);
         adapter.addAll(items);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
         viewPager.setAdapter(adapter);
