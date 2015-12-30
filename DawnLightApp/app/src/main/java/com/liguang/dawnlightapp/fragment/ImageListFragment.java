@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,6 +20,7 @@ import com.liguang.dawnlightapp.db.dao.ImageDetailModel;
 import com.marshalchen.ultimaterecyclerview.UltimateRecyclerView;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -33,11 +35,10 @@ public class ImageListFragment extends BaseFragment {
     Cursor cursor;
     String tableName;
     UltimateRecyclerView mRecycleView;
-    ImageDetailAdapter mAdapter;
+    ImageDetailAdapter simpleRecyclerViewAdapter;
     fragmentListener mListener;
     int index = 0;
     int pageContentNum = 30;
-    List<ImageDetailModel> dataList = new ArrayList<>();
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,13 +54,19 @@ public class ImageListFragment extends BaseFragment {
         mRecycleView.setOnLoadMoreListener(new UltimateRecyclerView.OnLoadMoreListener() {
             @Override
             public void loadMore(int itemsCount, final int maxLastVisiblePosition) {
-//                Handler handler = new Handler();
-//                handler.postDelayed(new Runnable() {
-//                    public void run() {
-//                        mAdapter.insert(loadData());
-//                    }
-//                }, 1000);
-                mAdapter.insert(loadData());
+                final List<ImageDetailModel> list = loadData();
+                Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    public void run() {
+                        Iterator<ImageDetailModel> it = list.iterator();
+
+                        while (it.hasNext()) {
+                            ImageDetailModel value = it.next();
+                            simpleRecyclerViewAdapter.insert(value, simpleRecyclerViewAdapter.getAdapterItemCount());
+                        }
+                    }
+                }, 1000);
+//                mAdapter.insert(loadData());
             }
         });
         return view;
@@ -69,19 +76,22 @@ public class ImageListFragment extends BaseFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initAdapter();
-        mRecycleView.setAdapter(mAdapter);
+        mRecycleView.setAdapter(simpleRecyclerViewAdapter);
         mRecycleView.setItemAnimator(new DefaultItemAnimator());
 
+        simpleRecyclerViewAdapter.setCustomLoadMoreView(LayoutInflater.from(getActivity())
+                .inflate(R.layout.custom_bottom_progressbar, null));
 
     }
 
     protected void initAdapter() {
         setTableName();
-        mAdapter = new ImageDetailAdapter(loadData());
+        simpleRecyclerViewAdapter = new ImageDetailAdapter(loadData());
+
     }
 
     private List<ImageDetailModel> loadData() {
-        dataList.clear();
+        List<ImageDetailModel> dataList = new ArrayList<>();
         cursor = database.rawQuery("select * from " + tableName + " group by image_title ORDER BY create_time desc limit ?,30", new String[]{String.valueOf(index*pageContentNum+index)});
         Log.v("zangliguang", cursor.getCount() + "");
         index++;
