@@ -1,6 +1,7 @@
 package com.liguang.dawnlightapp.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -14,9 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.liguang.dawnlightapp.R;
-import com.liguang.dawnlightapp.adapter.ImageDetailAdapter;
+import com.liguang.dawnlightapp.activity.image.ImageViewPageActivity;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
 import com.liguang.dawnlightapp.db.dao.ImageDetailModel;
+import com.liguang.dawnlightapp.ui.adapter.ImageDetailAdapter;
 import com.marshalchen.ultimaterecyclerview.UltimateRecyclerView;
 
 import java.util.ArrayList;
@@ -81,6 +83,23 @@ public class ImageListFragment extends BaseFragment {
 
         simpleRecyclerViewAdapter.setCustomLoadMoreView(LayoutInflater.from(getActivity())
                 .inflate(R.layout.custom_bottom_progressbar, null));
+        simpleRecyclerViewAdapter.setOnItemClickListener(new ImageDetailAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View view, String data) {
+                cursor = database.rawQuery("select * from " + tableName + "  where image_title = ? order by image_order asc",new String[]{data});
+                String urls="";
+                if (cursor.getCount() > 0) {
+                    cursor.moveToFirst();
+                }
+                do {
+                    urls=urls+cursor.getString(3)+",";
+                    Log.v("zangliguang", urls);
+                }while (cursor.moveToNext());
+                Intent it = new Intent(getActivity(), ImageViewPageActivity.class);
+                it.putExtra(ImageViewPageActivity.URL_ARGUMENTS_EXTRA, urls);
+                getActivity().startActivity(it);
+            }
+        });
 
     }
 
@@ -168,4 +187,5 @@ public class ImageListFragment extends BaseFragment {
 
         }
     }
+
 }

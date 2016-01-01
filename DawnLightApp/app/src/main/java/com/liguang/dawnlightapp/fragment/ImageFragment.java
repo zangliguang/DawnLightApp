@@ -78,12 +78,11 @@ public class ImageFragment extends BaseFragment  {
     protected void initView() {
         String[] BeautyTitles = getContext().getResources().getStringArray(R.array.beauty_image_titles);
         List<String> items = Arrays.asList(BeautyTitles);
-        Bundle bundle = new Bundle();
         List<Fragment> lists=new ArrayList<>();
         for(int position=0;position<items.size();position++){
-            bundle.putInt(ImageListFragment.EXTRA_POSITION, position);
-
             ImageListFragment fragment = new ImageListFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt(ImageListFragment.EXTRA_POSITION, position);
             fragment.setArguments(bundle);
             lists.add(fragment);
         }

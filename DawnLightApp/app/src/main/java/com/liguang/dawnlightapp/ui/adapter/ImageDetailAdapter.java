@@ -1,4 +1,4 @@
-package com.liguang.dawnlightapp.adapter;
+package com.liguang.dawnlightapp.ui.adapter;
 
 import android.animation.Animator;
 import android.support.v7.widget.RecyclerView;
@@ -19,7 +19,7 @@ import com.marshalchen.ultimaterecyclerview.animators.internal.ViewHelper;
 import java.util.List;
 
 
-public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.ViewHolder> {
+public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.ViewHolder> implements View.OnClickListener {
     List<ImageDetailModel> dataList;
 
     public ImageDetailAdapter(List<ImageDetailModel> dataList) {
@@ -30,6 +30,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     private int mLastPosition = 5;
 
     private boolean isFirstOnly = true;
+    private OnRecyclerViewItemClickListener mOnItemClickListener = null;
 
     @Override
     public void onBindViewHolder(ImageDetailAdapter.ViewHolder holder, int position) {
@@ -44,6 +45,10 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             mLastPosition = position;
         } else {
             ViewHelper.clear(holder.itemView);
+        }
+        //将数据保存在itemView的Tag中，以便点击时进行获取
+        if(position<dataList.size()){
+            holder.itemView.setTag(dataList.get(position).getImage_title());
         }
 
     }
@@ -64,6 +69,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.image_item_view, parent, false);
         ViewHolder vh = new ViewHolder(v);
+        v.setOnClickListener(this);
         return vh;
     }
 
@@ -132,6 +138,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
 //                break;
 //        }
 
+
     }
 
 
@@ -143,6 +150,15 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             return dataList.get(position);
         else return null;
     }
+
+    @Override
+    public void onClick(View v) {
+        if (mOnItemClickListener != null) {
+            //注意这里使用getTag方法获取数据
+            mOnItemClickListener.onItemClick(v,(String)v.getTag());
+        }
+    }
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title;
@@ -151,5 +167,12 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             image= (ImageView) itemView.findViewById(R.id.pic);
             title= (TextView) itemView.findViewById(R.id.name);
         }
+    }
+    //define interface
+    public static interface OnRecyclerViewItemClickListener {
+        void onItemClick(View view , String data);
+    }
+    public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
+        this.mOnItemClickListener = listener;
     }
 }
