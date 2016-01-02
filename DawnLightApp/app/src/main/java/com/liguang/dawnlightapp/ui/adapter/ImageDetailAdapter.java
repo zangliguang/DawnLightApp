@@ -1,6 +1,7 @@
 package com.liguang.dawnlightapp.ui.adapter;
 
 import android.animation.Animator;
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,31 +12,49 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.liguang.dawnlightapp.R;
+import com.liguang.dawnlightapp.configs.picasso.SamplePicassoFactory;
 import com.liguang.dawnlightapp.db.dao.ImageDetailModel;
+import com.liguang.dawnlightapp.utils.LogUtils;
 import com.marshalchen.ultimaterecyclerview.URLogs;
 import com.marshalchen.ultimaterecyclerview.UltimateViewAdapter;
 import com.marshalchen.ultimaterecyclerview.animators.internal.ViewHelper;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 
 public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.ViewHolder> implements View.OnClickListener {
     List<ImageDetailModel> dataList;
+    private final Picasso mPicasso;
+    Context context;
 
-    public ImageDetailAdapter(List<ImageDetailModel> dataList) {
+    public ImageDetailAdapter(Context context, List<ImageDetailModel> dataList) {
         this.dataList = dataList;
+        this.context=context;
+        mPicasso = SamplePicassoFactory.getPicasso(context);
     }
+
     private int mDuration = 300;
     private Interpolator mInterpolator = new LinearInterpolator();
     private int mLastPosition = 5;
 
     private boolean isFirstOnly = true;
     private OnRecyclerViewItemClickListener mOnItemClickListener = null;
+    private boolean loadImage = true;
 
     @Override
     public void onBindViewHolder(ImageDetailAdapter.ViewHolder holder, int position) {
         if (position < getItemCount() && (customHeaderView != null ? position <= dataList.size() : position < dataList.size()) && (customHeaderView != null ? position > 0 : true)) {
             holder.title.setText(dataList.get(position).getImage_title());
+            if (loadImage) {
+//                mPicasso.with(holder.image.getContext()).load(dataList.get(position).getImage_link()).into(holder.image);
+                LogUtils.v(dataList.get(position).getImage_title() + ":url==>" + dataList.get(position).getImage_link());
+                mPicasso.load(dataList.get(position).getImage_link())
+                        .placeholder(context.getResources().getDrawable(R.drawable.error_pic))
+                        .error(context.getResources().getDrawable(R.drawable.error_pic))
+                        .into(holder.image);
+            }
+
         }
         if (!isFirstOnly || position > mLastPosition) {
             for (Animator anim : getAdapterAnimations(holder.itemView, AdapterAnimationType.ScaleIn)) {
@@ -47,7 +66,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             ViewHelper.clear(holder.itemView);
         }
         //将数据保存在itemView的Tag中，以便点击时进行获取
-        if(position<dataList.size()){
+        if (position < dataList.size()) {
             holder.itemView.setTag(dataList.get(position).getImage_title());
         }
 
@@ -142,7 +161,6 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     }
 
 
-
     public ImageDetailModel getItem(int position) {
         if (customHeaderView != null)
             position--;
@@ -155,24 +173,43 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     public void onClick(View v) {
         if (mOnItemClickListener != null) {
             //注意这里使用getTag方法获取数据
-            mOnItemClickListener.onItemClick(v,(String)v.getTag());
+            mOnItemClickListener.onItemClick(v, (String) v.getTag());
         }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title;
+
         public ViewHolder(View itemView) {
             super(itemView);
-            image= (ImageView) itemView.findViewById(R.id.pic);
-            title= (TextView) itemView.findViewById(R.id.name);
+            image = (ImageView) itemView.findViewById(R.id.pic);
+            title = (TextView) itemView.findViewById(R.id.name);
         }
     }
+
     //define interface
     public static interface OnRecyclerViewItemClickListener {
-        void onItemClick(View view , String data);
+        void onItemClick(View view, String data);
     }
+
     public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
         this.mOnItemClickListener = listener;
+    }
+
+    public boolean isLoadImage() {
+        return loadImage;
+    }
+
+    public void setLoadImage(boolean loadImage) {
+        this.loadImage = loadImage;
+        if (loadImage == true) {
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onViewRecycled(ViewHolder holder) {
+        super.onViewRecycled(holder);
     }
 }

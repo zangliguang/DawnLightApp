@@ -1,9 +1,11 @@
 package com.liguang.dawnlightapp.fragment;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -46,6 +48,7 @@ public class ImageListFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -53,6 +56,18 @@ public class ImageListFragment extends BaseFragment {
         mRecycleView = (UltimateRecyclerView) view.findViewById(R.id.ultimate_recycler_view);
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleView.enableLoadmore();
+//        mRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//                if(newState==RecyclerView.SCROLL_STATE_IDLE&&!simpleRecyclerViewAdapter.isLoadImage()){
+//                    simpleRecyclerViewAdapter.setLoadImage(true);
+//                }else {
+//                    simpleRecyclerViewAdapter.setLoadImage(false);
+//                }
+//
+//            }
+//        });
         mRecycleView.setOnLoadMoreListener(new UltimateRecyclerView.OnLoadMoreListener() {
             @Override
             public void loadMore(int itemsCount, final int maxLastVisiblePosition) {
@@ -105,13 +120,13 @@ public class ImageListFragment extends BaseFragment {
 
     protected void initAdapter() {
         setTableName();
-        simpleRecyclerViewAdapter = new ImageDetailAdapter(loadData());
+        simpleRecyclerViewAdapter = new ImageDetailAdapter(getActivity(),loadData());
 
     }
 
     private List<ImageDetailModel> loadData() {
         List<ImageDetailModel> dataList = new ArrayList<>();
-        cursor = database.rawQuery("select * from " + tableName + " group by image_title ORDER BY create_time desc limit ?,30", new String[]{String.valueOf(index*pageContentNum+index)});
+        cursor = database.rawQuery("select * from " + tableName + " group by image_title ORDER BY create_time asc limit ?,30", new String[]{String.valueOf(index*pageContentNum+index)});
         Log.v("zangliguang", cursor.getCount() + "");
         index++;
         ImageDetailModel imageDetailModel = new ImageDetailModel();
