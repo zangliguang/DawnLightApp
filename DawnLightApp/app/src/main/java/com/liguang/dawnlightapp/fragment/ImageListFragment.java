@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.activity.image.ImageViewPageActivity;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
@@ -154,6 +155,7 @@ public class ImageListFragment extends BaseFragment {
             cursor.close();
         }
         super.onDestroy();
+        DawnLightApplication.getRefWatcher(getActivity()).watch(this);
     }
 
     private void initDB() {
@@ -203,4 +205,8 @@ public class ImageListFragment extends BaseFragment {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
 }

@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
 import com.liguang.dawnlightapp.fragment.BaseFragment;
@@ -190,6 +191,7 @@ public class HomeActivity extends AppCompatActivity
             database.close();
         }
         super.onDestroy();
+        DawnLightApplication.getRefWatcher(this).watch(this);
 
     }
 
@@ -197,5 +199,8 @@ public class HomeActivity extends AppCompatActivity
     public SQLiteDatabase getDatabase() {
         return database;
     }
+
+
+
 }
 

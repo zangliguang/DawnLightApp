@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.AbsListView;
 import android.widget.ListAdapter;
 
+import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.ui.adapter.ImageListFragmentAdapter;
 import com.nshmura.recyclertablayout.RecyclerTabLayout;
@@ -93,6 +94,7 @@ public class ImageFragment extends BaseFragment  {
         ImageListFragmentAdapter adapter = new ImageListFragmentAdapter(getFragmentManager(),lists);
         adapter.addAll(items);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
+        viewPager.setOffscreenPageLimit(lists.size()-1);
         viewPager.setAdapter(adapter);
 
         mRecyclerTabLayout = (RecyclerTabLayout)
@@ -114,6 +116,7 @@ public class ImageFragment extends BaseFragment  {
 //            database.close();
 //        }
         super.onDestroy();
+        DawnLightApplication.getRefWatcher(getActivity()).watch(this);
     }
 
 }
