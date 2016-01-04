@@ -22,6 +22,7 @@ import com.liguang.dawnlightapp.activity.image.ImageViewPageActivity;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
 import com.liguang.dawnlightapp.db.dao.ImageDetailModel;
 import com.liguang.dawnlightapp.ui.adapter.ImageDetailAdapter;
+import com.liguang.dawnlightapp.utils.LogUtils;
 import com.marshalchen.ultimaterecyclerview.UltimateRecyclerView;
 
 import java.util.ArrayList;
@@ -57,43 +58,40 @@ public class ImageListFragment extends BaseFragment {
         mRecycleView = (UltimateRecyclerView) view.findViewById(R.id.ultimate_recycler_view);
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleView.enableLoadmore();
-//        mRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-//                super.onScrollStateChanged(recyclerView, newState);
-//                if(newState==RecyclerView.SCROLL_STATE_IDLE&&!simpleRecyclerViewAdapter.isLoadImage()){
-//                    simpleRecyclerViewAdapter.setLoadImage(true);
-//                }else {
-//                    simpleRecyclerViewAdapter.setLoadImage(false);
-//                }
-//
-//            }
-//        });
         mRecycleView.setOnLoadMoreListener(new UltimateRecyclerView.OnLoadMoreListener() {
             @Override
             public void loadMore(int itemsCount, final int maxLastVisiblePosition) {
-                final List<ImageDetailModel> list = loadData();
-                Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    public void run() {
-                        Iterator<ImageDetailModel> it = list.iterator();
-
-                        while (it.hasNext()) {
-                            ImageDetailModel value = it.next();
-                            simpleRecyclerViewAdapter.insert(value, simpleRecyclerViewAdapter.getAdapterItemCount());
-                        }
-                    }
-                }, 1000);
-//                mAdapter.insert(loadData());
+                loadMoreData();
             }
         });
         return view;
+    }
+
+    protected void refreshData() {
+        if(null==simpleRecyclerViewAdapter||simpleRecyclerViewAdapter.getAdapterItemCount()==0){
+            loadMoreData();
+        }
+    }
+    protected void loadMoreData() {
+        final List<ImageDetailModel> list = loadData();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                Iterator<ImageDetailModel> it = list.iterator();
+
+                while (it.hasNext()) {
+                    ImageDetailModel value = it.next();
+                    simpleRecyclerViewAdapter.insert(value, simpleRecyclerViewAdapter.getAdapterItemCount());
+                }
+            }
+        }, 1000);
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initAdapter();
+        LogUtils.v("ImageListFragment----onViewCreated");
         mRecycleView.setAdapter(simpleRecyclerViewAdapter);
         mRecycleView.setItemAnimator(new DefaultItemAnimator());
 
@@ -121,7 +119,7 @@ public class ImageListFragment extends BaseFragment {
 
     protected void initAdapter() {
         setTableName();
-        simpleRecyclerViewAdapter = new ImageDetailAdapter(getActivity(),loadData());
+        simpleRecyclerViewAdapter = new ImageDetailAdapter(getActivity(), getArguments().getInt(EXTRA_POSITION)==0?loadData():new ArrayList<ImageDetailModel>() );
 
     }
 
@@ -208,5 +206,10 @@ public class ImageListFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+    }
+
+    @Override
+    public void onTabReselect() {
+        super.onTabReselect();
     }
 }

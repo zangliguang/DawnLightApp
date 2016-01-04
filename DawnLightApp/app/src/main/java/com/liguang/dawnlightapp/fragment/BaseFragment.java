@@ -85,12 +85,6 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-//        try {
-//            mListener = (OnFragmentInteractionListener) activity;
-//        } catch (ClassCastException e) {
-//            throw new ClassCastException(activity.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
     }
 
     @Override
@@ -101,7 +95,7 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
 
     @Override
     public void onTabReselect() {
-
+//        initView();
     }
 
     /**

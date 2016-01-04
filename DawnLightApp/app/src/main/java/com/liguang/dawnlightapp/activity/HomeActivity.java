@@ -15,7 +15,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -24,8 +23,8 @@ import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
 import com.liguang.dawnlightapp.fragment.BaseFragment;
-import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 import com.liguang.dawnlightapp.ui.MainTab;
+import com.liguang.dawnlightapp.utils.LogUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -95,29 +94,19 @@ public class HomeActivity extends AppCompatActivity
                 }
             });
             mTabHost.addTab(tab, mainTab.getClz(), null);
-
-            mTabHost.getTabWidget().getChildAt(i).setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent event) {
-                    boolean consumed = false;
-                    // use getTabHost().getCurrentTabView to decide if the current tab is
-                    // touched again
-                    if (event.getAction() == MotionEvent.ACTION_DOWN
-                            && v.equals(mTabHost.getCurrentTabView())) {
-                        // use getTabHost().getCurrentView() to get a handle to the view
-                        // which is displayed in the tab - and to get this views context
-                        Fragment currentFragment = getCurrentFragment();
-                        if (currentFragment != null
-                                && currentFragment instanceof OnTabReselectListener) {
-                            OnTabReselectListener listener = (OnTabReselectListener) currentFragment;
-                            listener.onTabReselect();
-                            consumed = true;
-                        }
-                    }
-                    return consumed;
-                }
-            });
         }
+        mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+            @Override
+            public void onTabChanged(String tabId) {
+                LogUtils.v("changed to tabId="+tabId);
+
+                Fragment currentFragment = getCurrentFragment();
+                if(currentFragment instanceof BaseFragment){
+                    ((BaseFragment) currentFragment).onTabReselect();
+                }
+
+            }
+        });
     }
 
     @Override

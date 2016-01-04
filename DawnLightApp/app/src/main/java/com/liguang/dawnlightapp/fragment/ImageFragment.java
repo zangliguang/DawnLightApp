@@ -1,9 +1,7 @@
 package com.liguang.dawnlightapp.fragment;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.widget.AbsListView;
 import android.widget.ListAdapter;
 
 import com.liguang.dawnlightapp.DawnLightApplication;
@@ -17,14 +15,14 @@ import java.util.List;
 
 /**
  * A fragment representing a list of Items.
- * <p>
+ * <p/>
  * Large screen devices (such as tablets) are supported by replacing the ListView
  * with a GridView.
- * <p>
+ * <p/>
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class ImageFragment extends BaseFragment  {
+public class ImageFragment extends BaseFragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,7 +38,7 @@ public class ImageFragment extends BaseFragment  {
     /**
      * The fragment's ListView/GridView.
      */
-    private AbsListView mListView;
+    List<ImageListFragment> fragmentList;
     protected RecyclerTabLayout mRecyclerTabLayout;
 
     /**
@@ -73,30 +71,45 @@ public class ImageFragment extends BaseFragment  {
     }
 
 
-
-
     @Override
     protected void initView() {
+        if(null!=fragmentList&&fragmentList.size()>0){
+            return;
+        }
         String[] BeautyTitles = getContext().getResources().getStringArray(R.array.beauty_image_titles);
         List<String> items = Arrays.asList(BeautyTitles);
-        List<Fragment> lists=new ArrayList<>();
-        for(int position=0;position<items.size();position++){
+        fragmentList = new ArrayList<>();
+        for (int position = 0; position < items.size(); position++) {
             ImageListFragment fragment = new ImageListFragment();
             Bundle bundle = new Bundle();
             bundle.putInt(ImageListFragment.EXTRA_POSITION, position);
             fragment.setArguments(bundle);
-            lists.add(fragment);
+            fragmentList.add(fragment);
         }
 
 
-
-
-        ImageListFragmentAdapter adapter = new ImageListFragmentAdapter(getFragmentManager(),lists);
+        ImageListFragmentAdapter adapter = new ImageListFragmentAdapter(getFragmentManager(), fragmentList);
         adapter.addAll(items);
         ViewPager viewPager = (ViewPager) findViewById(R.id.view_pager);
-        viewPager.setOffscreenPageLimit(lists.size()-1);
+        viewPager.setOffscreenPageLimit(fragmentList.size() - 1);
         viewPager.setAdapter(adapter);
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                fragmentList.get(position).refreshData();
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
         mRecyclerTabLayout = (RecyclerTabLayout)
                 findViewById(R.id.recycler_tab_layout);
         mRecyclerTabLayout.setUpWithViewPager(viewPager);
@@ -109,14 +122,12 @@ public class ImageFragment extends BaseFragment  {
 
     @Override
     public void onDestroy() {
-//        if(null!=cursor&&!cursor.isClosed()){
-//            cursor.close();
-//        }
-//        if(null!=database&&database.isOpen()){
-//            database.close();
-//        }
         super.onDestroy();
         DawnLightApplication.getRefWatcher(getActivity()).watch(this);
     }
 
+    @Override
+    public void onTabReselect() {
+        super.onTabReselect();
+    }
 }

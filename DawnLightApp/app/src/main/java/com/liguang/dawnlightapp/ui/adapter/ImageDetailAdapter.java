@@ -48,7 +48,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             holder.title.setText(dataList.get(position).getImage_title());
             if (loadImage) {
 //                mPicasso.with(holder.image.getContext()).load(dataList.get(position).getImage_link()).into(holder.image);
-                LogUtils.v(dataList.get(position).getImage_title() + ":url==>" + dataList.get(position).getImage_link());
+                LogUtils.v(dataList.get(position).toString());
                 mPicasso.load(dataList.get(position).getImage_link())
                         .placeholder(context.getResources().getDrawable(R.drawable.error_pic))
                         .error(context.getResources().getDrawable(R.drawable.error_pic))

@@ -38,6 +38,18 @@ public class ImageDetailModel extends BaseModel {
     public ImageDetailModel() {
     }
 
+    @Override
+    public String toString() {
+        return "ImageDetailModel{" +
+                "image_id='" + image_id + '\'' +
+                ", image_title='" + image_title + '\'' +
+                ", image_type='" + image_type + '\'' +
+                ", image_link='" + image_link + '\'' +
+                ", image_order=" + image_order +
+                ", create_time=" + create_time +
+                '}';
+    }
+
     public void resetData(String image_id, String image_title, String image_type, String image_link, int image_order, Date create_time) {
         this.image_id = image_id;
         this.image_title = image_title;

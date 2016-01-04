@@ -5,6 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
+import com.liguang.dawnlightapp.fragment.ImageListFragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +15,16 @@ import java.util.List;
  */
 public class ImageListFragmentAdapter extends FragmentPagerAdapter {
     private List<String> mItems = new ArrayList<>();
-    private List<Fragment> fragmentList = new ArrayList<>();
+    private List<ImageListFragment> fragmentList = new ArrayList<>();
 
-    public ImageListFragmentAdapter(FragmentManager fm, List<Fragment> lists) {
+    public ImageListFragmentAdapter(FragmentManager fm, List<ImageListFragment> lists) {
         super(fm);
         this.fragmentList=lists;
     }
 
     @Override
     public Fragment getItem(int position) {
+        fragmentList.get(position).onTabReselect();
         return fragmentList.get(position);
     }
 
