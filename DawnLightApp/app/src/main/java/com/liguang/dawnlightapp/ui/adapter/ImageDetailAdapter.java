@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.view.animation.LinearInterpolator;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,11 +27,12 @@ import java.util.List;
 public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.ViewHolder> implements View.OnClickListener {
     List<ImageDetailModel> dataList;
     private final Picasso mPicasso;
+    private SQLOperator sqlOperator;
     Context context;
 
     public ImageDetailAdapter(Context context, List<ImageDetailModel> dataList) {
         this.dataList = dataList;
-        this.context=context;
+        this.context = context;
         mPicasso = SamplePicassoFactory.getPicasso(context);
     }
 
@@ -43,11 +45,10 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     private boolean loadImage = true;
 
     @Override
-    public void onBindViewHolder(ImageDetailAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(ImageDetailAdapter.ViewHolder holder, final int position) {
         if (position < getItemCount() && (customHeaderView != null ? position <= dataList.size() : position < dataList.size()) && (customHeaderView != null ? position > 0 : true)) {
             holder.title.setText(dataList.get(position).getImage_title());
             if (loadImage) {
-//                mPicasso.with(holder.image.getContext()).load(dataList.get(position).getImage_link()).into(holder.image);
                 LogUtils.v(dataList.get(position).toString());
                 mPicasso.load(dataList.get(position).getImage_link())
                         .placeholder(context.getResources().getDrawable(R.drawable.error_pic))
@@ -68,10 +69,28 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
         //将数据保存在itemView的Tag中，以便点击时进行获取
         if (position < dataList.size()) {
             holder.itemView.setTag(dataList.get(position).getImage_title());
+            holder.deleteNull.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sqlOperator.deleteNUll(dataList.get(position));
+                    remove(position);
+                }
+            });
+            holder.deleteBrowsed.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    sqlOperator.deleteBrowsed(dataList.get(position));
+                    remove(position);
+                }
+            });
         }
 
     }
 
+    public void remove(int position) {
+        remove(dataList, position);
+        notifyDataSetChanged();
+    }
 
     @Override
     public int getAdapterItemCount() {
@@ -180,11 +199,15 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title;
+        Button deleteNull;
+        Button deleteBrowsed;
 
         public ViewHolder(View itemView) {
             super(itemView);
             image = (ImageView) itemView.findViewById(R.id.pic);
             title = (TextView) itemView.findViewById(R.id.name);
+            deleteNull = (Button) itemView.findViewById(R.id.delete_null);
+            deleteBrowsed = (Button) itemView.findViewById(R.id.delete_browsed);
         }
     }
 
@@ -211,5 +234,16 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     @Override
     public void onViewRecycled(ViewHolder holder) {
         super.onViewRecycled(holder);
+    }
+
+    public interface SQLOperator {
+        public void deleteNUll(ImageDetailModel imageDetailModel);
+
+        public void deleteBrowsed(ImageDetailModel imageDetailModel);
+    }
+
+
+    public void setSqlOperator(SQLOperator sqlOperator) {
+        this.sqlOperator = sqlOperator;
     }
 }

@@ -1,6 +1,7 @@
 package com.liguang.dawnlightapp.fragment;
 
 import android.annotation.TargetApi;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -32,7 +33,7 @@ import java.util.List;
 /**
  * Created by zangliguang on 15/12/21.
  */
-public class ImageListFragment extends BaseFragment {
+public class ImageListFragment extends BaseFragment  implements ImageDetailAdapter.SQLOperator {
 
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
 
@@ -120,7 +121,7 @@ public class ImageListFragment extends BaseFragment {
     protected void initAdapter() {
         setTableName();
         simpleRecyclerViewAdapter = new ImageDetailAdapter(getActivity(), getArguments().getInt(EXTRA_POSITION)==0?loadData():new ArrayList<ImageDetailModel>() );
-
+        simpleRecyclerViewAdapter.setSqlOperator(this);
     }
 
     private List<ImageDetailModel> loadData() {
@@ -211,5 +212,35 @@ public class ImageListFragment extends BaseFragment {
     @Override
     public void onTabReselect() {
         super.onTabReselect();
+    }
+
+    @Override
+    public void deleteNUll(ImageDetailModel imageDetailModel) {
+//        String insertSql="INSERT INTO image_to_delete (image_id, image_title, image_type, image_link, image_order,create_time) VALUES ("+imageDetailModel.getImage_id()+","+" ?, ?, ?, ?,?)";
+        ContentValues cValue = new ContentValues();
+        cValue.put("image_id",imageDetailModel.getImage_id());
+        cValue.put("image_title",imageDetailModel.getImage_title());
+        cValue.put("image_type",imageDetailModel.getImage_type());
+        cValue.put("image_link",imageDetailModel.getImage_link());
+        cValue.put("image_order",imageDetailModel.getImage_order());
+        cValue.put("create_time", String.valueOf(imageDetailModel.getCreate_time()));
+        long resultInsert=database.insert("image_to_delete", null, cValue);
+        int resultDelete=database.delete(tableName,"image_title=?",new String[]{imageDetailModel.getImage_title()});
+//        Toast.makeText(getContext(),"插入结果是"+resultInsert+",删除结果是"+resultDelete,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void deleteBrowsed(ImageDetailModel imageDetailModel) {
+        ContentValues cValue = new ContentValues();
+        cValue.put("image_id",imageDetailModel.getImage_id());
+        cValue.put("image_title",imageDetailModel.getImage_title());
+        cValue.put("image_type",imageDetailModel.getImage_type());
+        cValue.put("image_link",imageDetailModel.getImage_link());
+        cValue.put("image_order",imageDetailModel.getImage_order());
+        cValue.put("create_time", String.valueOf(imageDetailModel.getCreate_time()));
+        long resultInsert=database.insert("image_browsed", null, cValue);
+        int resultDelete=database.delete(tableName,"image_title=?",new String[]{imageDetailModel.getImage_title()});
+//        Toast.makeText(getContext(),"插入结果是"+resultInsert+",删除结果是"+resultDelete,Toast.LENGTH_SHORT).show();
+
     }
 }
