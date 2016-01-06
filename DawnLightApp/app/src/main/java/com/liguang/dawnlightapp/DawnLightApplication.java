@@ -3,7 +3,6 @@ package com.liguang.dawnlightapp;
 import android.app.Application;
 import android.content.Context;
 
-import com.raizlabs.android.dbflow.config.FlowManager;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -18,7 +17,7 @@ public class DawnLightApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        FlowManager.init(getApplicationContext());
+//        FlowManager.init(getApplicationContext());
         refWatcher = LeakCanary.install(this);
     }
 

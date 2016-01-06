@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
@@ -33,7 +34,7 @@ import java.util.List;
 /**
  * Created by zangliguang on 15/12/21.
  */
-public class ImageListFragment extends BaseFragment  implements ImageDetailAdapter.SQLOperator {
+public class ImageListFragment extends BaseFragment implements ImageDetailAdapter.SQLOperator {
 
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
 
@@ -46,6 +47,7 @@ public class ImageListFragment extends BaseFragment  implements ImageDetailAdapt
     fragmentListener mListener;
     int index = 0;
     int pageContentNum = 30;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,10 +71,16 @@ public class ImageListFragment extends BaseFragment  implements ImageDetailAdapt
     }
 
     protected void refreshData() {
-        if(null==simpleRecyclerViewAdapter||simpleRecyclerViewAdapter.getAdapterItemCount()==0){
-            loadMoreData();
+        if (null == simpleRecyclerViewAdapter || simpleRecyclerViewAdapter.getAdapterItemCount() == 0) {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    loadMoreData();
+                }
+            },200);
         }
     }
+
     protected void loadMoreData() {
         final List<ImageDetailModel> list = loadData();
         Handler handler = new Handler();
@@ -101,17 +109,19 @@ public class ImageListFragment extends BaseFragment  implements ImageDetailAdapt
         simpleRecyclerViewAdapter.setOnItemClickListener(new ImageDetailAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, String data) {
-                cursor = database.rawQuery("select * from " + tableName + "  where image_title = ? order by image_order asc",new String[]{data});
-                String urls="";
+                cursor = database.rawQuery("select * from " + tableName + "  where image_title = ? order by image_order asc", new String[]{data});
+                String urls = "";
                 if (cursor.getCount() > 0) {
                     cursor.moveToFirst();
                 }
                 do {
-                    urls=urls+cursor.getString(3)+",";
-                    Log.v("zangliguang", urls);
-                }while (cursor.moveToNext());
+                    if(cursor.getCount()>3){
+                        urls = urls + cursor.getString(3) + ",";
+                    }
+                } while (cursor.moveToNext());
                 Intent it = new Intent(getActivity(), ImageViewPageActivity.class);
                 it.putExtra(ImageViewPageActivity.URL_ARGUMENTS_EXTRA, urls);
+                it.putExtra(ImageViewPageActivity.TITLE_ARGUMENTS_EXTRA, data);
                 getActivity().startActivity(it);
             }
         });
@@ -120,13 +130,14 @@ public class ImageListFragment extends BaseFragment  implements ImageDetailAdapt
 
     protected void initAdapter() {
         setTableName();
-        simpleRecyclerViewAdapter = new ImageDetailAdapter(getActivity(), getArguments().getInt(EXTRA_POSITION)==0?loadData():new ArrayList<ImageDetailModel>() );
+        simpleRecyclerViewAdapter = new ImageDetailAdapter(getActivity(), getArguments().getInt(EXTRA_POSITION)==0?loadData():new ArrayList<ImageDetailModel>());
         simpleRecyclerViewAdapter.setSqlOperator(this);
     }
 
     private List<ImageDetailModel> loadData() {
+        LogUtils.v("开始加载了");
         List<ImageDetailModel> dataList = new ArrayList<>();
-        cursor = database.rawQuery("select * from " + tableName + " group by image_title ORDER BY create_time asc limit ?,30", new String[]{String.valueOf(index*pageContentNum+index)});
+        cursor = database.rawQuery("select * from " + tableName + " group by image_title ORDER BY create_time asc limit ?,30", new String[]{String.valueOf(index * pageContentNum + index)});
         Log.v("zangliguang", cursor.getCount() + "");
         index++;
         ImageDetailModel imageDetailModel = new ImageDetailModel();
@@ -137,7 +148,7 @@ public class ImageListFragment extends BaseFragment  implements ImageDetailAdapt
             imageDetailModel = new ImageDetailModel(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), null);
             dataList.add(imageDetailModel);
             Log.v("zangliguang", cursor.getString(0) + "==" + cursor.getString(1) + "==" + cursor.getString(2) + "==" + cursor.getString(3));
-        }while (cursor.moveToNext());
+        } while (cursor.moveToNext());
         return dataList;
     }
 
@@ -215,31 +226,46 @@ public class ImageListFragment extends BaseFragment  implements ImageDetailAdapt
     }
 
     @Override
-    public void deleteNUll(ImageDetailModel imageDetailModel) {
+    public void deleteNUll(final ImageDetailModel imageDetailModel) {
 //        String insertSql="INSERT INTO image_to_delete (image_id, image_title, image_type, image_link, image_order,create_time) VALUES ("+imageDetailModel.getImage_id()+","+" ?, ?, ?, ?,?)";
-        ContentValues cValue = new ContentValues();
-        cValue.put("image_id",imageDetailModel.getImage_id());
-        cValue.put("image_title",imageDetailModel.getImage_title());
-        cValue.put("image_type",imageDetailModel.getImage_type());
-        cValue.put("image_link",imageDetailModel.getImage_link());
-        cValue.put("image_order",imageDetailModel.getImage_order());
-        cValue.put("create_time", String.valueOf(imageDetailModel.getCreate_time()));
-        long resultInsert=database.insert("image_to_delete", null, cValue);
-        int resultDelete=database.delete(tableName,"image_title=?",new String[]{imageDetailModel.getImage_title()});
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                ContentValues cValue = new ContentValues();
+                cValue.put("image_id", imageDetailModel.getImage_id());
+                cValue.put("image_title", imageDetailModel.getImage_title());
+                cValue.put("image_type", imageDetailModel.getImage_type());
+                cValue.put("image_link", imageDetailModel.getImage_link());
+                cValue.put("image_order", imageDetailModel.getImage_order());
+                cValue.put("create_time", String.valueOf(imageDetailModel.getCreate_time()));
+                long resultInsert = database.insert("image_to_delete", null, cValue);
+                int resultDelete = database.delete(tableName, "image_title=?", new String[]{imageDetailModel.getImage_title()});
+
+            }
+        }).run();
 //        Toast.makeText(getContext(),"插入结果是"+resultInsert+",删除结果是"+resultDelete,Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void deleteBrowsed(ImageDetailModel imageDetailModel) {
-        ContentValues cValue = new ContentValues();
-        cValue.put("image_id",imageDetailModel.getImage_id());
-        cValue.put("image_title",imageDetailModel.getImage_title());
-        cValue.put("image_type",imageDetailModel.getImage_type());
-        cValue.put("image_link",imageDetailModel.getImage_link());
-        cValue.put("image_order",imageDetailModel.getImage_order());
-        cValue.put("create_time", String.valueOf(imageDetailModel.getCreate_time()));
-        long resultInsert=database.insert("image_browsed", null, cValue);
-        int resultDelete=database.delete(tableName,"image_title=?",new String[]{imageDetailModel.getImage_title()});
+    public void deleteBrowsed(final ImageDetailModel imageDetailModel) {
+//        ContentValues cValue = new ContentValues();
+//        cValue.put("image_id",imageDetailModel.getImage_id());
+//        cValue.put("image_title",imageDetailModel.getImage_title());
+//        cValue.put("image_type",imageDetailModel.getImage_type());
+//        cValue.put("image_link",imageDetailModel.getImage_link());
+//        cValue.put("image_order",imageDetailModel.getImage_order());
+//        cValue.put("create_time", String.valueOf(imageDetailModel.getCreate_time()));
+//        long resultInsert=database.insert("image_browsed", null, cValue);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                database.execSQL("insert INTO image_browsed select * from  " + tableName + "  where image_title = ?", new String[]{imageDetailModel.getImage_title()});
+                int resultDelete = database.delete(tableName, "image_title=?", new String[]{imageDetailModel.getImage_title()});
+                Toast.makeText(getContext(), "插入结果是" + resultDelete + ",删除" + imageDetailModel.getImage_title(), Toast.LENGTH_SHORT).show();
+
+            }
+        }).run();
+
 //        Toast.makeText(getContext(),"插入结果是"+resultInsert+",删除结果是"+resultDelete,Toast.LENGTH_SHORT).show();
 
     }

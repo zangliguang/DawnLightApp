@@ -72,16 +72,16 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             holder.deleteNull.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sqlOperator.deleteNUll(dataList.get(position));
-                    mPicasso.invalidate(dataList.get(position).getImage_link());
+                    sqlOperator.deleteNUll(getItem(position));
+                    mPicasso.invalidate(getItem(position).getImage_link());
                     remove(position);
                 }
             });
             holder.deleteBrowsed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sqlOperator.deleteBrowsed(dataList.get(position));
-                    mPicasso.invalidate(dataList.get(position).getImage_link());
+                    sqlOperator.deleteBrowsed(getItem(position));
+                    mPicasso.invalidate(getItem(position).getImage_link());
                     remove(position);
                 }
             });
