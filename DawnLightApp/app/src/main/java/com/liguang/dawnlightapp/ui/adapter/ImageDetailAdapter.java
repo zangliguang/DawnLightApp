@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.configs.picasso.SamplePicassoFactory;
 import com.liguang.dawnlightapp.db.dao.ImageDetailModel;
+import com.liguang.dawnlightapp.fragment.ImageListFragment;
 import com.liguang.dawnlightapp.utils.LogUtils;
 import com.marshalchen.ultimaterecyclerview.URLogs;
 import com.marshalchen.ultimaterecyclerview.UltimateViewAdapter;
@@ -72,7 +73,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             holder.deleteNull.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sqlOperator.deleteNUll(getItem(position), position <= dataList.size() - 2);
+                    sqlOperator.deleteNUll(getItem(position), position >= dataList.size() - 1 - ImageListFragment.pageContentNum / 4);
                     mPicasso.invalidate(getItem(position).getImage_link());
                     remove(position);
                 }
@@ -80,7 +81,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             holder.deleteBrowsed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sqlOperator.deleteBrowsed(getItem(position), position <= dataList.size() - 2);
+                    sqlOperator.deleteBrowsed(getItem(position), position >= dataList.size() - 1 - ImageListFragment.pageContentNum / 4);
                     mPicasso.invalidate(getItem(position).getImage_link());
                     remove(position);
                 }
