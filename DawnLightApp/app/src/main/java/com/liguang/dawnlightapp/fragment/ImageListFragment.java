@@ -1,21 +1,17 @@
 package com.liguang.dawnlightapp.fragment;
 
-import android.annotation.TargetApi;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.liguang.dawnlightapp.DawnLightApplication;
@@ -49,16 +45,14 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
     int pageContentNum = 30;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected int getLayoutId() {
+        return R.layout.fragment_image_list_view;
     }
 
-    @TargetApi(Build.VERSION_CODES.M)
-    @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_image_list_view, container, false);
-        mRecycleView = (UltimateRecyclerView) view.findViewById(R.id.ultimate_recycler_view);
+    protected void initView() {
+        super.initView();
+        mRecycleView = (UltimateRecyclerView) findViewById(R.id.ultimate_recycler_view);
         mRecycleView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecycleView.enableLoadmore();
         mRecycleView.setOnLoadMoreListener(new UltimateRecyclerView.OnLoadMoreListener() {
@@ -67,7 +61,6 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
                 loadMoreData();
             }
         });
-        return view;
     }
 
     protected void refreshData() {
@@ -77,7 +70,7 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
                 public void run() {
                     loadMoreData();
                 }
-            },200);
+            }, 200);
         }
     }
 
@@ -115,7 +108,7 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
                     cursor.moveToFirst();
                 }
                 do {
-                    if(cursor.getCount()>3){
+                    if (cursor.getCount() > 3) {
                         urls = urls + cursor.getString(3) + ",";
                     }
                 } while (cursor.moveToNext());
@@ -130,7 +123,7 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
 
     protected void initAdapter() {
         setTableName();
-        simpleRecyclerViewAdapter = new ImageDetailAdapter(getActivity(), getArguments().getInt(EXTRA_POSITION)==0?loadData():new ArrayList<ImageDetailModel>());
+        simpleRecyclerViewAdapter = new ImageDetailAdapter(getActivity(), getArguments().getInt(EXTRA_POSITION) == 0 ? loadData() : new ArrayList<ImageDetailModel>());
         simpleRecyclerViewAdapter.setSqlOperator(this);
     }
 

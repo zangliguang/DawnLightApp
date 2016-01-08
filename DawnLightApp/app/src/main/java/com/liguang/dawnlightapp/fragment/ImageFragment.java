@@ -127,6 +127,16 @@ public class ImageFragment extends BaseFragment {
     }
 
     @Override
+    public void onDetach() {
+        super.onDetach();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
     public void onTabReselect() {
         super.onTabReselect();
     }

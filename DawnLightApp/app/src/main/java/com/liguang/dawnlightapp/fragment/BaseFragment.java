@@ -32,6 +32,7 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
 
     private OnFragmentInteractionListener mListener;
     protected View mView;
+
     /**
      * Use this factory method to create a new instance of
      * this fragment using the provided parameters.
@@ -66,15 +67,18 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        if (mView == null) {
+            mView = inflater.inflate(getLayoutId(), container, false);
+            initView();
+        }
         // Inflate the layout for this fragment
-        mView = inflater.inflate(getLayoutId(), container, false);
-        initView();
         return mView;
     }
 
     protected int getLayoutId() {
         return R.layout.fragment_base;
     }
+
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
@@ -112,16 +116,27 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
         // TODO: Update argument type and name
         public void onFragmentInteraction(Uri uri);
     }
-    protected   void initView(){
+
+    protected void initView() {
 
     }
+
     protected View findViewById(int resId) {
         if (mView != null) {
             return mView.findViewById(resId);
         }
         return null;
     }
-    public interface  fragmentListener{
+
+    public interface fragmentListener {
         public SQLiteDatabase getDatabase();
-    };
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+//        if(null!=mView){
+//            ((ViewGroup)mView.getParent()).removeView(mView);
+//        }
+    }
 }
