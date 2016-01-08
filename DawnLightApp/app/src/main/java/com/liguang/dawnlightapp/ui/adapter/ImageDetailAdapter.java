@@ -72,7 +72,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             holder.deleteNull.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sqlOperator.deleteNUll(getItem(position));
+                    sqlOperator.deleteNUll(getItem(position), position <= dataList.size() - 2);
                     mPicasso.invalidate(getItem(position).getImage_link());
                     remove(position);
                 }
@@ -80,7 +80,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             holder.deleteBrowsed.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    sqlOperator.deleteBrowsed(getItem(position));
+                    sqlOperator.deleteBrowsed(getItem(position), position <= dataList.size() - 2);
                     mPicasso.invalidate(getItem(position).getImage_link());
                     remove(position);
                 }
@@ -239,13 +239,19 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     }
 
     public interface SQLOperator {
-        public void deleteNUll(ImageDetailModel imageDetailModel);
+        public void deleteNUll(ImageDetailModel imageDetailModel, boolean loadmore);
 
-        public void deleteBrowsed(ImageDetailModel imageDetailModel);
+        public void deleteBrowsed(ImageDetailModel imageDetailModel, boolean loadmore);
+
     }
 
 
     public void setSqlOperator(SQLOperator sqlOperator) {
         this.sqlOperator = sqlOperator;
+    }
+
+
+    public void addDataList(List<ImageDetailModel> dataList) {
+        this.dataList.addAll(dataList);
     }
 }

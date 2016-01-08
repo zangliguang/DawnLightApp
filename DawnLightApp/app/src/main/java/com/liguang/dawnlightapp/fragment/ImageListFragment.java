@@ -68,7 +68,8 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    loadMoreData();
+                    simpleRecyclerViewAdapter.addDataList(loadData());
+                    simpleRecyclerViewAdapter.notifyDataSetChanged();
                 }
             }, 200);
         }
@@ -219,7 +220,7 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
     }
 
     @Override
-    public void deleteNUll(final ImageDetailModel imageDetailModel) {
+    public void deleteNUll(final ImageDetailModel imageDetailModel, boolean loadmore) {
 //        String insertSql="INSERT INTO image_to_delete (image_id, image_title, image_type, image_link, image_order,create_time) VALUES ("+imageDetailModel.getImage_id()+","+" ?, ?, ?, ?,?)";
         new Thread(new Runnable() {
             @Override
@@ -236,11 +237,14 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
 
             }
         }).run();
+        if(loadmore){
+            refreshData();
+        }
 //        Toast.makeText(getContext(),"插入结果是"+resultInsert+",删除结果是"+resultDelete,Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void deleteBrowsed(final ImageDetailModel imageDetailModel) {
+    public void deleteBrowsed(final ImageDetailModel imageDetailModel, boolean loadmore) {
 //        ContentValues cValue = new ContentValues();
 //        cValue.put("image_id",imageDetailModel.getImage_id());
 //        cValue.put("image_title",imageDetailModel.getImage_title());
@@ -258,6 +262,9 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
 
             }
         }).run();
+        if(loadmore){
+            refreshData();
+        }
 
 //        Toast.makeText(getContext(),"插入结果是"+resultInsert+",删除结果是"+resultDelete,Toast.LENGTH_SHORT).show();
 
