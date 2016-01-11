@@ -101,7 +101,7 @@ public class ImageFragment extends BaseFragment {
 
             @Override
             public void onPageSelected(int position) {
-                fragmentList.get(position).refreshData();
+                fragmentList.get(position).initData();
 
             }
 

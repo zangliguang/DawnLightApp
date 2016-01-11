@@ -1,6 +1,7 @@
 package com.liguang.dawnlightapp.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.liguang.dawnlightapp.R;
+import com.liguang.dawnlightapp.activity.video.PlayerActivity;
 import com.liguang.dawnlightapp.fragment.dummy.DummyContent;
 import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 
@@ -25,7 +27,7 @@ import com.liguang.dawnlightapp.interf.OnTabReselectListener;
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class VideoFragment extends Fragment implements AbsListView.OnItemClickListener,OnTabReselectListener {
+public class VideoFragment extends Fragment implements AbsListView.OnItemClickListener, OnTabReselectListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,6 +80,15 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
         // TODO: Change Adapter to display your content
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+        mListener = new OnFragmentInteractionListener() {
+            @Override
+            public void onFragmentInteraction(String id) {
+                Intent i = new Intent(getContext(), PlayerActivity.class);
+                i.putExtra("vid", "XMjIzMjM2");
+                getActivity().startActivity(i);
+
+            }
+        };
     }
 
     @Override
@@ -130,7 +141,7 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
 
     @Override
     public void onTabReselect() {
-        
+
     }
 
     /**

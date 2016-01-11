@@ -44,6 +44,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     private boolean isFirstOnly = true;
     private OnRecyclerViewItemClickListener mOnItemClickListener = null;
     private boolean loadImage = true;
+    public  static  String tag=ImageDetailAdapter.class.getSimpleName();
 
     @Override
     public void onBindViewHolder(ImageDetailAdapter.ViewHolder holder, final int position) {
@@ -53,7 +54,7 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
                 LogUtils.v(dataList.get(position).toString());
                 mPicasso.load(dataList.get(position).getImage_link())
                         .placeholder(context.getResources().getDrawable(R.drawable.error_pic))
-                        .error(context.getResources().getDrawable(R.drawable.error_pic))
+                        .error(context.getResources().getDrawable(R.drawable.error_pic)).tag(tag)
                         .into(holder.image);
             }
 

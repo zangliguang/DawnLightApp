@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.activity.image.ImageViewPageActivity;
+import com.liguang.dawnlightapp.configs.picasso.SamplePicassoFactory;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
 import com.liguang.dawnlightapp.db.dao.ImageDetailModel;
 import com.liguang.dawnlightapp.ui.adapter.ImageDetailAdapter;
@@ -42,7 +44,7 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
     ImageDetailAdapter simpleRecyclerViewAdapter;
     fragmentListener mListener;
     int index = 0;
-    int pageContentNum = 30;
+    public static int pageContentNum = 30;
 
     @Override
     protected int getLayoutId() {
@@ -61,18 +63,36 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
                 loadMoreData();
             }
         });
+        mRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (newState == RecyclerView.SCROLL_STATE_IDLE)
+                {
+                    SamplePicassoFactory.getPicasso(getContext()).with(getContext()).resumeTag(simpleRecyclerViewAdapter.tag);
+                }
+                else
+                {
+                    SamplePicassoFactory.getPicasso(getContext()).with(getContext()).pauseTag(simpleRecyclerViewAdapter.tag);
+                }
+            }
+        });
     }
 
-    protected void refreshData() {
+    protected void initData() {
         if (null == simpleRecyclerViewAdapter || simpleRecyclerViewAdapter.getAdapterItemCount() == 0) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    simpleRecyclerViewAdapter.addDataList(loadData());
-                    simpleRecyclerViewAdapter.notifyDataSetChanged();
-                }
-            }, 200);
+            refreshData();
         }
+    }
+
+    private void refreshData() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                simpleRecyclerViewAdapter.addDataList(loadData());
+                simpleRecyclerViewAdapter.notifyDataSetChanged();
+            }
+        }, 200);
     }
 
     protected void loadMoreData() {
@@ -131,7 +151,7 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
     private List<ImageDetailModel> loadData() {
         LogUtils.v("开始加载了");
         List<ImageDetailModel> dataList = new ArrayList<>();
-        cursor = database.rawQuery("select * from " + tableName + " group by image_title ORDER BY create_time asc limit ?,30", new String[]{String.valueOf(index * pageContentNum + index)});
+        cursor = database.rawQuery("select * from " + tableName + " where image_order = 0 ORDER BY create_time asc limit ?,30", new String[]{String.valueOf(index * pageContentNum + index)});
         Log.v("zangliguang", cursor.getCount() + "");
         index++;
         ImageDetailModel imageDetailModel = new ImageDetailModel();
