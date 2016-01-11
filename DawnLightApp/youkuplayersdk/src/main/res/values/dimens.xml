@@ -121,32 +121,32 @@
     <dimen name="yp_investigate_text_size">14dp</dimen>
     <dimen name="yp_investigate_arrowright_width">26dp</dimen>
     <dimen name="yp_investigate_margin_bottom">60dp</dimen>
-    
+
     <!-- tudou encrypt dialog -->
     <dimen name="tudou_dialog_height">175dp</dimen>
     <dimen name="tudou_dialog_width">300dp</dimen>
-    
+
     <dimen name="channel_main_tabindicator_height">40dp</dimen>
     <dimen name="channeltab_txt_textsize">14dp</dimen>
-    <dimen name="channeltab_dividerpadding">10dp</dimen>   
-    
+    <dimen name="channeltab_dividerpadding">10dp</dimen>
+
     <dimen name="gridview_spacing">8dp</dimen>
     <dimen name="gridview_pading_horizontal">5dp</dimen>
-    <dimen name="gridview_pading_top">8dp</dimen>   
-    
-    <dimen name="toolbar_btn_txt_textsize">12dp</dimen>    
-    
+    <dimen name="gridview_pading_top">8dp</dimen>
+
+    <dimen name="toolbar_btn_txt_textsize">12dp</dimen>
+
     <dimen name="download_grid_item_add_height">47dp</dimen>
     <dimen name="download_grid_item_image_padding_right">3dp</dimen>
     <dimen name="gridview_item_tv_height">41dp</dimen>
     <dimen name="myyouku_item_line_margin_left">6dp</dimen>
-    <dimen name="shadow_height">1dp</dimen>   
+    <dimen name="shadow_height">1dp</dimen>
     <dimen name="homepage_item_title_first">14dp</dimen>
-    <dimen name="homepage_item_title_second">12dp</dimen>      
-    <dimen name="history_text_point_margin_bottom">13dp</dimen>   
+    <dimen name="homepage_item_title_second">12dp</dimen>
+    <dimen name="history_text_point_margin_bottom">13dp</dimen>
     <dimen name="history_item_txt_first_textsize">14dp</dimen>
-    <dimen name="history_item_txt_second_textsize">10dp</dimen>  
-    
+    <dimen name="history_item_txt_second_textsize">10dp</dimen>
+
     <dimen name="subtitle_height">40dp</dimen>
-    <dimen name="subtitle_margin">8dp</dimen>    
+    <dimen name="subtitle_margin">8dp</dimen>
 </resources>

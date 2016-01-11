@@ -13,71 +13,71 @@ import com.youku.player.util.AnalyticsWrapper;
 
 public class TudouEncryptDialog extends Dialog {
 
-	private EditText mPassWord;
-	private TextView mConfirmDialog;
-	private TextView mCancleDialog;
-	private OnPositiveClickListener mPositiveClickListener;
+    private EditText mPassWord;
+    private TextView mConfirmDialog;
+    private TextView mCancleDialog;
+    private OnPositiveClickListener mPositiveClickListener;
 
-	public TudouEncryptDialog(Context context) {
-		super(context);
-		// TODO Auto-generated constructor stub
-	}
+    public TudouEncryptDialog(Context context) {
+        super(context);
+        // TODO Auto-generated constructor stub
+    }
 
-	public TudouEncryptDialog(Context context, int theme) {
-		super(context, theme);
-	}
+    public TudouEncryptDialog(Context context, int theme) {
+        super(context, theme);
+    }
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.yp_tudou_encrypt_dialog);
-		initViews();
-		setListeners();
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // TODO Auto-generated method stub
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.yp_tudou_encrypt_dialog);
+        initViews();
+        setListeners();
+    }
 
-	private void initViews() {
-		mPassWord = (EditText) findViewById(R.id.password_edit);
-		mConfirmDialog = (TextView) findViewById(R.id.tudou_dialog_confirm);
-		mCancleDialog = (TextView) findViewById(R.id.tudou_dialog_cancel);
-	}
+    private void initViews() {
+        mPassWord = (EditText) findViewById(R.id.password_edit);
+        mConfirmDialog = (TextView) findViewById(R.id.tudou_dialog_confirm);
+        mCancleDialog = (TextView) findViewById(R.id.tudou_dialog_cancel);
+    }
 
-	private void setListeners() {
-		mConfirmDialog.setOnClickListener(new View.OnClickListener() {
+    private void setListeners() {
+        mConfirmDialog.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				if (mPositiveClickListener == null) {
-					TudouEncryptDialog.this.dismiss();
-					return;
-				}
-				AnalyticsWrapper.trackCustomEvent(getContext(),
-						"加密视频密码输入框确认按钮点击", "视频播放页", null,
-						IMediaPlayerDelegate.getUserID());
-				mPositiveClickListener.onClick(mPassWord.getText().toString());
-				TudouEncryptDialog.this.dismiss();
-				mPassWord.setText("");
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                if (mPositiveClickListener == null) {
+                    TudouEncryptDialog.this.dismiss();
+                    return;
+                }
+                AnalyticsWrapper.trackCustomEvent(getContext(),
+                        "加密视频密码输入框确认按钮点击", "视频播放页", null,
+                        IMediaPlayerDelegate.getUserID());
+                mPositiveClickListener.onClick(mPassWord.getText().toString());
+                TudouEncryptDialog.this.dismiss();
+                mPassWord.setText("");
+            }
+        });
 
-		mCancleDialog.setOnClickListener(new View.OnClickListener() {
+        mCancleDialog.setOnClickListener(new View.OnClickListener() {
 
-			@Override
-			public void onClick(View v) {
-				TudouEncryptDialog.this.dismiss();
-				mPassWord.setText("");
-			}
-		});
-	}
+            @Override
+            public void onClick(View v) {
+                TudouEncryptDialog.this.dismiss();
+                mPassWord.setText("");
+            }
+        });
+    }
 
-	public interface OnPositiveClickListener {
+    public void setPositiveClickListener(OnPositiveClickListener listener) {
 
-		public void onClick(String passWord);
+        this.mPositiveClickListener = listener;
+    }
 
-	}
+    public interface OnPositiveClickListener {
 
-	public void setPositiveClickListener(OnPositiveClickListener listener) {
+        public void onClick(String passWord);
 
-		this.mPositiveClickListener = listener;
-	}
+    }
 }

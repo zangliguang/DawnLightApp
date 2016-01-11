@@ -7,7 +7,7 @@
     android:paddingBottom="5dp"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
-    android:paddingTop="5dp" >
+    android:paddingTop="5dp">
 
     <TextView
         android:id="@+id/total_mem_text"
@@ -22,7 +22,7 @@
         android:layout_height="match_parent"
         android:layout_alignBottom="@+id/total_mem_text"
         android:layout_toRightOf="@id/total_mem_text"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical">
 
         <ProgressBar
             android:id="@+id/mem_used"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/total_mem_text"
         android:layout_toRightOf="@id/total_mem"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical">
 
         <ImageView
             android:layout_width="4dp"

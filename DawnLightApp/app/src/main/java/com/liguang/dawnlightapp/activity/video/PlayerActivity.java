@@ -232,5 +232,13 @@ public class PlayerActivity extends YoukuBasePlayerActivity {
         });
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

@@ -2,14 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:gravity="center"
-    android:layout_gravity="center" >
+    android:layout_gravity="center"
+    android:gravity="center">
 
     <RelativeLayout
         android:id="@+id/layout_normal_dialog"
         android:layout_width="@dimen/yp_youku_dialog_width"
         android:layout_height="@dimen/yp_youku_dialog_height"
-        android:background="@color/white" >
+        android:background="@color/white">
 
         <TextView
             android:id="@+id/content"
@@ -22,12 +22,12 @@
             android:id="@+id/layout_normal_dialog_bottom"
             android:layout_width="match_parent"
             android:layout_height="@dimen/yp_youku_dialog_bottom_height"
-            android:layout_alignParentBottom="true" >
+            android:layout_alignParentBottom="true">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal" >
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:id="@+id/positive_btn_layout"
@@ -35,7 +35,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/yp_youku_dialog_cancel"
-                    android:gravity="center" >
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/positive_btn"
@@ -61,7 +61,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@drawable/yp_youku_dialog_ok"
-                    android:gravity="center" >
+                    android:gravity="center">
 
                     <TextView
                         android:id="@+id/negtive_btn"

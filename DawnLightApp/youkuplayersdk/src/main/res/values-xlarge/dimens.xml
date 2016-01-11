@@ -16,8 +16,8 @@
     <dimen name="yp_investigate_text_size">24dp</dimen>
     <dimen name="yp_investigate_arrowright_width">52dp</dimen>
     <dimen name="yp_investigate_margin_bottom">172dp</dimen>
-    
-        <dimen name="paytip_full_width">383dp</dimen>
+
+    <dimen name="paytip_full_width">383dp</dimen>
     <dimen name="paytip_full_height">109dp</dimen>
     <dimen name="paytip_close_width">74dp</dimen>
     <dimen name="paytip_close_height">65dp</dimen>

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/llview"
-    android:background="@drawable/delete_border_white"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical" >
+    android:background="@drawable/delete_border_white"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="0dp" >
+        android:padding="0dp">
 
         <com.youku.widget.YoukuImageView
             android:id="@+id/thumbnail"
@@ -30,62 +29,63 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
-            android:src="@drawable/deletecheck"
-            android:background="@color/white" />
+            android:background="@color/white"
+            android:src="@drawable/deletecheck" />
 
         <TextView
             android:id="@+id/state"
+            style="@style/history_item_txt_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:textColor="#cdffffff"
-            style="@style/history_item_txt_first" />
+            android:textColor="#cdffffff" />
 
         <TextView
             android:id="@+id/progress"
+            style="@style/history_item_txt_second"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/mask"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/history_text_point_margin_bottom"
-            style="@style/history_item_txt_second" />
+            android:layout_marginBottom="@dimen/history_text_point_margin_bottom" />
 
         <ImageView
             android:id="@+id/format"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true" />
-         <TextView
-            android:paddingLeft="@dimen/myyouku_item_line_margin_left"
-            android:background="#66000000"
-            android:visibility="gone"
-            android:text="100:02"
+
+        <TextView
             android:id="@+id/duration"
-            android:paddingTop="1dp"
-            android:paddingBottom="1dp"
+            style="@style/history_item_txt_second"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="left|center_vertical"
             android:layout_alignParentBottom="true"
-            style="@style/history_item_txt_second" />
+            android:background="#66000000"
+            android:gravity="left|center_vertical"
+            android:paddingBottom="1dp"
+            android:paddingLeft="@dimen/myyouku_item_line_margin_left"
+            android:paddingTop="1dp"
+            android:text="100:02"
+            android:visibility="gone" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/gridview_item_tv_height"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical">
 
         <com.youku.widget.TextViewEllipseEndFixed
             android:id="@+id/title"
+            style="@style/homepage_item_title_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
             android:minLines="2"
             android:paddingLeft="@dimen/myyouku_item_line_margin_left"
-            android:paddingRight="@dimen/myyouku_item_line_margin_left"
-            style="@style/homepage_item_title_first" />
+            android:paddingRight="@dimen/myyouku_item_line_margin_left" />
     </LinearLayout>
 
     <ImageView

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="false"
-    android:orientation="vertical" >
+    android:orientation="vertical">
 
     <FrameLayout
         android:id="@+id/play_middle_setting"
@@ -11,14 +11,14 @@
         android:layout_height="@dimen/fullscreen_pause_ad_container_height"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <FrameLayout
             android:layout_width="@dimen/fullscreen_youku_pause_ad_width"
             android:layout_height="@dimen/fullscreen_youku_pause_ad_height"
             android:layout_gravity="center"
             android:gravity="center"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/plugin_pause_ad_image"
@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="3dp"
-                android:gravity="right" >
+                android:gravity="right">
 
                 <ImageView
                     android:id="@+id/btn_close_pausead"
@@ -48,7 +48,7 @@
             android:layout_width="@dimen/fullscreen_punchbox_pause_ad_width"
             android:layout_height="@dimen/fullscreen_punchbox_pause_ad_height"
             android:layout_gravity="center"
-            android:orientation="horizontal" >
+            android:orientation="horizontal">
 
         </LinearLayout>
 
@@ -56,10 +56,9 @@
             android:id="@+id/ad_mobisage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_gravity="center"
-            android:orientation="horizontal" >
-        </LinearLayout>
+            android:gravity="center"
+            android:orientation="horizontal"></LinearLayout>
 
         <RelativeLayout
             android:id="@+id/ad_domobContainer"

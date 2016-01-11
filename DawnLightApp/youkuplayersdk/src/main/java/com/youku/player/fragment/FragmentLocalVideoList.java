@@ -1,11 +1,12 @@
 package com.youku.player.fragment;
+
 /**
  * 缓存页中本地扫描视频类
  * 主要功能：
  * 1、调用youkupalyer中的扫描程序，扫描设备中视频显示
  * 2、读取本地存储的扫描视频播放历史显示
  * 3、点击视频进入详情页播放视频
- * */
+ */
 
 public class FragmentLocalVideoList extends YoukuFragment {
 //	private static ArrayList<Media> localVideoInfos = new ArrayList<Media>();

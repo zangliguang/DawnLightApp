@@ -3,7 +3,7 @@
     android:id="@+id/rl_restart"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_play" >
+    android:background="@drawable/bg_play">
 
     <LinearLayout
         android:id="@+id/go_retry"
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="wrap_content"

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true" >
+    android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:id="@+id/paytip_layout"
@@ -12,7 +12,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginBottom="@dimen/paytip_small_margin_bottom"
         android:background="@drawable/yp_investigate_bg"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical">
 
         <Button
             android:id="@+id/paytip_close"

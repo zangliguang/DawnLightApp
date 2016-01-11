@@ -1,38 +1,37 @@
 package com.youku.player.plugin;
 
 
-
 /**
  * Interface LoginObserver
  */
 public interface LoginObserver {
 
-  //
-  // Fields
-  //
-
-  
-  //
-  // Methods
-  //
+    //
+    // Fields
+    //
 
 
-  //
-  // Accessor methods
-  //
-
-  //
-  // Other methods
-  //
-
-  /**
-   */
-  public void loginSucc(  );
+    //
+    // Methods
+    //
 
 
-  /**
-   */
-  public void loginFail(  );
+    //
+    // Accessor methods
+    //
+
+    //
+    // Other methods
+    //
+
+    /**
+     */
+    public void loginSucc();
+
+
+    /**
+     */
+    public void loginFail();
 
 
 }

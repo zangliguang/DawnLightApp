@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llview"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/delete_border_white"
-    android:id="@+id/llview"
-    >
+    android:background="@drawable/delete_border_white">
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:id="@+id/eee"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <com.youku.widget.YoukuImageView
                 android:layout_width="wrap_content"
@@ -47,7 +46,7 @@
         android:id="@+id/con"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="0dp" >
+        android:padding="0dp">
 
         <com.youku.widget.YoukuImageView
             android:id="@+id/fffff"
@@ -77,41 +76,41 @@
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:src="@drawable/deletecheck"
-            android:background="@color/white" />
+            android:layout_alignParentTop="true"
+            android:background="@color/white"
+            android:src="@drawable/deletecheck" />
 
         <TextView
             android:id="@+id/state"
+            style="@style/history_item_txt_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#cdffffff"
-            style="@style/history_item_txt_first"/>
+            android:textColor="#cdffffff" />
 
         <TextView
             android:id="@+id/progress"
+            style="@style/history_item_txt_second"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/history_item_txt_second" />
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/gridview_item_tv_height"
         android:layout_below="@id/con"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical">
 
         <com.youku.widget.TextViewEllipseEndFixed
             android:id="@+id/title"
+            style="@style/homepage_item_title_first"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
             android:minLines="2"
             android:paddingLeft="@dimen/myyouku_item_line_margin_left"
-            android:paddingRight="@dimen/myyouku_item_line_margin_left"
-            style="@style/homepage_item_title_first" />
+            android:paddingRight="@dimen/myyouku_item_line_margin_left" />
     </LinearLayout>
 
 </RelativeLayout>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-  <solid android:color="@color/player_controller_background_half_alpha" />
-  <stroke android:width="1px" android:color="#ffffff" />
+    <solid android:color="@color/player_controller_background_half_alpha" />
+    <stroke
+        android:width="1px"
+        android:color="#ffffff" />
 </shape>
