@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- From: file:/Users/baidu/Documents/Dawnlight/DawnLightApp/youkuPlayerOpenSDK/build/intermediates/bundles/debug/res/values/values.xml -->
-    <eat-comment/>
+    <eat-comment />
     <color name="app_background">#e2e2e2</color>
     <color name="black">#000000</color>
     <color name="player_controller_background">#bf000000</color>
@@ -31,7 +31,9 @@
     <color name="yp_youku_dialog_cancel_pressed">#ffe7e7e7</color>
     <color name="yp_youku_dialog_ok_normal">#1500baff</color>
     <color name="yp_youku_dialog_ok_pressed">#33049dd5</color>
-    <declare-styleable name="PlayerNewLoading"><attr format="string" name="playerloadingSize"/></declare-styleable>
+    <declare-styleable name="PlayerNewLoading">
+        <attr name="playerloadingSize" format="string" />
+    </declare-styleable>
     <dimen name="channel_main_tabindicator_height">40dp</dimen>
     <dimen name="channeltab_dividerpadding">10dp</dimen>
     <dimen name="channeltab_txt_textsize">14dp</dimen>
@@ -191,7 +193,7 @@
     <string name="download_unknown_error">该视频暂不支持缓存</string>
     <string name="download_write_fail">储存本地视频信息失败</string>
     <string name="edite">编辑</string>
-    <string name="high_pic">高清  </string>
+    <string name="high_pic">高清</string>
     <string name="no_copyright">无版权播放</string>
     <string name="pause">暂停</string>
     <string name="play_next">下集</string>
@@ -448,7 +450,7 @@
        <item name="buttonStyle">@style/dialogBtn</item>
         -->
     </style>
-    <style name="Theme" parent="android:Theme"/>
+    <style name="Theme" parent="android:Theme" />
     <style name="Theme.MyDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@color/transparent</item>
     </style>
@@ -458,7 +460,7 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:colorForeground">#fff</item>
     </style>
-    <style name="Widget"/>
+    <style name="Widget" />
     <style name="YoukuDialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowFrame">@null</item>
         <item name="android:windowIsFloating">true</item>
@@ -535,7 +537,7 @@
         <item name="android:textColor">#fffe8300</item>
     </style>
     <style name="detail_intro_title" parent="FontE">
-         <item name="android:textColor">#333333</item>
+        <item name="android:textColor">#333333</item>
     </style>
     <style name="detail_item_content" parent="FontD">
         <item name="android:textColor">#666666</item>
@@ -792,7 +794,7 @@
         <item name="android:shadowDy">0</item>
         <item name="android:shadowRadius">1</item>
     </style>
-    <style name="mycenter_upload_btn_Font" parent="FontB"/>
+    <style name="mycenter_upload_btn_Font" parent="FontB" />
     <style name="mycenter_upload_detail_Font" parent="FontC">
         <item name="android:textColor">#666666</item>
     </style>
@@ -837,7 +839,7 @@
     </style>
     <style name="stripeMiddleFont" parent="FontC">
         <item name="android:textColor">#ffffff</item>
-         <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
@@ -859,8 +861,8 @@
     </style>
     <style name="tudou_encrypt_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item> 
-	</style>
+        <item name="android:windowNoTitle">true</item>
+    </style>
     <style name="wordpagechanneltitle" parent="FontD">
         <item name="android:textColor">#ffffff</item>
         <item name="android:shadowRadius">0</item>

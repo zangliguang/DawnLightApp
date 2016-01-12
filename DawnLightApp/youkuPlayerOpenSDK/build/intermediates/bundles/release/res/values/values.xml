@@ -543,7 +543,7 @@
         <item name="android:textColor">#fffe8300</item>
     </style>
     <style name="detail_intro_title" parent="FontE">
-         <item name="android:textColor">#333333</item>
+        <item name="android:textColor">#333333</item>
     </style>
     <style name="detail_item_content" parent="FontD">
         <item name="android:textColor">#666666</item>
@@ -845,7 +845,7 @@
     </style>
     <style name="stripeMiddleFont" parent="FontC">
         <item name="android:textColor">#ffffff</item>
-         <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowColor">#000000</item>
         <item name="android:shadowDx">0</item>
         <item name="android:shadowDy">1</item>
         <item name="android:shadowRadius">1</item>
@@ -867,8 +867,8 @@
     </style>
     <style name="tudou_encrypt_dialog" parent="@android:style/Theme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
-        <item name="android:windowNoTitle">true</item> 
-	</style>
+        <item name="android:windowNoTitle">true</item>
+    </style>
     <style name="wordpagechanneltitle" parent="FontD">
         <item name="android:textColor">#ffffff</item>
         <item name="android:shadowRadius">0</item>

@@ -21,7 +21,7 @@
     <dimen name="paytip_small_tip_width">74dp</dimen>
     <dimen name="paytip_small_margin_bottom">80dp</dimen>
 
-     <!-- youku investigate ad -->
+    <!-- youku investigate ad -->
     <dimen name="yp_investigate_height">48dp</dimen>
     <dimen name="yp_investigate_close_width">55dp</dimen>
     <dimen name="yp_investigate_text_container_width">72dp</dimen>

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/tudou_dialog_width"
     android:layout_height="@dimen/tudou_dialog_height"
-    android:background="@drawable/bg_tudou_encrypt_dialog" >
+    android:background="@drawable/bg_tudou_encrypt_dialog">
 
     <TextView
         android:id="@+id/tudou_dialog_title"
@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/tudou_vertical_line"
-        android:orientation="horizontal" >
+        android:orientation="horizontal">
 
         <TextView
             android:id="@+id/tudou_dialog_cancel"
@@ -62,7 +62,7 @@
             android:gravity="center"
             android:text="@string/alert_dialog_cancel"
             android:textColor="@color/tudou_dialog_button"
-            android:textSize="16sp"/>
+            android:textSize="16sp" />
 
         <View
             android:layout_width="1dp"

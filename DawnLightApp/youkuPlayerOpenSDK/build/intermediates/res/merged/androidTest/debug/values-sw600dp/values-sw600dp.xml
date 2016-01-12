@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- From: file:/Users/baidu/Documents/Dawnlight/DawnLightApp/youkuPlayerOpenSDK/build/intermediates/bundles/debug/res/values-sw600dp/values-sw600dp.xml -->
-    <eat-comment/>
+    <eat-comment />
     <dimen name="paytip_close_height">48dp</dimen>
     <dimen name="paytip_close_margin">12dp</dimen>
     <dimen name="paytip_close_width">55dp</dimen>

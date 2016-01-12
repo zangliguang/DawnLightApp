@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:id="@+id/rl_seek"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#BF000000" >
+        android:background="#BF000000">
 
         <ImageButton
             android:id="@+id/ib_detail_play_full"
@@ -59,7 +59,7 @@
             android:layout_marginRight="@dimen/detail_play_progress_margin_right"
             android:layout_toLeftOf="@id/total_time"
             android:layout_toRightOf="@id/current_time"
-            android:gravity="center" >
+            android:gravity="center">
 
             <SeekBar
                 android:id="@+id/sb_detail_play_progress"
@@ -78,7 +78,7 @@
         android:layout_height="fill_parent"
         android:layout_above="@id/rl_seek"
         android:orientation="horizontal"
-        android:padding="@dimen/plugin_detail_play_pause_pandding" >
+        android:padding="@dimen/plugin_detail_play_pause_pandding">
 
         <View
             android:layout_width="fill_parent"

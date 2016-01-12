@@ -1,7 +1,5 @@
 package com.youku.player.base;
 
-import java.util.HashMap;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -14,7 +12,6 @@ import android.os.Handler;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.SurfaceHolder;
 import android.view.View;
@@ -22,7 +19,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -50,611 +46,434 @@ import com.youku.player.util.URLContainer;
 import com.youku.statistics.PlayerStatistics;
 import com.youku.uplayer.MPPErrorCode;
 
+import java.util.HashMap;
+
 /**
  * 播放器界面,不需要计算播放器高度 xml <com.youku.player.base.YoukuPlayerView
  * android:id="@+id/full_holder" android:layout_width="fill_parent"
  * android:layout_height="wrap_content" >
  * </com.youku.player.base.YoukuPlayerView>
- * 
+ *
  * @author longfan
  * @time 2013年5月7日10:28:42
  */
 
 @SuppressLint("InlinedApi")
 public class YoukuPlayerView extends PluginOverlay implements DetailMessage,
-		MediaPlayerObserver {
+        MediaPlayerObserver {
 
-	private Context mContext;
-	private YoukuBasePlayerManager mBasePlayerManager;
-	private Activity mActivity;
-	public static String TAG = "YoukuPlayerView";
-	int position = -1;
-	public NewSurfaceView surfaceView;
-	SurfaceHolder surfaceHolder;
-	YoukuPlayerView fullStub;
-	View surfaceBlack;
-	TextView playerDebugView;
-	PluginManager pluginManager;
-	private YoukuPlayer player;
-	int fullWidth, fullHeight;// , smallWidth, smallHeight;
-	public boolean firstOnloaded = false;
-	public boolean realVideoStart = false;
-	public static Handler handler = new Handler() {
+    public static final int END_REQUEST = 201;
+    public static final int END_PLAY = 202;
+    // 分享登录请求
+    public static final int LOGIN_REQUEST = 301;
+    public static final String PLAY_LOG_URL = "http://v.youku.com/player/wplaylog";
+    private static final boolean DEBUG = false;
+    public static String TAG = "YoukuPlayerView";
+    public static Handler handler = new Handler() {
 
-	};
+    };
+    private final String tag = "YoukuPlayerView";
+    public NewSurfaceView surfaceView;
+    public boolean firstOnloaded = false;
+    public boolean realVideoStart = false;
+    public boolean autoPaly = true;// 是否自动播放
+    int position = -1;
+    SurfaceHolder surfaceHolder;
+    YoukuPlayerView fullStub;
+    View surfaceBlack;
+    TextView playerDebugView;
+    PluginManager pluginManager;
+    int fullWidth, fullHeight;// , smallWidth, smallHeight;
+    RelativeLayout leftSpace;
+    RelativeLayout rightSpace;
+    RelativeLayout topSpace;
+    RelativeLayout bottomSpace;
+    RelativeLayout spaceMiddle;
 
-	public boolean autoPaly = true;// 是否自动播放
+    // 是否第一次加载成功
+    // 播放器来源
+    String from;
+    // 是否来自于收藏页
+    boolean isFromFav = false;
+    // 因为切换到3g暂停
+    boolean is3GPause = false;
+    VideoView cc;
+    int Adaptation_lastPercent = 0;
+    int mVideoWidth;
+    int mVideoHeight;
+    int videoSize = IMediaPlayerDelegate.PLAY_100;
+    int landPlayheight;
 
-	RelativeLayout leftSpace;
-	RelativeLayout rightSpace;
-	RelativeLayout topSpace;
-	RelativeLayout bottomSpace;
+    // private RelativeLayout padLandBottomInteract;
+    int landPlaywidth;
+    int playwidth;
+    int playheight;
+    int lastFullHeight;
+    int lastFullWidth;
+    int lastpercent;
+    int lastOrientation;
+    int land_height, land_width;
+    int port_height, port_width;
+    int landMarginLR;
+    int landMarginTB;
+    int landMarginTop;
+    int surfaceMarginTop;
+    int getSmallBoderHeight;
+    int playTitleHeight;
+    int times = 1;
+    int action_bar_height_port = 0;
+    int factor = 1;
+    private Context mContext;
+    private YoukuBasePlayerManager mBasePlayerManager;
+    private Activity mActivity;
+    private YoukuPlayer player;
+    private LayoutInflater inflater;
+    private FitScaleImageView playback;
+    private SharedPreferences sp;
+    OnGlobalLayoutListener mGlobalLayoutListener = new OnGlobalLayoutListener() {
 
-	RelativeLayout spaceMiddle;
+        @Override
+        public void onGlobalLayout() {
+            resizeMediaPlayer(false);
+        }
+    };
+    private ViewGroup.LayoutParams fullScreenLayoutParams = null;
+    private ViewGroup.LayoutParams smallScreenLayoutParams = null;
+    private ViewTreeObserver vto;
 
-	// 播放器来源
-	String from;
+    public YoukuPlayerView(Context context) {
+        super(context);
+        init(context);
+    }
 
-	// 是否来自于收藏页
-	boolean isFromFav = false;
+    public YoukuPlayerView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        init(context);
+    }
 
-	// 是否第一次加载成功
+    public YoukuPlayerView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context);
+    }
 
-	public static final int END_REQUEST = 201;
+    @SuppressLint("NewApi")
+    public static boolean hasVirtualButtonBar(Context context) {
+        if (Build.VERSION.SDK_INT >= 18) {
+            return !ViewConfiguration.get(context).hasPermanentMenuKey();
+        } else {
+            return false;
+        }
+    }
 
-	public static final int END_PLAY = 202;
+    /**
+     * 找到播放器界面的layout并初始化
+     *
+     * @param context
+     */
+    private void init(Context context) {
+        mContext = context;
 
-	// 分享登录请求
-	public static final int LOGIN_REQUEST = 301;
+        sp = PreferenceManager.getDefaultSharedPreferences(mContext);
+        inflater = (LayoutInflater) mContext
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-	// 因为切换到3g暂停
-	boolean is3GPause = false;
-	VideoView cc;
+        View view = inflater.inflate(R.layout.yp_player_view, null);
+        this.addView(view);
+        initLayout();
+        initPlayerBlank();
+    }
 
-	public YoukuPlayerView(Context context) {
-		super(context);
-		init(context);
-	}
+    /**
+     * 初始化surface 界面的debug信息
+     */
+    private void initLayout() {
+        surfaceView = (NewSurfaceView) findViewById(R.id.surface_view);
+        playback = (FitScaleImageView) findViewById(R.id.player_back);
+        // padLandBottomInteract = (RelativeLayout)
+        // findViewById(R.id.player_pad_blow_interact);
+        // padLandBottomInteract.setVisibility(View.GONE);
+        playerDebugView = (TextView) findViewById(R.id.surface_view_debug);
+        surfaceBlack = (View) findViewById(R.id.surface_black);
 
-	public YoukuPlayerView(Context context, AttributeSet attrs, int defStyle) {
-		super(context, attrs, defStyle);
-		init(context);
-	}
+        spaceMiddle = (RelativeLayout) findViewById(R.id.space_middle);
 
-	public YoukuPlayerView(Context context, AttributeSet attrs) {
-		super(context, attrs);
-		init(context);
-	}
+        if (UIUtils.hasKitKat() && hasVirtualButtonBar(mContext))
+            addLeftAndRight();
+    }
 
-	private LayoutInflater inflater;
+    /**
+     * 带有虚拟键的4.4设备转屏会出现半屏，临时方案是通过给surfaceview左右添加view
+     */
+    private void addLeftAndRight() {
+        View viewLeft = new View(mContext);
+        viewLeft.setId(1999);
+        viewLeft.setVisibility(View.INVISIBLE);
+        RelativeLayout.LayoutParams leftLayoutParams = new RelativeLayout.LayoutParams(
+                0, 0);
+        leftLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+        viewLeft.setLayoutParams(leftLayoutParams);
+        spaceMiddle.addView(viewLeft);
 
-	// private RelativeLayout padLandBottomInteract;
+        View viewRight = new View(mContext);
+        viewRight.setId(1998);
+        viewRight.setVisibility(View.INVISIBLE);
+        RelativeLayout.LayoutParams rightLayoutParams = new RelativeLayout.LayoutParams(
+                0, 0);
+        rightLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+        viewRight.setLayoutParams(rightLayoutParams);
+        spaceMiddle.addView(viewRight);
 
-	/**
-	 * 找到播放器界面的layout并初始化
-	 * 
-	 * @param context
-	 */
-	private void init(Context context) {
-		mContext = context;
+        RelativeLayout.LayoutParams surfaceLayoutParams = (RelativeLayout.LayoutParams) surfaceView
+                .getLayoutParams();
+        surfaceLayoutParams.addRule(RelativeLayout.RIGHT_OF, viewLeft.getId());
+        surfaceLayoutParams.addRule(RelativeLayout.LEFT_OF, viewRight.getId());
+    }
 
-		sp = PreferenceManager.getDefaultSharedPreferences(mContext);
-		inflater = (LayoutInflater) mContext
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    /**
+     * 设置debug信息
+     *
+     * @param debug 需要显示到播放器界面上的信息
+     */
+    public void setDebugText(final String debug) {
+        if (!DEBUG)
+            return;
+        if (null != playerDebugView) {
+            mActivity.runOnUiThread(new Runnable() {
 
-		View view = inflater.inflate(R.layout.yp_player_view, null);
-		this.addView(view);
-		initLayout();
-		initPlayerBlank();
-	}
+                @Override
+                public void run() {
+                    playerDebugView.append("\n" + debug);
+                }
+            });
+        }
+    }
 
-	private FitScaleImageView playback;
+    /**
+     * 初始化播放画面四周的空白黑色区域
+     */
+    private void initPlayerBlank() {
+        leftSpace = (RelativeLayout) findViewById(R.id.space_left);
+        rightSpace = (RelativeLayout) findViewById(R.id.space_right);
+        topSpace = (RelativeLayout) findViewById(R.id.space_top);
+        bottomSpace = (RelativeLayout) findViewById(R.id.space_bottom);
+    }
 
-	/**
-	 * 初始化surface 界面的debug信息
-	 */
-	private void initLayout() {
-		surfaceView = (NewSurfaceView) findViewById(R.id.surface_view);
-		playback = (FitScaleImageView) findViewById(R.id.player_back);
-		// padLandBottomInteract = (RelativeLayout)
-		// findViewById(R.id.player_pad_blow_interact);
-		// padLandBottomInteract.setVisibility(View.GONE);
-		playerDebugView = (TextView) findViewById(R.id.surface_view_debug);
-		surfaceBlack = (View) findViewById(R.id.surface_black);
+    @Override
+    public void onBufferingUpdateListener(final int percent) {
+        ((Activity) mActivity).runOnUiThread(new Runnable() {
 
-		spaceMiddle = (RelativeLayout) findViewById(R.id.space_middle);
+            @Override
+            public void run() {
+                if (percent == 100 && Adaptation_lastPercent != 100) {
+                    Adaptation_lastPercent = percent;
+                    return;
+                }
+            }
 
-		if (UIUtils.hasKitKat() && hasVirtualButtonBar(mContext))
-			addLeftAndRight();
-	}
+        });
+    }
 
-	/**
-	 * 带有虚拟键的4.4设备转屏会出现半屏，临时方案是通过给surfaceview左右添加view
-	 */
-	private void addLeftAndRight() {
-		View viewLeft = new View(mContext);
-		viewLeft.setId(1999);
-		viewLeft.setVisibility(View.INVISIBLE);
-		RelativeLayout.LayoutParams leftLayoutParams = new RelativeLayout.LayoutParams(
-				0, 0);
-		leftLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-		viewLeft.setLayoutParams(leftLayoutParams);
-		spaceMiddle.addView(viewLeft);
+    @Override
+    public void onCompletionListener() {
+        setDebugText("播放完成onCompletionListener");
+        setPlayerBlack();
+    }
 
-		View viewRight = new View(mContext);
-		viewRight.setId(1998);
-		viewRight.setVisibility(View.INVISIBLE);
-		RelativeLayout.LayoutParams rightLayoutParams = new RelativeLayout.LayoutParams(
-				0, 0);
-		rightLayoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-		viewRight.setLayoutParams(rightLayoutParams);
-		spaceMiddle.addView(viewRight);
+    @Override
+    public boolean onErrorListener(int what, int extra) {
+        if ((what == MPPErrorCode.MEDIA_INFO_DATA_SOURCE_ERROR
+                || what == MPPErrorCode.MEDIA_INFO_NETWORK_DISSCONNECTED
+                || what == MPPErrorCode.MEDIA_INFO_NETWORK_CHECK
+                || what == MPPErrorCode.MEDIA_INFO_NETWORK_ERROR || what == MPPErrorCode.MEDIA_INFO_PREPARE_TIMEOUT_ERROR)
+                && null != mMediaPlayerDelegate.videoInfo
+                && !mMediaPlayerDelegate.videoInfo.IsSendVV) {
+            if (PlayerUtil
+                    .isBaiduQvodSource(mMediaPlayerDelegate.videoInfo.mSource)) {
+                Track.onError(mContext,
+                        mMediaPlayerDelegate.videoInfo.getVid(), Profile.GUID,
+                        StaticsUtil.PLAY_TYPE_NET, PlayCode.VIDEO_LOADING_FAIL,
+                        mMediaPlayerDelegate.videoInfo.mSource,
+                        mMediaPlayerDelegate.videoInfo.getCurrentQuality(),
+                        mMediaPlayerDelegate.videoInfo.getProgress(),
+                        mMediaPlayerDelegate.isFullScreen);
+            } else if (!StaticsUtil.PLAY_TYPE_LOCAL
+                    .equals(mMediaPlayerDelegate.videoInfo.playType)) {
+                Track.onError(mContext,
+                        mMediaPlayerDelegate.videoInfo.getVid(), Profile.GUID,
+                        mMediaPlayerDelegate.videoInfo.playType,
+                        PlayCode.VIDEO_LOADING_FAIL,
+                        mMediaPlayerDelegate.videoInfo.mSource,
+                        mMediaPlayerDelegate.videoInfo.getCurrentQuality(),
+                        mMediaPlayerDelegate.videoInfo.getProgress(),
+                        mMediaPlayerDelegate.isFullScreen);
+            }
+        }
 
-		RelativeLayout.LayoutParams surfaceLayoutParams = (RelativeLayout.LayoutParams) surfaceView
-				.getLayoutParams();
-		surfaceLayoutParams.addRule(RelativeLayout.RIGHT_OF, viewLeft.getId());
-		surfaceLayoutParams.addRule(RelativeLayout.LEFT_OF, viewRight.getId());
-	}
+        if (null != mMediaPlayerDelegate.videoInfo
+                && StaticsUtil.PLAY_TYPE_LOCAL
+                .equals(mMediaPlayerDelegate.videoInfo.playType)) {
+            if (what == MPPErrorCode.MEDIA_INFO_DATA_SOURCE_ERROR
+                    || what == MPPErrorCode.MEDIA_INFO_NETWORK_CHECK
+                    || what == MPPErrorCode.MEDIA_INFO_NETWORK_DISSCONNECTED
+                    || what == MPPErrorCode.MEDIA_INFO_SEEK_ERROR) {
+                Track.onError(mContext,
+                        mMediaPlayerDelegate.videoInfo.getVid(), Profile.GUID,
+                        mMediaPlayerDelegate.videoInfo.playType,
+                        PlayCode.VIDEO_NOT_EXIST,
+                        mMediaPlayerDelegate.videoInfo.mSource,
+                        mMediaPlayerDelegate.videoInfo.getCurrentQuality(),
+                        mMediaPlayerDelegate.videoInfo.getProgress(),
+                        mMediaPlayerDelegate.isFullScreen);
+            }
+        }
 
-	private static final boolean DEBUG = false;
+        // 使用系统播放器播放的时候
+        if (!PlayerUtil.useUplayer() && what == 1
+                && mMediaPlayerDelegate != null
+                && mMediaPlayerDelegate.videoInfo != null) {
+            Track.onError(mContext, mMediaPlayerDelegate.videoInfo.getVid(),
+                    Profile.GUID, mMediaPlayerDelegate.videoInfo.playType,
+                    PlayCode.VIDEO_LOADING_FAIL,
+                    mMediaPlayerDelegate.videoInfo.mSource,
+                    mMediaPlayerDelegate.videoInfo.getCurrentQuality(),
+                    mMediaPlayerDelegate.videoInfo.getProgress(),
+                    mMediaPlayerDelegate.isFullScreen);
+        }
 
-	/**
-	 * 设置debug信息
-	 * 
-	 * @param debug
-	 *            需要显示到播放器界面上的信息
-	 */
-	public void setDebugText(final String debug) {
-		if (!DEBUG)
-			return;
-		if (null != playerDebugView) {
-			mActivity.runOnUiThread(new Runnable() {
+        Track.changeVideoQualityOnError(mActivity);
+        Track.mIsChangingLanguage = false;
+        mMediaPlayerDelegate.onVVEnd();
+        return false;
+    }
 
-				@Override
-				public void run() {
-					playerDebugView.append("\n" + debug);
-				}
-			});
-		}
-	}
+    @Override
+    public void OnPreparedListener() {
+        Logger.e(tag, " OnPreparedListener()");
+    }
 
-	/**
-	 * 初始化播放画面四周的空白黑色区域
-	 */
-	private void initPlayerBlank() {
-		leftSpace = (RelativeLayout) findViewById(R.id.space_left);
-		rightSpace = (RelativeLayout) findViewById(R.id.space_right);
-		topSpace = (RelativeLayout) findViewById(R.id.space_top);
-		bottomSpace = (RelativeLayout) findViewById(R.id.space_bottom);
-	}
+    @Override
+    public void OnSeekCompleteListener() {
+        setDebugText("seek完成OnSeekCompleteListener");
+        Logger.e(TAG, "OnSeekCompleteListener");
+    }
 
-	int Adaptation_lastPercent = 0;
+    @Override
+    public void OnVideoSizeChangedListener(int width, int height) {
+        Logger.e(TAG, "width-->" + width + "height-->" + height);
+        if (mVideoHeight == height && mVideoWidth == width) {
+            return;
+        }
+        mVideoWidth = width;
+        mVideoHeight = height;
+        mActivity.runOnUiThread(new Runnable() {
 
-	@Override
-	public void onBufferingUpdateListener(final int percent) {
-		((Activity) mActivity).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                resizeMediaPlayer(true);
+            }
+        });
 
-			@Override
-			public void run() {
-				if (percent == 100 && Adaptation_lastPercent != 100) {
-					Adaptation_lastPercent = percent;
-					return;
-				}
-			}
+    }
 
-		});
-	}
+    @Override
+    public void OnTimeoutListener() {
+        setDebugText("超时 OnTimeoutListener");
+    }
 
-	@Override
-	public void onCompletionListener() {
-		setDebugText("播放完成onCompletionListener");
-		setPlayerBlack();
-	}
+    @Override
+    public void OnCurrentPositionChangeListener(int currentPosition) {
+        if (mMediaPlayerDelegate != null
+                && mMediaPlayerDelegate.videoInfo != null) {
+            if (!mMediaPlayerDelegate.isComplete)
+                mMediaPlayerDelegate.videoInfo.setProgress(currentPosition);
+            // 付费视频需要在10分钟时候发送统计
+            if (mMediaPlayerDelegate.videoInfo.paid
+                    && !mMediaPlayerDelegate.videoInfo.paidSended
+                    && currentPosition / 1000 == 600) {
+                new DisposableHttpCookieTask(PLAY_LOG_URL + "?vid="
+                        + mMediaPlayerDelegate.videoInfo.getVid()).start();
+                mMediaPlayerDelegate.videoInfo.paidSended = true;
+            }
+            if (mMediaPlayerDelegate.videoInfo.getLookTen() == 1
+                    && currentPosition / 1000 >= 600) {
+                mBasePlayerManager.onPayClick();
+            }
+        }
+        setPlayerBlackGone();
+    }
 
-	@Override
-	public boolean onErrorListener(int what, int extra) {
-		if ((what == MPPErrorCode.MEDIA_INFO_DATA_SOURCE_ERROR
-				|| what == MPPErrorCode.MEDIA_INFO_NETWORK_DISSCONNECTED
-				|| what == MPPErrorCode.MEDIA_INFO_NETWORK_CHECK
-				|| what == MPPErrorCode.MEDIA_INFO_NETWORK_ERROR || what == MPPErrorCode.MEDIA_INFO_PREPARE_TIMEOUT_ERROR)
-				&& null != mMediaPlayerDelegate.videoInfo
-				&& !mMediaPlayerDelegate.videoInfo.IsSendVV) {
-			if (PlayerUtil
-					.isBaiduQvodSource(mMediaPlayerDelegate.videoInfo.mSource)) {
-				Track.onError(mContext,
-						mMediaPlayerDelegate.videoInfo.getVid(), Profile.GUID,
-						StaticsUtil.PLAY_TYPE_NET, PlayCode.VIDEO_LOADING_FAIL,
-						mMediaPlayerDelegate.videoInfo.mSource,
-						mMediaPlayerDelegate.videoInfo.getCurrentQuality(),
-						mMediaPlayerDelegate.videoInfo.getProgress(),
-						mMediaPlayerDelegate.isFullScreen);
-			} else if (!StaticsUtil.PLAY_TYPE_LOCAL
-					.equals(mMediaPlayerDelegate.videoInfo.playType)) {
-				Track.onError(mContext,
-						mMediaPlayerDelegate.videoInfo.getVid(), Profile.GUID,
-						mMediaPlayerDelegate.videoInfo.playType,
-						PlayCode.VIDEO_LOADING_FAIL,
-						mMediaPlayerDelegate.videoInfo.mSource,
-						mMediaPlayerDelegate.videoInfo.getCurrentQuality(),
-						mMediaPlayerDelegate.videoInfo.getProgress(),
-						mMediaPlayerDelegate.isFullScreen);
-			}
-		}
+    @Override
+    public void onLoadedListener() {
+        setDebugText("缓冲完成onLoadedListener");
+        if (!firstOnloaded) {
+            firstOnloaded = true;
+        }
+        if (surfaceBlack.getVisibility() == View.VISIBLE) {
+            setPlayerBlackGone();
+        }
+        // Track.onRealVideoFirstLoadEnd();
+        Track.onChangVideoQualityEnd(mActivity);
+        if (Track.mIsChangingLanguage) {
+            Track.mIsChangingLanguage = false;
+        }
+    }
 
-		if (null != mMediaPlayerDelegate.videoInfo
-				&& StaticsUtil.PLAY_TYPE_LOCAL
-						.equals(mMediaPlayerDelegate.videoInfo.playType)) {
-			if (what == MPPErrorCode.MEDIA_INFO_DATA_SOURCE_ERROR
-					|| what == MPPErrorCode.MEDIA_INFO_NETWORK_CHECK
-					|| what == MPPErrorCode.MEDIA_INFO_NETWORK_DISSCONNECTED
-					|| what == MPPErrorCode.MEDIA_INFO_SEEK_ERROR) {
-				Track.onError(mContext,
-						mMediaPlayerDelegate.videoInfo.getVid(), Profile.GUID,
-						mMediaPlayerDelegate.videoInfo.playType,
-						PlayCode.VIDEO_NOT_EXIST,
-						mMediaPlayerDelegate.videoInfo.mSource,
-						mMediaPlayerDelegate.videoInfo.getCurrentQuality(),
-						mMediaPlayerDelegate.videoInfo.getProgress(),
-						mMediaPlayerDelegate.isFullScreen);
-			}
-		}
+    @Override
+    public void onLoadingListener() {
+        setDebugText("缓冲中onLoadingListener");
+    }
 
-		// 使用系统播放器播放的时候
-		if (!PlayerUtil.useUplayer() && what == 1
-				&& mMediaPlayerDelegate != null
-				&& mMediaPlayerDelegate.videoInfo != null) {
-			Track.onError(mContext, mMediaPlayerDelegate.videoInfo.getVid(),
-					Profile.GUID, mMediaPlayerDelegate.videoInfo.playType,
-					PlayCode.VIDEO_LOADING_FAIL,
-					mMediaPlayerDelegate.videoInfo.mSource,
-					mMediaPlayerDelegate.videoInfo.getCurrentQuality(),
-					mMediaPlayerDelegate.videoInfo.getProgress(),
-					mMediaPlayerDelegate.isFullScreen);
-		}
+    /**
+     * 调整播放画面的宽高比
+     *
+     * @param force 是否强制刷新播放器宽高
+     */
+    public void resizeMediaPlayer(boolean force) {
+        if (mMediaPlayerDelegate != null) {
+            if (mMediaPlayerDelegate.isFullScreen) {
+                videoSize = sp.getInt("video_size", 100);
+            } else {
+                videoSize = 100;
+            }
+            resizeVideoView(videoSize, force);
+        }
+    }
 
-		Track.changeVideoQualityOnError(mActivity);
-		Track.mIsChangingLanguage = false;
-		mMediaPlayerDelegate.onVVEnd();
-		return false;
-	}
+    /**
+     * 当切换到全屏时，会调用这个params来设置view的布局
+     *
+     * @param params 全屏时候的布局
+     */
+    public void setFullScreenLayoutParams(ViewGroup.LayoutParams params) {
+        fullScreenLayoutParams = params;
+    }
 
-	private final String tag = "YoukuPlayerView";
-
-	@Override
-	public void OnPreparedListener() {
-		Logger.e(tag, " OnPreparedListener()");
-	}
-
-	@Override
-	public void OnSeekCompleteListener() {
-		setDebugText("seek完成OnSeekCompleteListener");
-		Logger.e(TAG, "OnSeekCompleteListener");
-	}
-
-	int mVideoWidth;
-	int mVideoHeight;
-
-	@Override
-	public void OnVideoSizeChangedListener(int width, int height) {
-		Logger.e(TAG, "width-->" + width + "height-->" + height);
-		if (mVideoHeight == height && mVideoWidth == width) {
-			return;
-		}
-		mVideoWidth = width;
-		mVideoHeight = height;
-		mActivity.runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				resizeMediaPlayer(true);
-			}
-		});
-
-	}
-
-	@Override
-	public void OnTimeoutListener() {
-		setDebugText("超时 OnTimeoutListener");
-	}
-
-	public static final String PLAY_LOG_URL = "http://v.youku.com/player/wplaylog";
-
-	@Override
-	public void OnCurrentPositionChangeListener(int currentPosition) {
-		if (mMediaPlayerDelegate != null
-				&& mMediaPlayerDelegate.videoInfo != null) {
-			if (!mMediaPlayerDelegate.isComplete)
-				mMediaPlayerDelegate.videoInfo.setProgress(currentPosition);
-			// 付费视频需要在10分钟时候发送统计
-			if (mMediaPlayerDelegate.videoInfo.paid
-					&& !mMediaPlayerDelegate.videoInfo.paidSended
-					&& currentPosition / 1000 == 600) {
-				new DisposableHttpCookieTask(PLAY_LOG_URL + "?vid="
-						+ mMediaPlayerDelegate.videoInfo.getVid()).start();
-				mMediaPlayerDelegate.videoInfo.paidSended = true;
-			}
-			if (mMediaPlayerDelegate.videoInfo.getLookTen() == 1
-					&& currentPosition / 1000 >= 600) {
-				mBasePlayerManager.onPayClick();
-			}
-		}
-		setPlayerBlackGone();
-	}
-
-	@Override
-	public void onLoadedListener() {
-		setDebugText("缓冲完成onLoadedListener");
-		if (!firstOnloaded) {
-			firstOnloaded = true;
-		}
-		if (surfaceBlack.getVisibility() == View.VISIBLE) {
-			setPlayerBlackGone();
-		}
-		// Track.onRealVideoFirstLoadEnd();
-		Track.onChangVideoQualityEnd(mActivity);
-		if (Track.mIsChangingLanguage) {
-			Track.mIsChangingLanguage = false;
-		}
-	}
-
-	@Override
-	public void onLoadingListener() {
-		setDebugText("缓冲中onLoadingListener");
-	}
-
-	int videoSize = IMediaPlayerDelegate.PLAY_100;
-
-	private SharedPreferences sp;
-
-	/**
-	 * 调整播放画面的宽高比
-	 * 
-	 * @param force
-	 *            是否强制刷新播放器宽高
-	 */
-	public void resizeMediaPlayer(boolean force) {
-		if (mMediaPlayerDelegate != null) {
-			if (mMediaPlayerDelegate.isFullScreen) {
-				videoSize = sp.getInt("video_size", 100);
-			} else {
-				videoSize = 100;
-			}
-			resizeVideoView(videoSize, force);
-		}
-	}
-	
-	private ViewGroup.LayoutParams fullScreenLayoutParams = null;
-	
-	/**
-	 * 当切换到全屏时，会调用这个params来设置view的布局
-	 * @param params 全屏时候的布局
-	 */
-	public void setFullScreenLayoutParams(ViewGroup.LayoutParams params)
-	{
-		fullScreenLayoutParams = params;
-	}
-	
-	/**
-	 * 全屏的时候设置全屏
-	 */
-	public void setFullscreenBack() {
-		if(fullScreenLayoutParams == null)
-		{
-			throw new IllegalArgumentException("Full screen LayoutParams does not be set. Do you forget call setFullScreenLayoutParams(ViewGroup.LayoutParams)? ");
-		}
-		this.setLayoutParams(fullScreenLayoutParams);
+    /**
+     * 全屏的时候设置全屏
+     */
+    public void setFullscreenBack() {
+        if (fullScreenLayoutParams == null) {
+            throw new IllegalArgumentException("Full screen LayoutParams does not be set. Do you forget call setFullScreenLayoutParams(ViewGroup.LayoutParams)? ");
+        }
+        this.setLayoutParams(fullScreenLayoutParams);
 //		this.setLayoutParams(new LinearLayout.LayoutParams(
 //				LinearLayout.LayoutParams.MATCH_PARENT,
 //				LinearLayout.LayoutParams.MATCH_PARENT));
-		playback.isFullscreen = true;
-		this.setBackgroundColor(getResources().getColor(R.color.black));
-	}
-	
-	private ViewGroup.LayoutParams smallScreenLayoutParams = null;
-	
-	/**
-	 * 当切换到竖屏时，会调用这个params来设置view的布局
-	 * @param params 全屏时候的布局
-	 */
-	public void setSmallScreenLayoutParams(ViewGroup.LayoutParams params)
-	{
-		smallScreenLayoutParams = params;
-	}
-	
-	/**
-	 * 设置竖屏布局
-	 */
-	public void setVerticalLayout()// 设置竖屏布局
-	{
-		if(smallScreenLayoutParams == null)
-		{
-			throw new IllegalArgumentException("Small screen LayoutParams does not be set. Do you forget call setSmallScreenLayoutParams(ViewGroup.LayoutParams)? ");
-		}
-		this.setLayoutParams(smallScreenLayoutParams);
-//		this.setLayoutParams(new LinearLayout.LayoutParams(
-//				LinearLayout.LayoutParams.MATCH_PARENT,
-//				LinearLayout.LayoutParams.WRAP_CONTENT));
-		playback.isFullscreen = false;
-		hideBottonInteract();
-	}
+        playback.isFullscreen = true;
+        this.setBackgroundColor(getResources().getColor(R.color.black));
+    }
 
-	int landPlayheight;
-	int landPlaywidth;
-	int playwidth;
-	int playheight;
-	int lastFullHeight;
-	int lastFullWidth;
-	int lastpercent;
-	int lastOrientation;
-
-	/**
-	 * 重新调整视频的画面
-	 * 
-	 * @param percent
-	 *            画面百分比
-	 * @param force
-	 *            是否强制刷新
-	 */
-	public void resizeVideoView(int percent, boolean force) {
-		int showWidth = 0, showHeight = 0;
-		// 控件的宽高
-		fullHeight = playback.getHeight();
-		fullWidth = playback.getWidth();
-		int orientation = mMediaPlayerDelegate.mediaPlayer == null ? 0
-				: mMediaPlayerDelegate.mediaPlayer.getVideoOrientation();
-		if (lastpercent == percent && fullWidth == lastFullWidth
-				&& fullHeight == lastFullHeight
-				&& lastOrientation == orientation && !force) {
-			return;
-		}
-
-		if (mMediaPlayerDelegate == null) {
-			return;
-		}
-		if (percent == -1) {// 满屏
-			if (mMediaPlayerDelegate.isFullScreen) {
-				showWidth = fullWidth;
-				showHeight = fullHeight;
-			} else if (Util.isLandscape(mContext)) {
-				showWidth = landPlaywidth;
-				showHeight = landPlayheight;
-			} else {
-				showWidth = playwidth;
-				showHeight = playheight;
-			}
-		} else {
-			int resizeScreenWidth = 0, resizeScreenHeight = 0;
-			if (percent == 50) {// 50%
-				// 控件的一般高
-				resizeScreenWidth = fullWidth / 2;
-				resizeScreenHeight = fullHeight / 2;
-			} else if (percent == 75) {// %75
-				resizeScreenWidth = fullWidth * 3 / 4;
-				resizeScreenHeight = fullHeight * 3 / 4;
-			} else {// %100
-				resizeScreenWidth = fullWidth;
-				resizeScreenHeight = fullHeight;
-			}
-			// 以宽度为基准
-			showWidth = resizeScreenWidth;
-			// 视频的宽高
-			int videoHeight = 0;
-			int videoWidth = 0;
-			if (orientation == 0 || orientation == 3) {
-				videoHeight = mVideoHeight;
-				videoWidth = mVideoWidth;
-			} else {
-				videoHeight = mVideoWidth;
-				videoWidth = mVideoHeight;
-			}
-
-			if (videoWidth == 0)
-				return;
-
-			// 成比例的高度
-			showHeight = showWidth * videoHeight / videoWidth;
-
-			// 展示的高于预留d
-			if (showHeight > resizeScreenHeight) {
-				showHeight = resizeScreenHeight;
-				showWidth = resizeScreenHeight * videoWidth / videoHeight;
-			} else {
-			}
-		}
-
-		int leftWidth = (fullWidth - showWidth) / 2;
-		int topWidth = (fullHeight - showHeight) / 2;
-		surfaceView.setDimensions(showWidth, showHeight);
-		RelativeLayout leftSpace = (RelativeLayout) findViewById(R.id.space_left);
-		RelativeLayout rightSpace = (RelativeLayout) findViewById(R.id.space_right);
-		RelativeLayout topSpace = (RelativeLayout) findViewById(R.id.space_top);
-		RelativeLayout bottomSpace = (RelativeLayout) findViewById(R.id.space_bottom);
-		leftSpace.setVisibility(View.INVISIBLE);
-		rightSpace.setVisibility(View.INVISIBLE);
-		topSpace.setVisibility(View.INVISIBLE);
-		bottomSpace.setVisibility(View.INVISIBLE);
-		RelativeLayout.LayoutParams leftPara = (android.widget.RelativeLayout.LayoutParams) leftSpace
-				.getLayoutParams();
-		leftPara.height = fullHeight;
-		leftPara.width = leftWidth;
-		// if (leftWidth > 0) {
-		// leftPara.rightMargin = 1;
-		// }
-		leftSpace.setLayoutParams(leftPara);
-		leftSpace.requestLayout();
-		RelativeLayout.LayoutParams rightPara = (android.widget.RelativeLayout.LayoutParams) rightSpace
-				.getLayoutParams();
-		rightPara.height = fullHeight;
-		rightPara.width = leftWidth;
-		// if (leftWidth > 0) {
-		// rightPara.leftMargin = 1;
-		// }
-		rightSpace.setLayoutParams(rightPara);
-		rightSpace.requestLayout();
-		RelativeLayout.LayoutParams topPara = (android.widget.RelativeLayout.LayoutParams) topSpace
-				.getLayoutParams();
-		topPara.height = topWidth;
-		topPara.width = fullWidth;
-		if (topWidth > 0) {
-			topPara.bottomMargin = 1;
-		}
-		topSpace.setLayoutParams(topPara);
-		topSpace.requestLayout();
-		RelativeLayout.LayoutParams bottomPara = (android.widget.RelativeLayout.LayoutParams) bottomSpace
-				.getLayoutParams();
-		bottomPara.height = topWidth;
-		bottomPara.width = fullWidth;
-		// if (topWidth > 0) {
-		// bottomPara.topMargin = 1;
-		// }
-		bottomSpace.setLayoutParams(bottomPara);
-		bottomSpace.requestLayout();
-		// 解决土豆bug 7721
-		++showWidth;
-		++showHeight;
-		Logger.e("PlayFlow", "changeVideoSize-->" + "showWidth-->" + showWidth
-				+ "showHeight-->" + showHeight);
-		if (mMediaPlayerDelegate.mediaPlayer != null) {
-			mMediaPlayerDelegate.mediaPlayer.changeVideoSize(showWidth,
-					showHeight);
-		}
-		lastFullHeight = fullHeight;
-		lastFullWidth = fullWidth;
-		lastpercent = percent;
-		lastOrientation = orientation;
-	}
-
-	int land_height, land_width;
-	int port_height, port_width;
-	int landMarginLR;
-	int landMarginTB;
-	int landMarginTop;
-	int surfaceMarginTop;
-	int getSmallBoderHeight;
-	int playTitleHeight;
-	private ViewTreeObserver vto;
-
-	int times = 1;
-
-	/**
-	 * 当播放器尺寸变化时候调用
-	 */
-	public void onConfigrationChange() {
-		times = 1;
-		vto = playback.getViewTreeObserver();
-		vto.addOnGlobalLayoutListener(mGlobalLayoutListener);
-	}
-
-	OnGlobalLayoutListener mGlobalLayoutListener = new OnGlobalLayoutListener() {
-
-		@Override
-		public void onGlobalLayout() {
-			resizeMediaPlayer(false);
-		}
-	};
-	/**
-	 * pad横屏时候播放器界面占总宽度的比例
-	 */
+    /**
+     * 当切换到竖屏时，会调用这个params来设置view的布局
+     *
+     * @param params 全屏时候的布局
+     */
+    public void setSmallScreenLayoutParams(ViewGroup.LayoutParams params) {
+        smallScreenLayoutParams = params;
+    }
+    /**
+     * pad横屏时候播放器界面占总宽度的比例
+     */
 //	private final static float WIDTH_RATIO = 0.6625f;
 
 //	/**
@@ -683,320 +502,462 @@ public class YoukuPlayerView extends PluginOverlay implements DetailMessage,
 //		// padLandBottomInteract.setVisibility(View.VISIBLE);
 //	}
 
-	/**
-	 * 隐藏pad横屏下的交互区
-	 */
-	private void hideBottonInteract() {
-		// padLandBottomInteract.setVisibility(View.GONE);
-	}
+    /**
+     * 设置竖屏布局
+     */
+    public void setVerticalLayout()// 设置竖屏布局
+    {
+        if (smallScreenLayoutParams == null) {
+            throw new IllegalArgumentException("Small screen LayoutParams does not be set. Do you forget call setSmallScreenLayoutParams(ViewGroup.LayoutParams)? ");
+        }
+        this.setLayoutParams(smallScreenLayoutParams);
+//		this.setLayoutParams(new LinearLayout.LayoutParams(
+//				LinearLayout.LayoutParams.MATCH_PARENT,
+//				LinearLayout.LayoutParams.WRAP_CONTENT));
+        playback.isFullscreen = false;
+        hideBottonInteract();
+    }
 
-	int action_bar_height_port = 0;
-	int factor = 1;
+    /**
+     * 重新调整视频的画面
+     *
+     * @param percent 画面百分比
+     * @param force   是否强制刷新
+     */
+    public void resizeVideoView(int percent, boolean force) {
+        int showWidth = 0, showHeight = 0;
+        // 控件的宽高
+        fullHeight = playback.getHeight();
+        fullWidth = playback.getWidth();
+        int orientation = mMediaPlayerDelegate.mediaPlayer == null ? 0
+                : mMediaPlayerDelegate.mediaPlayer.getVideoOrientation();
+        if (lastpercent == percent && fullWidth == lastFullWidth
+                && fullHeight == lastFullHeight
+                && lastOrientation == orientation && !force) {
+            return;
+        }
 
-	/**
-	 * 初始化接口
-	 * 
-	 * @param mYoukuBaseActivity
-	 * @param platformId
-	 * @see {@link Plantform}
-	 * @param pid
-	 *            各平台注册
-	 * @param useSystemPlayer
-	 *            强制硬解接口，使用这个参数将只能够播放m3u8
-	 */
-	public void initialize(YoukuBasePlayerManager mYoukuBaseActivity,
-			int platformId, String pid, String verName, String userAgent,
-			boolean useSystemPlayer) {
+        if (mMediaPlayerDelegate == null) {
+            return;
+        }
+        if (percent == -1) {// 满屏
+            if (mMediaPlayerDelegate.isFullScreen) {
+                showWidth = fullWidth;
+                showHeight = fullHeight;
+            } else if (Util.isLandscape(mContext)) {
+                showWidth = landPlaywidth;
+                showHeight = landPlayheight;
+            } else {
+                showWidth = playwidth;
+                showHeight = playheight;
+            }
+        } else {
+            int resizeScreenWidth = 0, resizeScreenHeight = 0;
+            if (percent == 50) {// 50%
+                // 控件的一般高
+                resizeScreenWidth = fullWidth / 2;
+                resizeScreenHeight = fullHeight / 2;
+            } else if (percent == 75) {// %75
+                resizeScreenWidth = fullWidth * 3 / 4;
+                resizeScreenHeight = fullHeight * 3 / 4;
+            } else {// %100
+                resizeScreenWidth = fullWidth;
+                resizeScreenHeight = fullHeight;
+            }
+            // 以宽度为基准
+            showWidth = resizeScreenWidth;
+            // 视频的宽高
+            int videoHeight = 0;
+            int videoWidth = 0;
+            if (orientation == 0 || orientation == 3) {
+                videoHeight = mVideoHeight;
+                videoWidth = mVideoWidth;
+            } else {
+                videoHeight = mVideoWidth;
+                videoWidth = mVideoHeight;
+            }
 
-		initialize(mYoukuBaseActivity, platformId, pid, verName, userAgent,
-				useSystemPlayer, null, null);
-	}
+            if (videoWidth == 0)
+                return;
 
-	// boolean isTablet = (this.getResources().getConfiguration().screenLayout &
-	// Configuration.SCREENLAYOUT_SIZE_MASK) >=
-	// Configuration.SCREENLAYOUT_SIZE_LARGE;
-	// String User_Agent = (isTablet ? "Youku HD;" : "Youku;") + versionName
-	// + ";Android;" + android.os.Build.VERSION.RELEASE + ";"
-	// + android.os.Build.MODEL;
+            // 成比例的高度
+            showHeight = showWidth * videoHeight / videoWidth;
 
-	public void initialize(YoukuBasePlayerManager mYoukuBaseActivity) {
-		PackageManager pm = mYoukuBaseActivity.getBaseActivity()
-				.getPackageManager();
-		String ver = "4.1";
-		try {
-			ver = pm.getPackageInfo(mYoukuBaseActivity.getBaseActivity()
-					.getPackageName(), 0).versionName;
-		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+            // 展示的高于预留d
+            if (showHeight > resizeScreenHeight) {
+                showHeight = resizeScreenHeight;
+                showWidth = resizeScreenHeight * videoWidth / videoHeight;
+            } else {
+            }
+        }
 
-		boolean isTablet = (this.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
-		String ua = (isTablet ? "Youku HD;" : "Youku;") + ver + ";Android;"
-				+ android.os.Build.VERSION.RELEASE + ";"
-				+ android.os.Build.MODEL;
+        int leftWidth = (fullWidth - showWidth) / 2;
+        int topWidth = (fullHeight - showHeight) / 2;
+        surfaceView.setDimensions(showWidth, showHeight);
+        RelativeLayout leftSpace = (RelativeLayout) findViewById(R.id.space_left);
+        RelativeLayout rightSpace = (RelativeLayout) findViewById(R.id.space_right);
+        RelativeLayout topSpace = (RelativeLayout) findViewById(R.id.space_top);
+        RelativeLayout bottomSpace = (RelativeLayout) findViewById(R.id.space_bottom);
+        leftSpace.setVisibility(View.INVISIBLE);
+        rightSpace.setVisibility(View.INVISIBLE);
+        topSpace.setVisibility(View.INVISIBLE);
+        bottomSpace.setVisibility(View.INVISIBLE);
+        RelativeLayout.LayoutParams leftPara = (android.widget.RelativeLayout.LayoutParams) leftSpace
+                .getLayoutParams();
+        leftPara.height = fullHeight;
+        leftPara.width = leftWidth;
+        // if (leftWidth > 0) {
+        // leftPara.rightMargin = 1;
+        // }
+        leftSpace.setLayoutParams(leftPara);
+        leftSpace.requestLayout();
+        RelativeLayout.LayoutParams rightPara = (android.widget.RelativeLayout.LayoutParams) rightSpace
+                .getLayoutParams();
+        rightPara.height = fullHeight;
+        rightPara.width = leftWidth;
+        // if (leftWidth > 0) {
+        // rightPara.leftMargin = 1;
+        // }
+        rightSpace.setLayoutParams(rightPara);
+        rightSpace.requestLayout();
+        RelativeLayout.LayoutParams topPara = (android.widget.RelativeLayout.LayoutParams) topSpace
+                .getLayoutParams();
+        topPara.height = topWidth;
+        topPara.width = fullWidth;
+        if (topWidth > 0) {
+            topPara.bottomMargin = 1;
+        }
+        topSpace.setLayoutParams(topPara);
+        topSpace.requestLayout();
+        RelativeLayout.LayoutParams bottomPara = (android.widget.RelativeLayout.LayoutParams) bottomSpace
+                .getLayoutParams();
+        bottomPara.height = topWidth;
+        bottomPara.width = fullWidth;
+        // if (topWidth > 0) {
+        // bottomPara.topMargin = 1;
+        // }
+        bottomSpace.setLayoutParams(bottomPara);
+        bottomSpace.requestLayout();
+        // 解决土豆bug 7721
+        ++showWidth;
+        ++showHeight;
+        Logger.e("PlayFlow", "changeVideoSize-->" + "showWidth-->" + showWidth
+                + "showHeight-->" + showHeight);
+        if (mMediaPlayerDelegate.mediaPlayer != null) {
+            mMediaPlayerDelegate.mediaPlayer.changeVideoSize(showWidth,
+                    showHeight);
+        }
+        lastFullHeight = fullHeight;
+        lastFullWidth = fullWidth;
+        lastpercent = percent;
+        lastOrientation = orientation;
+    }
 
-		Logger.d(TAG, "initialize(): ua = " + ua);
+    /**
+     * 当播放器尺寸变化时候调用
+     */
+    public void onConfigrationChange() {
+        times = 1;
+        vto = playback.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(mGlobalLayoutListener);
+    }
 
-		initialize(mYoukuBaseActivity, 10001, "4e308edfc33936d7", ver, ua,
-				false, -7L, "631l1i1x3fv5vs2dxlj5v8x81jqfs2om");
-	}
+    /**
+     * 隐藏pad横屏下的交互区
+     */
+    private void hideBottonInteract() {
+        // padLandBottomInteract.setVisibility(View.GONE);
+    }
 
-	public void initialize(YoukuBasePlayerManager mYoukuBaseActivity, String pid) {
-		PackageManager pm = mYoukuBaseActivity.getBaseActivity()
-				.getPackageManager();
-		String ver = "4.1";
-		try {
-			ver = pm.getPackageInfo(mYoukuBaseActivity.getBaseActivity()
-					.getPackageName(), 0).versionName;
-		} catch (NameNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    // boolean isTablet = (this.getResources().getConfiguration().screenLayout &
+    // Configuration.SCREENLAYOUT_SIZE_MASK) >=
+    // Configuration.SCREENLAYOUT_SIZE_LARGE;
+    // String User_Agent = (isTablet ? "Youku HD;" : "Youku;") + versionName
+    // + ";Android;" + android.os.Build.VERSION.RELEASE + ";"
+    // + android.os.Build.MODEL;
 
-		boolean isTablet = (this.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
-		String ua = (isTablet ? "Youku HD;" : "Youku;") + ver + ";Android;"
-				+ android.os.Build.VERSION.RELEASE + ";"
-				+ android.os.Build.MODEL;
+    /**
+     * 初始化接口
+     *
+     * @param mYoukuBaseActivity
+     * @param platformId
+     * @param pid                各平台注册
+     * @param useSystemPlayer    强制硬解接口，使用这个参数将只能够播放m3u8
+     * @see {@link Plantform}
+     */
+    public void initialize(YoukuBasePlayerManager mYoukuBaseActivity,
+                           int platformId, String pid, String verName, String userAgent,
+                           boolean useSystemPlayer) {
 
-		Logger.d(TAG, "initialize(): ua = " + ua);
+        initialize(mYoukuBaseActivity, platformId, pid, verName, userAgent,
+                useSystemPlayer, null, null);
+    }
 
-		initialize(mYoukuBaseActivity, 10001, pid, ver, ua, false, -7L,
-				"631l1i1x3fv5vs2dxlj5v8x81jqfs2om");
-	}
+    public void initialize(YoukuBasePlayerManager mYoukuBaseActivity) {
+        PackageManager pm = mYoukuBaseActivity.getBaseActivity()
+                .getPackageManager();
+        String ver = "4.1";
+        try {
+            ver = pm.getPackageInfo(mYoukuBaseActivity.getBaseActivity()
+                    .getPackageName(), 0).versionName;
+        } catch (NameNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-	/**
-	 * 初始化接口
-	 * 
-	 * @param mYoukuBaseActivity
-	 * @param platformId
-	 * @see {@link Plantform}
-	 * @param pid
-	 *            各平台注册
-	 * @param useSystemPlayer
-	 *            强制硬解接口，使用这个参数将只能够播放m3u8
-	 * @param timeStamp
-	 *            时间戳
-	 * @param secret
-	 *            密匙
-	 */
-	public void initialize(YoukuBasePlayerManager basePlayerManager,
-			int platformId, String pid, String verName, String userAgent,
-			boolean useSystemPlayer, Long timeStamp, String secret) {
-		// if(!ApiManager.getInstance().getApiServiceState()) return;
-		long begin = SystemClock.elapsedRealtime();
-		mBasePlayerManager = basePlayerManager;
-		mActivity = mBasePlayerManager.getBaseActivity();
-		Profile.USE_SYSTEM_PLAYER = useSystemPlayer;
-		basePlayerManager.initLayoutView(this); // MediaPlayerDelegate在这里进行了初始化
-		player = new YoukuPlayer(mBasePlayerManager); // -------------此处把MediaPlayerDelegate实例对YoukuPlayer进行了初始化
-		Profile.PLANTFORM = platformId;
-		Profile.pid = pid;
-		Profile.USER_AGENT = userAgent;
-		Util.TIME_STAMP = timeStamp;
-		Util.SECRET = secret;
-		URLContainer.verName = verName;
-		URLContainer.getStatisticsParameter();
-		MediaPlayerConfiguration.getInstance();
-		basePlayerManager.onInitializationSuccess(player);
-		trackPlayerLoad(SystemClock.elapsedRealtime() - begin);
-	}
+        boolean isTablet = (this.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+        String ua = (isTablet ? "Youku HD;" : "Youku;") + ver + ";Android;"
+                + android.os.Build.VERSION.RELEASE + ";"
+                + android.os.Build.MODEL;
 
-	/**
-	 * 从播放器初始化到请求视频或广告文件片之前时间
-	 * 
-	 * @param duration
-	 */
-	private void trackPlayerLoad(long duration) {
-		long currentTime = System.currentTimeMillis();
-		HashMap<String, String> extend = new HashMap<String, String>();
-		extend.put("pltype", "playerload");
-		extend.put("s", duration + "");
-		extend.put("st", (currentTime - duration) + "");
-		extend.put("et", currentTime + "");
-		AnalyticsWrapper.trackExtendCustomEvent(mContext,
-				PlayerStatistics.PALYER_LOAD, PlayerStatistics.PAGE_NAME, null,
-				IMediaPlayerDelegate.getUserID(), extend);
-	}
+        Logger.d(TAG, "initialize(): ua = " + ua);
 
-	@Override
-	public void onUp() {
-		Logger.e(TAG, "onUp");
-	}
+        initialize(mYoukuBaseActivity, 10001, "4e308edfc33936d7", ver, ua,
+                false, -7L, "631l1i1x3fv5vs2dxlj5v8x81jqfs2om");
+    }
 
-	@Override
-	public void onDown() {
-		Logger.e(TAG, "onDown");
-	}
+    public void initialize(YoukuBasePlayerManager mYoukuBaseActivity, String pid) {
+        PackageManager pm = mYoukuBaseActivity.getBaseActivity()
+                .getPackageManager();
+        String ver = "4.1";
+        try {
+            ver = pm.getPackageInfo(mYoukuBaseActivity.getBaseActivity()
+                    .getPackageName(), 0).versionName;
+        } catch (NameNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
-	@Override
-	public void onFavor() {
-		Logger.e(TAG, "onFavor");
-	}
+        boolean isTablet = (this.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
+        String ua = (isTablet ? "Youku HD;" : "Youku;") + ver + ";Android;"
+                + android.os.Build.VERSION.RELEASE + ";"
+                + android.os.Build.MODEL;
 
-	@Override
-	public void onUnFavor() {
-		Logger.e(TAG, "onUnFavor");
-	}
+        Logger.d(TAG, "initialize(): ua = " + ua);
 
-	@Override
-	public void newVideo() {
-		setDebugText("新视频newVideo");
-		Logger.e(TAG, "newVideo");
-	}
+        initialize(mYoukuBaseActivity, 10001, pid, ver, ua, false, -7L,
+                "631l1i1x3fv5vs2dxlj5v8x81jqfs2om");
+    }
 
-	@Override
-	public void onVolumnUp() {
-		setDebugText("音量调大onVolumnUp");
-		Logger.e(TAG, "onVolumnUp");
-	}
+    /**
+     * 初始化接口
+     *
+     * @param mYoukuBaseActivity
+     * @param platformId
+     * @param pid                各平台注册
+     * @param useSystemPlayer    强制硬解接口，使用这个参数将只能够播放m3u8
+     * @param timeStamp          时间戳
+     * @param secret             密匙
+     * @see {@link Plantform}
+     */
+    public void initialize(YoukuBasePlayerManager basePlayerManager,
+                           int platformId, String pid, String verName, String userAgent,
+                           boolean useSystemPlayer, Long timeStamp, String secret) {
+        // if(!ApiManager.getInstance().getApiServiceState()) return;
+        long begin = SystemClock.elapsedRealtime();
+        mBasePlayerManager = basePlayerManager;
+        mActivity = mBasePlayerManager.getBaseActivity();
+        Profile.USE_SYSTEM_PLAYER = useSystemPlayer;
+        basePlayerManager.initLayoutView(this); // MediaPlayerDelegate在这里进行了初始化
+        player = new YoukuPlayer(mBasePlayerManager); // -------------此处把MediaPlayerDelegate实例对YoukuPlayer进行了初始化
+        Profile.PLANTFORM = platformId;
+        Profile.pid = pid;
+        Profile.USER_AGENT = userAgent;
+        Util.TIME_STAMP = timeStamp;
+        Util.SECRET = secret;
+        URLContainer.verName = verName;
+        URLContainer.getStatisticsParameter();
+        MediaPlayerConfiguration.getInstance();
+        basePlayerManager.onInitializationSuccess(player);
+        trackPlayerLoad(SystemClock.elapsedRealtime() - begin);
+    }
 
-	@Override
-	public void onVolumnDown() {
-		setDebugText("音量调小onVolumnDown");
-		Logger.e(TAG, "onVolumnDown");
-	}
+    /**
+     * 从播放器初始化到请求视频或广告文件片之前时间
+     *
+     * @param duration
+     */
+    private void trackPlayerLoad(long duration) {
+        long currentTime = System.currentTimeMillis();
+        HashMap<String, String> extend = new HashMap<String, String>();
+        extend.put("pltype", "playerload");
+        extend.put("s", duration + "");
+        extend.put("st", (currentTime - duration) + "");
+        extend.put("et", currentTime + "");
+        AnalyticsWrapper.trackExtendCustomEvent(mContext,
+                PlayerStatistics.PALYER_LOAD, PlayerStatistics.PAGE_NAME, null,
+                IMediaPlayerDelegate.getUserID(), extend);
+    }
 
-	@Override
-	public void onMute(boolean mute) {
-		setDebugText("静音onMute");
-		Logger.e(TAG, "onMute");
-	}
+    @Override
+    public void onUp() {
+        Logger.e(TAG, "onUp");
+    }
 
-	@Override
-	public void onVideoChange() {
-		mBasePlayerManager.onVideoChange();
-		setDebugText("获取信息中onVideoChange");
-		Logger.e(TAG, "onVideoChange");
-		firstOnloaded = false;
-		realVideoStart = false;
-	}
+    @Override
+    public void onDown() {
+        Logger.e(TAG, "onDown");
+    }
 
-	@Override
-	public void onVideoInfoGetting() {
-		setDebugText("获取信息中onVideoInfoGetting");
-		Logger.e(TAG, "onVideoInfoGetting");
-		setPlayerBlack();
-		realVideoStart = false;
-	}
+    @Override
+    public void onFavor() {
+        Logger.e(TAG, "onFavor");
+    }
 
-	@Override
-	public void onVideoInfoGetted() {
-		Logger.e(TAG, "onVideoInfoGetted");
-	}
+    @Override
+    public void onUnFavor() {
+        Logger.e(TAG, "onUnFavor");
+    }
 
-	@Override
-	public void onVideoInfoGetFail(boolean needRetry) {
-		setDebugText("获取信息失败onVideoInfoGetFail");
-		Logger.e(TAG, "onVideoInfoGetFail");
-	}
+    @Override
+    public void newVideo() {
+        setDebugText("新视频newVideo");
+        Logger.e(TAG, "newVideo");
+    }
 
-	@Override
-	public void setVisible(boolean visible) {
-		Logger.e(TAG, "setVisible");
-	}
+    @Override
+    public void onVolumnUp() {
+        setDebugText("音量调大onVolumnUp");
+        Logger.e(TAG, "onVolumnUp");
+    }
 
-	/**
-	 * 播放完成
-	 */
-	protected void playComplete() {
-		Logger.d("PlayFlow", "播放完成");
-		// Track.setplayCompleted(true);
-		if (mMediaPlayerDelegate != null) {
-			mMediaPlayerDelegate.release();
-			mMediaPlayerDelegate.videoInfo.setProgress(0);
-		}
-	}
+    @Override
+    public void onVolumnDown() {
+        setDebugText("音量调小onVolumnDown");
+        Logger.e(TAG, "onVolumnDown");
+    }
 
-	@Override
-	public void onNotifyChangeVideoQuality() {
-		setDebugText("播放清晰度变化onNotifyChangeVideoQuality");
-	}
+    @Override
+    public void onMute(boolean mute) {
+        setDebugText("静音onMute");
+        Logger.e(TAG, "onMute");
+    }
 
-	@Override
-	public void onRealVideoStart() {
-		setDebugText("正片开始播放 onRealVideoStart");
-		realVideoStart = true;
-	}
+    @Override
+    public void onVideoChange() {
+        mBasePlayerManager.onVideoChange();
+        setDebugText("获取信息中onVideoChange");
+        Logger.e(TAG, "onVideoChange");
+        firstOnloaded = false;
+        realVideoStart = false;
+    }
 
-	@Override
-	public void onADplaying() {
-		setDebugText("广告正在播放 onADplaying");
+    @Override
+    public void onVideoInfoGetting() {
+        setDebugText("获取信息中onVideoInfoGetting");
+        Logger.e(TAG, "onVideoInfoGetting");
+        setPlayerBlack();
+        realVideoStart = false;
+    }
 
-	}
+    @Override
+    public void onVideoInfoGetted() {
+        Logger.e(TAG, "onVideoInfoGetted");
+    }
 
-	@Override
-	public void onRealVideoStarted() {
+    @Override
+    public void onVideoInfoGetFail(boolean needRetry) {
+        setDebugText("获取信息失败onVideoInfoGetFail");
+        Logger.e(TAG, "onVideoInfoGetFail");
+    }
 
-	}
+    @Override
+    public void setVisible(boolean visible) {
+        Logger.e(TAG, "setVisible");
+    }
 
-	@Override
-	public void onStart() {
+    /**
+     * 播放完成
+     */
+    protected void playComplete() {
+        Logger.d("PlayFlow", "播放完成");
+        // Track.setplayCompleted(true);
+        if (mMediaPlayerDelegate != null) {
+            mMediaPlayerDelegate.release();
+            mMediaPlayerDelegate.videoInfo.setProgress(0);
+        }
+    }
 
-	}
+    @Override
+    public void onNotifyChangeVideoQuality() {
+        setDebugText("播放清晰度变化onNotifyChangeVideoQuality");
+    }
 
-	@Override
-	public void onClearUpDownFav() {
+    @Override
+    public void onRealVideoStart() {
+        setDebugText("正片开始播放 onRealVideoStart");
+        realVideoStart = true;
+    }
 
-	}
+    @Override
+    public void onADplaying() {
+        setDebugText("广告正在播放 onADplaying");
 
-	@Override
-	public void onPause() {
+    }
 
-	}
+    @Override
+    public void onRealVideoStarted() {
 
-	@Override
-	public void back() {
-	}
+    }
 
-	/**
-	 * 设置播放器画面为黑色
-	 */
-	public void setPlayerBlack() {
-		if (surfaceBlack != null) {
-			mActivity.runOnUiThread(new Runnable() {
+    @Override
+    public void onStart() {
 
-				@Override
-				public void run() {
-					surfaceBlack.setVisibility(View.VISIBLE);
-				}
-			});
-		}
-	}
+    }
 
-	/**
-	 * 去掉播放器的黑色
-	 */
-	public void setPlayerBlackGone() {
-		if (surfaceBlack != null) {
-			mActivity.runOnUiThread(new Runnable() {
+    @Override
+    public void onClearUpDownFav() {
 
-				@Override
-				public void run() {
-					surfaceBlack.setVisibility(View.GONE);
-				}
-			});
-		}
-	}
+    }
 
-	@Override
-	public void onPlayNoRightVideo(GoplayException e) {
-		// TODO Auto-generated method stub
+    @Override
+    public void onPause() {
 
-	}
+    }
 
-	@Override
-	public void onPlayReleateNoRightVideo() {
-		// TODO Auto-generated method stub
+    @Override
+    public void back() {
+    }
 
-	}
+    /**
+     * 设置播放器画面为黑色
+     */
+    public void setPlayerBlack() {
+        if (surfaceBlack != null) {
+            mActivity.runOnUiThread(new Runnable() {
 
-	@SuppressLint("NewApi")
-	public static boolean hasVirtualButtonBar(Context context) {
-		if (Build.VERSION.SDK_INT >= 18) {
-			return !ViewConfiguration.get(context).hasPermanentMenuKey();
-		} else {
-			return false;
-		}
-	}
+                @Override
+                public void run() {
+                    surfaceBlack.setVisibility(View.VISIBLE);
+                }
+            });
+        }
+    }
+
+    /**
+     * 去掉播放器的黑色
+     */
+    public void setPlayerBlackGone() {
+        if (surfaceBlack != null) {
+            mActivity.runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+                    surfaceBlack.setVisibility(View.GONE);
+                }
+            });
+        }
+    }
+
+    @Override
+    public void onPlayNoRightVideo(GoplayException e) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onPlayReleateNoRightVideo() {
+        // TODO Auto-generated method stub
+
+    }
 }
