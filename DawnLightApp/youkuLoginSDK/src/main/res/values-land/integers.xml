@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="numColumns">5</integer>
+    <integer name="myyouku_gridview_numColumns">2</integer>
+    <integer name="searchdirect_gridview_numColumns">2</integer>
+    <integer name="havebuy_gridview_numColumns">4</integer>
+    <integer name="channel_land_gridview_numColumns">4</integer>
+    <integer name="channel_port_gridview_numColumns">5</integer>
+    <integer name="channel_square_gridview_numColumns">5</integer>
+    <integer name="channel_home_gridview_numColumns">2</integer>
+    <integer name="channel_popup_gridview_numColumns">5</integer>
+    <integer name="persondirect_port_gridview_numColumns">5</integer>
+    <integer name="persondirect_land_gridview_numColumns">4</integer>
+    <integer name="pgcdirect_land_gridview_numColumns">4</integer>
+    <integer name="persondirect_table_gridview_numColumns">2</integer>
+    <integer name="persondirect_table_gridview_maxCount">10</integer>
+    <integer name="persondirect_table_gridview_showCount">5</integer>
+    <integer name="other_person_info_list_gridview_numColumns">4</integer>
+
+    <!-- 频道header -->
+
+    <integer name="channel_home_header_item_count">7</integer>
+
+    <!-- 本地视频 Fragment 列数 -->
+    <integer name="local_video_numColumns">4</integer>
+
+</resources>

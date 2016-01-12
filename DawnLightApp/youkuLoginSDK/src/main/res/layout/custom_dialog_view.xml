@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:id="@+id/layout_soku_dialog"
+        android:layout_width="@dimen/layout_soku_dialog_width"
+        android:layout_height="@dimen/layout_soku_dialog_height"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/soku_dialog_txt"
+            style="@style/soku_dialog_txt_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/soku_dialog_txt_maginleftright"
+            android:layout_marginRight="@dimen/soku_dialog_txt_maginleftright"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:lineSpacingExtra="@dimen/soku_dialog_txt_linespacingextra" />
+        <RelativeLayout
+            android:id="@+id/layout_soku_dialog_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/layout_soku_dialog_bottom_height"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/layout_soku_dialog_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#fffafafa"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:id="@+id/soku_dialog_txt_cancel"
+                        style="@style/soku_dialog_txt_cancel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/soku_dialog_txt_cancel" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#2c5e5e5e" />
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="#ffffffff" />
+
+                <LinearLayout
+                    android:id="@+id/layout_soku_dialog_goplay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="#1500baff"
+                    android:gravity="center" >
+
+                    <TextView
+                        android:id="@+id/soku_dialog_txt_goplay"
+                        style="@style/soku_dialog_txt_goplay"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="@string/confirm" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="5px"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/soku_layout_bottom_cover" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

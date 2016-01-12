@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/menu1"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/register"/>
+    <item
+        android:id="@+id/menu2"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/saosao"/>
+    <item
+        android:id="@+id/menu3"
+        android:orderInCategory="100"
+        android:showAsAction="never"
+        android:title="@string/close"/>
+
+</menu>

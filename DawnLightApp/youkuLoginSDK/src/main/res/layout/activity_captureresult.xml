@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/homepage_title_height"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/subtitle_margin"
+        android:paddingRight="@dimen/subtitle_margin" >
+
+        <TextView
+            style="@style/homepagetitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:shadowDy="10"
+            android:shadowRadius="2"
+            android:text="@string/saosao" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="4px"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/tab_shadow" />
+
+    <ScrollView
+        android:id="@+id/has_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/has_result_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16px"
+                android:layout_marginRight="16px"
+                android:layout_marginTop="20px"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="34px"
+                android:paddingLeft="16px"
+                android:paddingRight="16px"
+                android:paddingTop="32px" >
+
+                <TextView
+                    android:id="@+id/title"
+                    style="@style/homepagetitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true" />
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#f5f5f5" >
+
+                    <ImageView
+                        android:layout_width="@dimen/icon_not_loaded_width"
+                        android:layout_height="@dimen/icon_not_loaded_width"
+                        android:layout_gravity="center"
+                        android:src="@drawable/channel_not_loaded_icon_play" />
+
+                    <ImageView
+                        android:id="@+id/img"
+                        android:layout_width="716px"
+                        android:layout_height="400px"
+                        android:scaleType="centerCrop" />
+
+                    <ImageView
+                        android:id="@+id/img_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_marginBottom="28px"
+                        android:layout_marginLeft="28px"
+                        android:src="@drawable/saosao_play" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/seeToo"
+                    style="@style/homepagetitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true" />
+
+                <Button
+                    android:id="@+id/play"
+                    style="@style/homepagetitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/saosao_btn_shape"
+                    android:gravity="center"
+                    android:text="@string/play"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16px"
+                android:layout_marginRight="16px"
+                android:background="#999999" />
+
+            <LinearLayout
+                android:id="@+id/no_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="16px"
+                android:layout_marginRight="16px"
+                android:orientation="horizontal"
+                android:visibility="gone" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2px"
+                    android:paddingRight="8px"
+                    android:src="@drawable/saosao_no_right_icon" />
+
+                <TextView
+                    android:id="@+id/no_right_tt"
+                    style="@style/homepagetitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/qrcode_result_no_right_tt"
+                    android:textColor="#333333" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/no_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/no_result_white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16px"
+                android:layout_marginRight="16px"
+                android:layout_marginTop="20px"
+                android:background="@color/white"
+                android:gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" >
+
+                    <ImageView
+                        android:id="@+id/img_saosao_error_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingRight="8px"
+                        android:src="@drawable/saosao_error_icon" />
+
+                    <TextView
+                        android:id="@+id/no_result_white_tt"
+                        style="@style/homepagetitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/img_saosao_error_icon"
+                        android:text="@string/qrcode_result_no_result_white_tt"
+                        android:textColor="#333333" />
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/re_saosao"
+                    style="@style/homepagetitle"
+                    android:layout_width="560px"
+                    android:layout_height="88px"
+                    android:background="@drawable/saosao_btn_shape"
+                    android:gravity="center"
+                    android:text="@string/qrcode_result_restart_scan"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginLeft="16px"
+                android:layout_marginRight="16px"
+                android:background="#999999" />
+
+            <ImageView
+                android:id="@+id/no_result_img_tishi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="fitXY"
+                android:src="@drawable/saosao_tishi" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/no_result_tt_tishi"
+                    style="@style/homepagetitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16px"
+                    android:layout_marginRight="16px"
+                    android:layout_marginTop="10px"
+                    android:drawableLeft="@drawable/home_hot_black_point"
+                    android:drawablePadding="10dp"
+                    android:text="@string/qrcode_result_bellow_player"
+                    android:textColor="#666666" />
+
+                <TextView
+                    android:id="@+id/no_result_tt_tishi2"
+                    style="@style/homepagetitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16px"
+                    android:layout_marginRight="16px"
+                    android:layout_marginTop="10px"
+                    android:drawableLeft="@drawable/home_hot_black_point"
+                    android:drawablePadding="10dp"
+                    android:text="@string/qrcode_result_need_network"
+                    android:textColor="#666666" />
+
+                <TextView
+                    android:id="@+id/no_result_tt_tishi3"
+                    style="@style/homepagetitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16px"
+                    android:layout_marginLeft="16px"
+                    android:layout_marginRight="16px"
+                    android:layout_marginTop="10px"
+                    android:drawableLeft="@drawable/home_hot_black_point"
+                    android:drawablePadding="10dp"
+                    android:text="@string/qrcode_result_keep_camera_no_tilt"
+                    android:textColor="#666666" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

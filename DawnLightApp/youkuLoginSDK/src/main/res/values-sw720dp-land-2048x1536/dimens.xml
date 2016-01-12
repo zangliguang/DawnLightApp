@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 小米PAD -->
+    <!-- Common 公用 -->
+    <dimen name="popup_menu_width">210dp</dimen>
+</resources>

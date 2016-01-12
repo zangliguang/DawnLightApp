@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
+
     <application
         android:name=".DawnLightApplication"
         android:allowBackup="true"
@@ -39,12 +40,34 @@
 
         <!--优酷-->
         <!-- 播放界面demo -->
+
         <activity
             android:name=".activity.video.PlayerActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+
+        <!-- 已经缓存的视频界面demo -->
+        <activity
+            android:name=".activity.video.CachedActivity"
+            android:launchMode="singleTask" />
+        <!-- 正在缓存的视频展示界面demo -->
+        <activity
+            android:name=".activity.video.CachingActivity"
+            android:launchMode="singleTask" />
+
+        <!-- 以下两个为下载时需要的添加的Service -->
+        <service
+            android:name="com.youku.service.download.DownloadService"
+            android:label="Youku Download Service"
+            android:process=":download">
+            <intent-filter android:priority="1000">
+                <action android:name="com.youku.service.download.DownloadService" />
+
+                <category android:name="com.youku.service.download.DownloadService" />
+            </intent-filter>
+        </service>
         <!-- client_id及client_secret配置 test -->
         <meta-data
             android:name="client_id"

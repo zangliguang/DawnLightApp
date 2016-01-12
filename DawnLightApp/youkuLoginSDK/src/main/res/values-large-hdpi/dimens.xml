@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="myyouku_top_margin_left">12px</dimen>
+    <dimen name="myyouku_setting_text_margin_left">9px</dimen>
+    <dimen name="myyouku_setting_bar_height">50px</dimen>
+    <dimen name="myyouku_setting_list_text_margin_left">24px</dimen>
+    <dimen name="myyouku_setting_list_item_height">59px</dimen>
+    <dimen name="myyouku_setting_wifi_bar_height">59px</dimen>
+    <dimen name="myyouku_setting_list_item_btn_margin_right">23px</dimen>
+    <dimen name="myyouku_setting_lists_gap">15px</dimen>
+    <dimen name="myyouku_setting_divider">1px</dimen>
+    
+   <!-- login -->     
+
+    <dimen name="login_blue_line_Margin_top">80px</dimen>
+    <dimen name="login_blue_line_Margin_right">78px</dimen>
+    <dimen name="login_login_btn_height">94px</dimen>
+    <dimen name="login_edit_magin_left">18px</dimen>
+    <dimen name="login_tips_margin_top_register">2px</dimen>
+    <dimen name="login_edit_magin_bottom">13px</dimen>
+    <dimen name="login_btn_magin_top_register">30px</dimen>
+    <dimen name="regist_text_margin_top">47px</dimen>
+    
+    <!-- 字体适配  -->
+    <dimen name="text_size_1">10sp</dimen>
+    <dimen name="text_size_2">12sp</dimen>
+    <dimen name="text_size_3">13sp</dimen>
+    <dimen name="text_size_4">14sp</dimen>
+    <dimen name="text_size_5">15sp</dimen>
+    <dimen name="text_size_6">16sp</dimen>
+    <dimen name="text_size_7">19sp</dimen>
+    <dimen name="text_size_8">27sp</dimen>
+    
+    <dimen name="homepage_title_height">72px</dimen>
+    <dimen name="homepage_item_spacing">8px</dimen>
+<!-- 
+    1024x600 竖屏
+
+    <dimen name="more_item_iv_width">55dp</dimen>
+    <dimen name="more_item_iv_height">53dp</dimen>
+    <dimen name="more_pop_item_height">134dp</dimen>
+    <dimen name="plugin_detail_play_pause_pandding">0dp</dimen>
+
+    首页 1024x600
+
+    <dimen name="homepage_item_height">458px</dimen>
+    <dimen name="homepage_item_half_height">225px</dimen>
+    <dimen name="homepage_item_half_width">288px</dimen>
+    <dimen name="homepage_item_spacing">8px</dimen>
+    <dimen name="homepage_title_height">72px</dimen>
+    <dimen name="homepage_item_text_height">63px</dimen>
+
+
+    login
+
+    <dimen name="login_blue_line_Margin_top">80px</dimen>
+    <dimen name="login_blue_line_Margin_right">78px</dimen>
+    <dimen name="login_login_btn_height">94px</dimen>
+    <dimen name="login_edit_magin_left">18px</dimen>
+    <dimen name="login_tips_margin_top_register">2px</dimen>
+    <dimen name="login_edit_magin_bottom">13px</dimen>
+    <dimen name="login_btn_magin_top_register">30px</dimen>
+    <dimen name="regist_text_margin_top">47px</dimen>
+
+    通用        values-large-hdpi
+
+    <dimen name="myyouku_item_line_margin_left">9px</dimen>
+
+    设置        values-large-hdpi
+
+    <dimen name="myyouku_top_margin_left">12px</dimen>
+    <dimen name="myyouku_setting_text_margin_left">9px</dimen>
+    <dimen name="myyouku_setting_bar_height">50px</dimen>
+    <dimen name="myyouku_setting_list_text_margin_left">24px</dimen>
+    <dimen name="myyouku_setting_list_item_height">59px</dimen>
+    <dimen name="myyouku_setting_wifi_bar_height">59px</dimen>
+    <dimen name="myyouku_setting_list_item_btn_margin_right">23px</dimen>
+    <dimen name="myyouku_setting_lists_gap">15px</dimen>
+    <dimen name="myyouku_setting_divider">1px</dimen>
+
+    个人中心        values-large-hdpi
+    
+    <dimen name="activity_myyouku_paddingbottom">10px</dimen>
+    <dimen name="activity_myyouku_paddingleft">16px</dimen>
+    <dimen name="activity_myyouku_gridview_verticalspacing">6px</dimen>
+    <dimen name="myouku_video_layout_width">165dp</dimen>
+    <dimen name="myyouku_video_sou_maxLength">68dp</dimen>
+    
+    <dimen name="myyouku_list_item_second_textsize">15px</dimen>
+    <dimen name="myyouku_list_item_third_textsize">15px</dimen>
+    <dimen name="myyouku_list_item_third_maxwidth">147px</dimen>
+
+    上传        values-large-hdpi
+
+    <dimen name="myyouku_upload_video_image_block_height">372px</dimen>
+    <dimen name="myyouku_upload_video_image_margin_left">12px</dimen>
+    <dimen name="myyouku_upload_video_image_margin_right">12px</dimen>
+    <dimen name="myyouku_upload_video_image_margin_top">18px</dimen>
+    <dimen name="myyouku_upload_video_image_height">324px</dimen>
+    <dimen name="myyouku_upload_video_uploadbtn_width">114px</dimen>
+    <dimen name="myyouku_upload_video_upload_gap">12px</dimen>
+    <dimen name="myyouku_upload_video_detail_height">52px</dimen>
+    <dimen name="myyouku_upload_video_detail_text_padding_left">22px</dimen>
+    <dimen name="myyouku_upload_video_detail_type_height">49px</dimen>
+    <dimen name="myyouku_upload_video_detail_type_padding_left">15px</dimen>
+    <dimen name="myyouku_upload_video_checkbox_margin_top">10px</dimen>
+    <dimen name="myyouku_upload_video_checktext_margin_left">10px</dimen>
+    <dimen name="myyouku_upload_video_more_margin_left">12px</dimen>
+    <dimen name="myyouku_upload_video_cacel_margin_top">37px</dimen>
+    <dimen name="myyouku_upload_video_cacel_height">59px</dimen>
+    <dimen name="myyouku_upload_video_cacel_gap">9px</dimen>
+    <dimen name="myyouku_upload_video_dialog_top_height">63px</dimen>
+    <dimen name="myyouku_upload_video_dialog_title_top_margin">30px</dimen>
+    <dimen name="myyouku_upload_video_dialog_title_left_margin">14px</dimen>
+    <dimen name="myyouku_upload_video_dialog_lines_left_margin">18px</dimen>
+    <dimen name="myyouku_upload_video_dialog_other_line_top_margin">36px</dimen>
+    <dimen name="myyouku_upload_video_dialog_btns_top_margin">70px</dimen>
+
+    缓存页面    1024*600
+
+    <dimen name="download_grid_item_add_height">66dp</dimen>
+    <dimen name="download_grid_item_image_padding_right">3dp</dimen>
+
+    频道页        values-large-hdpi
+
+    <dimen name="channel_rank_top_three_size">131px</dimen>
+
+    全屏播放  LF
+    <dimen name="fullscreen_player_setting__checkbox_padding">22dp</dimen>
+
+    字体适配
+    <dimen name="text_size_1">10sp</dimen>
+    <dimen name="text_size_2">12sp</dimen>
+    <dimen name="text_size_3">13sp</dimen>
+    <dimen name="text_size_4">14sp</dimen>
+    <dimen name="text_size_5">15sp</dimen>
+    <dimen name="text_size_6">16sp</dimen>
+    <dimen name="text_size_7">19sp</dimen>
+    <dimen name="text_size_8">27sp</dimen>
+
+    myyouku_history_emptyview
+    <dimen name="img_myyouku_history_norecord_width">67px</dimen>
+    <dimen name="img_myyouku_history_norecord_height">60px</dimen>
+    <dimen name="txt_myyouku_history_norecord_tip_marginleft">15px</dimen>
+    <dimen name="txt_myyouku_history_norecord_tip_textsize">16px</dimen>
+ -->
+</resources>

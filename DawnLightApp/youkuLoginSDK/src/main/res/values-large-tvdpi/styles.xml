@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="FontD">
+        <item name="android:textSize">12sp</item>
+    </style>
+        <style name="homepagetitle" parent="FontD">
+        <item name="android:textColor">#333333</item>
+    </style>
+<!-- 
+    <style name="FontA">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="FontB">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="FontC">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="FontD">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="FontE">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="FontF">
+        <item name="android:textSize">29sp</item>
+    </style>
+
+    <style name="FontG">
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <style name="FontH">
+        <item name="android:textSize">42sp</item>
+    </style>
+
+    <style name="FontI">
+        <item name="android:textSize">48sp</item>
+    </style>
+
+    <style name="homepagetitle" parent="FontD">
+        <item name="android:textColor">#333333</item>
+    </style>
+
+    <style name="homepagetext" parent="FontA">
+        <item name="android:textColor">#999999</item>
+    </style>
+
+
+    <style name="homepagegridtitle" parent="FontD">
+        <item name="android:textColor">#666666</item>
+    </style>
+    个人中心 setting
+
+    <style name="mycenter_setting_listtext_Font">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#666666</item>
+        <item name="android:shadowColor">#ffffff</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="mycenter_header_complete_text_Font" parent="FontC">
+        <item name="android:textColor">#666666</item>
+        <item name="android:shadowColor">#ffffff</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="mycenter_setting_listtext_sub_Font">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#cccccc</item>
+        <item name="android:shadowColor">#ffffff</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="mycenter_Font">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="mycenter_setting_cleartext_Font" parent="mycenter_Font">
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="mycenter_upload_video_tip_Font" parent="mycenter_Font">
+        <item name="android:textColor">#cccccc</item>
+    </style>
+
+    <style name="mycenter_upload_video_uploadbtn_Font" parent="mycenter_Font">
+        <item name="android:textColor">#999999</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowColor">#ffffff</item>
+    </style>
+
+    <style name="mycenter_upload_detail_Font" parent="FontC">
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="mycenter_upload_btn_Font" parent="FontB"></style>
+
+    <style name="mycenter_upload_item_Font">
+        <item name="android:textColor">#ccffffff</item>
+    </style>
+
+    <style name="mycenter_upload_item_chinese_Font" parent="mycenter_upload_item_Font">
+        <item name="android:textSize">43sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="mycenter_upload_item_number_Font" parent="mycenter_upload_item_Font">
+        <item name="android:textSize">47sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="mycenter_upload_item_size_Font" parent="mycenter_upload_item_Font">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="mycenter_grid_item_title_font" parent="mycenter_Font">
+        <item name="android:textColor">#666666</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowColor">#ffffff</item>
+    </style>
+
+    <style name="mycenter_grid_item_count_font" parent="FontD">
+        <item name="android:textColor">#666666</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowColor">#ffffff</item>
+    </style>
+
+    <style name="mycenter_top_user_name" parent="FontC">
+        <item name="android:textColor">#666666</item>
+        <item name="android:shadowColor">#ffffff</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="mycenter_top_user_desc" parent="FontD">
+        <item name="android:textColor">#999999</item>
+        <item name="android:shadowColor">#ffffff</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">0</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+
+    <style name="mycenter_cat_grid_item_text" parent="FontC">
+        <item name="android:textColor">#666666</item>
+    </style>
+
+    <style name="channel_rank_category_rank_text">
+        <item name="android:textSize">54sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#cccccc</item>
+    </style>
+    
+     <style name="stripeMiddleFont">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:shadowColor">#000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+ -->
+</resources>

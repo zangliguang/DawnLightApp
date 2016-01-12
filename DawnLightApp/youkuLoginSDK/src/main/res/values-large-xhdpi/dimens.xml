@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="myyouku_top_margin_left">8dp</dimen>
+    <dimen name="myyouku_setting_text_margin_left">6dp</dimen>
+    <dimen name="myyouku_setting_bar_height">33dp</dimen>
+    <dimen name="myyouku_setting_list_text_margin_left">16dp</dimen>
+    <dimen name="myyouku_setting_list_item_height">39dp</dimen>
+    <dimen name="myyouku_setting_wifi_bar_height">39dp</dimen>
+    <dimen name="myyouku_setting_list_item_btn_margin_right">8dp</dimen>
+    <dimen name="myyouku_setting_lists_gap">10dp</dimen>
+    <dimen name="myyouku_setting_divider">1dp</dimen>
+    
+   	<!-- 字体适配 -->
+    <dimen name="text_size_1">11sp</dimen>
+    <dimen name="text_size_2">12sp</dimen>
+    <dimen name="text_size_3">14sp</dimen>
+    <dimen name="text_size_4">15sp</dimen>
+    <dimen name="text_size_5">17sp</dimen>
+    <dimen name="text_size_6">18sp</dimen>
+    <dimen name="text_size_7">21sp</dimen>
+    <dimen name="text_size_8">29sp</dimen>
+    
+    <dimen name="homepage_title_height">36dp</dimen>
+    <dimen name="subtitle_margin">12dp</dimen>
+    <dimen name="homepage_item_spacing">8dp</dimen>
+    
+    <dimen name="icon_not_loaded_width">32dp</dimen>
+    <dimen name="icon_not_loaded_height">30dp</dimen>
+    
+  <!--   <dimen name="text_size_b">9sp</dimen>
+    <dimen name="text_size_c">10sp</dimen>
+    <dimen name="text_size_d">12sp</dimen>
+    <dimen name="text_size_j">14sp</dimen>
+    <dimen name="text_size_e">15sp</dimen>
+    <dimen name="text_size_f">18sp</dimen>
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">25dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">10dp</dimen>
+
+    title 页       values-large-xhdpi
+
+    <dimen name="homepage_title_height">36dp</dimen>
+    <dimen name="homepage_item_height">263dp</dimen>
+    <dimen name="homepage_item_width">392dp</dimen>
+    <dimen name="homepage_item_half_width">194dp</dimen>
+    <dimen name="homepage_item_spacing">8dp</dimen>
+    <dimen name="homepage_item_text_margin_left">7dp</dimen>
+    <dimen name="homepage_change_btn_margin_left">28dp</dimen>
+
+    通用      values-large-xhdpi
+
+    <dimen name="myyouku_item_line_margin_left">6dp</dimen>
+
+    设置        values-large-xhdpi
+
+    <dimen name="myyouku_top_margin_left">8dp</dimen>
+    <dimen name="myyouku_setting_text_margin_left">6dp</dimen>
+    <dimen name="myyouku_setting_bar_height">33dp</dimen>
+    <dimen name="myyouku_setting_list_text_margin_left">16dp</dimen>
+    <dimen name="myyouku_setting_list_item_height">39dp</dimen>
+    <dimen name="myyouku_setting_wifi_bar_height">39dp</dimen>
+    <dimen name="myyouku_setting_list_item_btn_margin_right">8dp</dimen>
+    <dimen name="myyouku_setting_lists_gap">10dp</dimen>
+    <dimen name="myyouku_setting_divider">1dp</dimen>
+
+    个人中心        values-large-xhdpi
+
+
+    上传        values-large-xhdpi
+
+    <dimen name="myyouku_upload_video_image_block_height">247dp</dimen>
+    <dimen name="myyouku_upload_video_image_margin_left">8dp</dimen>
+    <dimen name="myyouku_upload_video_image_margin_right">8dp</dimen>
+    <dimen name="myyouku_upload_video_image_margin_top">12dp</dimen>
+    <dimen name="myyouku_upload_video_image_height">216dp</dimen>
+    <dimen name="myyouku_upload_video_uploadbtn_width">76dp</dimen>
+    <dimen name="myyouku_upload_video_upload_gap">8dp</dimen>
+    <dimen name="myyouku_upload_video_detail_height">35dp</dimen>
+    <dimen name="myyouku_upload_video_detail_text_padding_left">15dp</dimen>
+    <dimen name="myyouku_upload_video_detail_type_height">33dp</dimen>
+    <dimen name="myyouku_upload_video_detail_type_padding_left">10dp</dimen>
+    <dimen name="myyouku_upload_video_checkbox_margin_top">7dp</dimen>
+    <dimen name="myyouku_upload_video_checktext_margin_left">7dp</dimen>
+    <dimen name="myyouku_upload_video_more_margin_left">4dp</dimen>
+    <dimen name="myyouku_upload_video_cacel_margin_top">25dp</dimen>
+    <dimen name="myyouku_upload_video_cacel_height">39dp</dimen>
+    <dimen name="myyouku_upload_video_cacel_gap">5dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_top_height">41dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_title_top_margin">20dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_title_left_margin">9dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_lines_left_margin">12dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_other_line_top_margin">24dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_btns_top_margin">48dp</dimen>
+    <dimen name="filter_btn_margin">50dp</dimen>
+    <dimen name="upload_item_width">188dp</dimen>
+    <dimen name="upload_item_height">138dp</dimen>
+    <dimen name="upload_item_img_height">106dp</dimen>
+
+    频道页面        values-large-xhdpi
+
+    <dimen name="channel_rank_top_three_size">50dp</dimen>
+
+    values-large-xhdpi
+
+    <dimen name="subtitle_height">40dp</dimen>
+    <dimen name="subtitle_margin">12dp</dimen>
+    <dimen name="btn_switch_margin">5dp</dimen>
+    <dimen name="gridview_spacing">8dp</dimen>
+    <dimen name="gridview_pading_horizontal">8dp</dimen>
+    <dimen name="gridview_pading_top">8dp</dimen>
+    <dimen name="gridview_item_width">228dp</dimen>
+    <dimen name="gridview_item_iv_height">123dp</dimen>
+    <dimen name="filter_cancel_height">37dp</dimen>
+    <dimen name="filter_cancel_width">44dp</dimen>
+    <dimen name="youku_mytag_item_tv_marginTop">5dp</dimen>
+    <dimen name="youku_mytag_item_marginTop">5dp</dimen>
+    <dimen name="stripe_bottom_tv_port_marginTop">2dp</dimen>
+    <dimen name="gridview_item_tv_height_port">40dp</dimen>
+    <dimen name="gridview_item_title_marginTop">2dp</dimen>
+    <dimen name="filter_top_padding">8dp</dimen>
+    <dimen name="tag_icon_dimen">50dp</dimen>
+    <dimen name="shadow_height">1dp</dimen>
+    <dimen name="btn_switch_dimen">8dp</dimen>
+    <dimen name="heart_view_width">26dp</dimen>
+    <dimen name="heart_view_height">23dp</dimen>
+    <dimen name="icon_not_loaded_width">32dp</dimen>
+    <dimen name="icon_not_loaded_height">30dp</dimen>
+
+    全屏播放 頭部
+    <dimen name="plugin_detail_play_pause_pandding">0dp</dimen>
+    全屏播放 右側聲音
+    全屏播放 底部
+    全屏播放 連播
+
+    全屏播放 设置
+    <dimen name="fullscreen_player_setting__width">318dp</dimen>
+    <dimen name="fullscreen_player_setting__checkbox_padding">22dp</dimen>
+
+    全屏播放 剧集选择
+    <dimen name="fullscreen_player_episode_item_text_size">15sp</dimen>
+    <dimen name="fullscreen_player_episode_item_small_text_size">10sp</dimen>
+
+    全屏播放 设置字体
+
+    历史页面
+    <dimen name="history_line_height">14dp</dimen>
+    search   320 ldpi
+    search 320 ldpi
+    detail page
+    详情页面 pad 竖屏 1280*800
+    <dimen name="detail_play_padding_top_bottom">9.5dp</dimen>
+    <dimen name="detail_play_padding_left_right">8dp</dimen>
+    <dimen name="detail_play_title_height">37dp</dimen>
+    <dimen name="detail_play_title_margin_left_right">6.5dp</dimen>
+
+    详情页播放器底部控制区
+    <dimen name="detail_play_content_padding_top">7.5dp</dimen>
+    <dimen name="detail_play_content_padding_bottom">7.5dp</dimen>
+    <dimen name="detail_play_full_margin_right">12.5dp</dimen>
+    <dimen name="detail_play_progress_margin_left">10dp</dimen>
+    <dimen name="detail_play_progress_margin_right">10dp</dimen>
+    pop up
+    <dimen name="detail_boder">0.5dp</dimen>
+    分集剧情
+    <dimen name="series_desc_list_padding_top">13.5dp</dimen>
+    <dimen name="series_desc_list_divider">8.5dp</dimen>
+
+    播放控制区
+
+    缓存剧集
+    <dimen name="detail_cache_type_width_all">122dp</dimen>
+    <dimen name="detail_cache_type_height">26.5dp</dimen>
+    <dimen name="detail_cache_setting_height">14dp</dimen>
+    <dimen name="detail_cache_type_margin_left">11dp</dimen>
+    <dimen name="detail_cache_list_margintop">14.5dp</dimen>
+    <dimen name="detail_cache_type_width">88dp</dimen>
+    <dimen name="detail_cache_type_divider">0.5dp</dimen>
+    <dimen name="detail_cache_item_divider">10dp</dimen>
+    <dimen name="detail_cache_golist_width">70dp</dimen>
+    new 2012-12-7 17:45:41
+
+
+    综艺剧集列表
+    <dimen name="detail_zy_series_item_content_paddinglr">12dp</dimen>
+    <dimen name="detail_zy_series_item_content_between">22dp</dimen>
+
+    播放评论
+    
+    <dimen name="detail_comment_input_height_dialog">60dp</dimen>
+    <dimen name="detail_comment_input_line_width">1dp</dimen>
+    <dimen name="detail_comment_input_line_height">4dp</dimen>
+    <dimen name="detail_comment_item_user_marginl">10.5dp</dimen>
+    <dimen name="detail_comment_item_user_height">26dp</dimen>
+    <dimen name="detail_comment_item_time_marginl">8.5dp</dimen>
+    <dimen name="detail_comment_item_reply_width">49dp</dimen>
+
+    评论对话框
+    prevue scene relatedVideo
+    <dimen name="detail_video_item_height">39.5dp</dimen>
+
+    new cache
+    introduction
+    detail page end
+    actionbar searchview
+    <dimen name="search_result_provider">58dp</dimen>
+    <dimen name="search_result_textsize">18sp</dimen>
+
+    全屏播放  LF
+
+    <dimen name="fullscreen_player_footer_blank_height">16px</dimen>
+    <dimen name="fullscreen_player_footer_textsize">12sp</dimen>
+    <dimen name="fullscreen_player_footer_length_textsize">14sp</dimen>
+    <dimen name="fullscreen_player_btn_mute_size">50px</dimen>
+    <dimen name="fullscreen_player_volumn_width">115px</dimen>
+    <dimen name="fullscreen_btn_image_padding">80px</dimen>
+    <dimen name="fullscreen_btn_text_heght">75px</dimen>
+    <dimen name="fullscreen_btn_text_size">24sp</dimen>
+
+    缓存页面
+
+    <dimen name="download_grid_item_add_height">46dp</dimen>
+    <dimen name="download_grid_item_image_padding_right">4dp</dimen>
+
+    字体适配
+    <dimen name="text_size_1">11sp</dimen>
+    <dimen name="text_size_2">12sp</dimen>
+    <dimen name="text_size_3">14sp</dimen>
+    <dimen name="text_size_4">15sp</dimen>
+    <dimen name="text_size_5">17sp</dimen>
+    <dimen name="text_size_6">18sp</dimen>
+    <dimen name="text_size_7">21sp</dimen>
+    <dimen name="text_size_8">29sp</dimen>
+     -->
+
+</resources>

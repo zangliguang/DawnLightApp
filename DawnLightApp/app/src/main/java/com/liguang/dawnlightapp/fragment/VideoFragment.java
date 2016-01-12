@@ -84,7 +84,7 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
             @Override
             public void onFragmentInteraction(String id) {
                 Intent i = new Intent(getContext(), PlayerActivity.class);
-                i.putExtra("vid", "XMjIzMjM2");
+                i.putExtra("vid", "XOTI4ODEwMTYw");
                 getActivity().startActivity(i);
 
             }

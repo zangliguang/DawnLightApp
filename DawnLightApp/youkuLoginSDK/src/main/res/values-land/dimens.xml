@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Home 页 1280x800 横屏 -->
+    <!-- line 左右内部间距		111 -->
+    <!-- column 上下内部间距		111 -->
+
+    <dimen name="homepage_item_height">288dp</dimen>
+    <dimen name="homepage_item_half_height">140dp</dimen>
+    <dimen name="homepage_item_half_width">190dp</dimen>
+    <dimen name="homepage_item_spacing">8dp</dimen>
+    <dimen name="homepage_item_text_margin_left">3dp</dimen>
+    <dimen name="subtitle_height">40dp</dimen>
+    <dimen name="subtitle_margin">8dp</dimen>
+    <dimen name="btn_switch_margin">5dp</dimen>
+    <dimen name="gridview_spacing">8dp</dimen>
+    <dimen name="gridview_pading_horizontal">8dp</dimen>
+    <dimen name="gridview_pading_top">8dp</dimen>
+    <dimen name="gridview_item_width">256dp</dimen>
+    <dimen name="gridview_item_iv_height">142dp</dimen>
+    <dimen name="filter_cancel_height">27dp</dimen>
+    <dimen name="filter_cancel_width">33dp</dimen>
+    <dimen name="gridview_item_width_port">100dp</dimen>
+
+    <!-- 缓存页面 -->
+
+
+    <!-- 大词页 -->
+    <dimen name="gridview_item_title_marginTop">3dp</dimen>
+
+    <!-- 个人中心        values-land -->
+
+    <dimen name="myyouku_list_item_second_textsize">8sp</dimen>
+    <dimen name="myyouku_list_item_third_textsize">8sp</dimen>
+    <dimen name="myouku_video_layout_width">120dp</dimen>
+    <dimen name="myouku_video_name_view_padding">8dp</dimen>
+    <dimen name="myouku_video_name_size">11dp</dimen>
+    <dimen name="myouku_video_name_tuh_size">14dp</dimen>
+    <dimen name="myouku_video_yf_tx_padding_bot">3dp</dimen>
+
+    <!-- 订阅        values-land -->
+
+    <dimen name="mysubscribe_week_height">27dp</dimen>
+    <dimen name="mysubscribe_week_size">10dp</dimen>
+    <dimen name="mysubscribe_tou_padding">8dp</dimen>
+    <dimen name="mysubscribe_tou_width">30dp</dimen>
+    <dimen name="mysubscribe_open_height">45dp</dimen>
+
+    <!-- activity_searchmain_history -->
+    <dimen name="layout_txt_searchmain_history_tag_height">46dp</dimen>
+    <!-- activity_searchmain_history -->
+    <dimen name="txt_searchmain_history_one_height">33dp</dimen>
+    <!-- activity_searchmain_recommend -->
+    <dimen name="txt_searchmain_recommend_tag_height">45dp</dimen>
+    <dimen name="layout_searchmain_recommend_area_first_height">46dp</dimen>
+    <dimen name="layout_searchmain_recommend_area_second_height">41dp</dimen>
+    <dimen name="layout_searchmain_recommend_area_third_height">38dp</dimen>
+    <dimen name="layout_searchmain_recommend_area_fourth_height">30dp</dimen>
+    <dimen name="layout_searchmain_recommend_area_paddingbottom">14dp</dimen>
+    <dimen name="channel_stack_item_title_layout_height">57dp</dimen>
+    <dimen name="homepage_item_title_first">12dp</dimen>
+    <dimen name="homepage_item_title_second">10dp</dimen>
+    <dimen name="homepage_stack_item_title_first">17dp</dimen>
+    <dimen name="homepage_stack_item_title_second">13dp</dimen>
+    <dimen name="gridview_item_tv_marginleft">3dp</dimen>
+    <dimen name="channel_stack_item_img_width">28dp</dimen>
+    
+    <!-- 频道页header尺寸 -->
+    
+    <dimen name="channel_header_padding_top">4dp</dimen>
+    <dimen name="channel_header_padding_left">11dp</dimen>
+
+    <dimen name="channel_header_number_height">13.5dp</dimen>
+    <dimen name="channel_header_scroll_padding_top">4dp</dimen>
+
+    <dimen name="channel_header_scroll_padding_leftorright">17dp</dimen>
+    <dimen name="channel_header_item_img_margin_right">3.5dp</dimen>
+    <dimen name="channel_header_item_layout_padding_toporbottom">4dp</dimen>
+    <dimen name="channel_header_item_layout_padding_leftorright">6.5dp</dimen>
+    
+    <dimen name="channel_header_brand_subtitle_height">12dp</dimen>
+
+    <dimen name="channel_header_number_txt_size">7dp</dimen>
+
+    <dimen name="channel_header_brand_subtitle_txt_size">7dp</dimen>
+    
+    <!-- 视频详情页        values-land -->
+    
+    <dimen name="detail_card_marginTop">2.4dp</dimen>
+    
+    
+    <dimen name="detail_card_subscribe_dingyue_line_height">24dp</dimen>
+    <dimen name="other_person_info_subscribe_dingyue_width">100dp</dimen>
+    <dimen name="abc_action_bar_default_height">40dp</dimen>
+    
+    
+    
+    
+    
+    
+</resources>

@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+	<!-- 公用文字(不要轻易修改)—————————————————————————————————————————————————————————————————————— -->
+	
+    <string name="app_name">优酷</string>
+    <string name="search_app_name">视频搜索</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确定</string>
+    <string name="complete">完成</string>
+    <string name="edite">编辑</string>
+    <string name="password">密码</string>
+    <string name="login">登录</string>
+    <string name="logout">登出</string>
+    <string name="register">注册</string>
+    <string name="wait">等待</string>
+    <string name="pause">暂停</string>
+    <string name="download">下载</string>
+    <string name="upload">我的上传</string>
+    <string name="back">返回</string>
+    <string name="exit">退出</string>
+    <string name="prompt">提示</string>
+    <string name="search">搜索</string>
+    <string name="settings">设置</string>
+    <string name="play">播放</string>
+    <string name="detail">详情</string>
+    <string name="cache">下载</string>
+    <string name="series">选集</string>
+    <string name="comment">评论</string>
+    <string name="haveseen">历史</string>
+    <string name="favorite">收藏</string>
+    <string name="unknown">未知</string>
+    <string name="refresh">刷新</string>
+    <string name="saosao">扫一扫 </string>
+    <string name="saosao_login">扫一扫登录 </string>
+    <string name="movie">电影</string>
+    <string name="teleplay">电视剧</string>
+	<string name="play_history">播放历史</string>
+	<string name="myyouku">个人中心</string>
+	<string name="standard_definition">标清</string>
+	<string name="high_definition">高清</string>
+	<string name="super_definition">超清</string>
+	<string name="tips_no_network">当前无网络连接</string>
+	<string name="tips_not_responding">网络不给力，请稍后再试。</string>
+	<string name="tips_use_3g">当前使用2G/3G/4G网络</string>
+	<string name="tips_exit">再按一次将退出优酷</string>
+	<string name="tips_logout">已退出登录</string>
+	<string name="close">关闭</string>
+    
+	<!-- 以上公用文字(不要轻易修改) end——————————————————————————————————————————————————————————————————————— -->
+	
+	
+	<!-- 他人中心 ——————————————————————————————————————————————————————————————————————— -->
+	
+	<string name="other_person_info_list">的专辑</string>
+	<string name="other_person_info_self_list">专辑</string>
+	<string name="other_person_info_self_video">视频</string>
+	<string name="other_person_info_video">的视频</string>
+	<string name="other_person_info_total">共有</string>
+	<string name="other_person_info_total_signle">共</string>
+	<string name="other_person_info_total_videos">个视频</string>
+	<string name="other_person_info_total_playlist">个专辑</string>
+	<string name="other_person_info_update_time">更新时间:</string>
+	<string name="other_person_info_fans_count">粉丝数:</string>
+	<string name="other_person_info_play_count">总播放数:</string>
+	<string name="other_person_info_has_follow">已订阅</string>
+	<string name="other_person_info_has_follow_success">订阅成功</string>
+	<string name="other_person_info_has_follow_fail">订阅失败，请稍后再试</string>
+	<string name="other_person_info_has_cancel_follow_success">已取消订阅</string>
+	<string name="other_person_info_has_cancel_follow_fail">取消订阅失败</string>
+	<string name="other_person_info_do_follow">订阅</string>
+	<string name="other_person_info_no_result_show">TA尚未上传制作任何视频哦</string>
+	<string name="other_person_info_follow_need_login">登录后即可添加订阅</string>
+	<string name="other_person_info_follow_too_quickly">添加订阅有点频繁哦，休息一下吧</string>
+	<string name="other_person_info_follow_to_top">您的订阅数量达到上限啦！</string>
+	<string name="other_person_info_follow_cannot_done">这个用户已屏蔽订阅 </string>
+	
+	<!-- 他人中心  end——————————————————————————————————————————————————————————————————————— -->
+	
+	
+    <string name="network_error">网络错误</string>
+    <string name="init_update_now">现在升级</string>
+    <string name="init_update_nexttime">稍后升级</string>
+    <string name="init_dowloading">正在下载新版本</string>
+    <string name="init_none_sdcard">下载新版本失败，请确定插入了SD卡并有足够的空间进行升级</string>
+
+    
+    <string name="uploading">上传中...</string>
+    <string name="uploading_cancel">上传取消</string>
+    <string name="upload_main_queue_exists">此视频已存在于上传队列中</string>
+    <string name="upload_main_video_title">标题（必填）</string>
+    <string name="upload_main_video_desc">详情（选填）</string>
+    <string name="upload_main_default_category">原创</string>
+    <string name="upload_main_exceeds_maximum">上传队列已满，请等待正在上传的视频成功上传后重试</string>
+    <string name="upload_task_scrap">无法上传此视频，请删除</string>
+    <string name="upload_setting_not_allow">您当前设置了仅WIFI上传，请检查网络设置</string>
+    <string name="agree">我已阅读并接受上传协议</string>
+    <string name="none_camera">非常抱歉，您的手机不支持视频录制功能</string>
+    <string name="select_video">选择视频</string>
+    <string name="none_video">请确认上传的是视频文件</string>
+    <string name="upload_agreement">不含有反动政治、黄色、严重暴力的内容。\n不侵犯其他任何人的合法权益。\n不含有版权问题的影视片段。</string>
+    <string name="upload_main_alert_none_video">您还没有选择要上传的视频</string>
+    <string name="upload_main_alert_none_title">您还没有填入标题</string>
+    <string name="upload_main_alert_number_title">标题栏不可只用数字表示</string>
+    <string name="upload_main_alert_length_title">标题 长度为 2-50 个半角字符</string>
+    <string name="upload_main_alert_none_agreement">请仔细阅读上传协议后，勾选已读协议选项</string>
+    <string name="upload_success_verify">上传成功，审核中</string>
+    <string name="uploading_file_not_exist">视频上传失败，原视频文件已不存在</string>
+    <string name="upload_get_category_failure">获取分类失败，请重试</string>
+    <string name="info_toast_up1">已顶过</string>
+    <string name="info_toast_up1_down">您已经顶过，不能踩</string>
+    <string name="info_toast_down1">已踩过</string>
+    <string name="info_toast_down1_up">您已经踩过，不能顶</string>
+    <string name="info_toast_fav_new1">已收藏</string>
+    <string name="info_toast_fav_new2">该节目收藏失败</string>
+    <string name="info_toast_fav_new3">该视频收藏失败</string>
+    <string name="info_toast_fav_new4">收藏失败</string>
+    <string name="info_toast_fav_1">参数错误</string>
+    <string name="info_toast_fav_2">用户尚未登录</string>
+    <string name="info_toast_fav_3">视频不存在</string>
+    <string name="info_toast_fav_4">已收藏</string>
+    <string name="info_toast_fav_5">收藏失败</string>
+    <string name="info_toast_fav_6">收藏失败，网络异常</string>
+    <string name="favorite_showlist_tab_text">节目</string>
+    <string name="favorite_showlist_update_logo">更新</string>
+    <string name="favorite_videolist_tab_text">视频</string>
+    <string name="favorite_album_tab_text">专辑收藏</string>
+
+	<!-- 注册&登录v3.2修改—————————————————————————————————————————————————————————————— -->
+	<string name="login_success">登录成功！</string>
+	<string name="enter_user_name">请输入您的用户名</string>
+	<string name="user_login_fail">您的用户名和密码不匹配，请再输入试试吧！</string>
+	<string name="register_success">注册成功！</string>
+	<string name="login_error_unknown">数据连接失败，请稍后再试</string>
+	<string name="user_login_error_no_user">此用户不存在</string>
+    <string name="user_login_error_wrong_email">邮箱地址不正确</string>
+	<string name="user_login_tip_comment">登录后可发表评论</string>
+    <string name="user_login_tip_share">登录后可分享视频</string>
+    <string name="user_login_tip_pay">观看付费视频请先登录</string>
+    <string name="user_login_tip_buy_vip">购买请先登录</string>
+    
+    <string name="login_user_name_hint">昵称/邮箱/手机</string>
+    <string name="regist_user_email_hint">输入邮箱</string>
+    <string name="regist_user_email_tip">邮箱地址不正确</string>
+    <string name="regist_user_email_tip_exists">该邮箱已注册</string>
+    <string name="regist_user_email_tip_empty">邮箱不能为空</string>
+    <string name="regist_user_name_hint">输入昵称</string>
+    <string name="regist_user_name_tip">2-8个汉字或者4-16个字符（中文、字母、数字、下划线或减号）</string>
+    <string name="regist_user_name_tip_exists">该昵称已被别人抢注啦</string>
+    <string name="regist_user_name_tip_empty">昵称不能为空</string>
+    <string name="regist_user_pwd1_tip">6-16位数字、字母和符号，区分大小写 </string>
+    <string name="regist_user_pwd1_hint_text">设定六位以上密码 </string>
+    <string name="regist_user_pwd1_tip_empty">密码不能为空</string>
+    <string name="regist_user_pwd2_hint">确认密码</string>
+    <string name="regist_statement">版权声明</string>
+    <string name="regist_agreement">优酷注册协议</string>
+	<string name="regist_user">同意并注册</string>
+	<string name="user_code_fail">验证码错误，请重新输入</string>
+    <!-- end————————————————————————————————————————————————————————————————————————————— -->
+    
+	<!-- 我的收藏—————————————————————————————————————————————————————————————— -->
+    
+    
+    
+    <!-- Remote -->
+    <!-- iKuMini -->
+    <string name="conn">连接</string>
+    
+
+    <string name="my_upload">我的上传</string>
+    <string name="player_more">更多</string>
+    <string name="account_changed">帐号已发生变更，请重新登录后再试</string>
+    <string name="src_file_not_exists">源视频文件不存在，请确认SD卡是否被挂载</string>
+    <string name="duplicate_upload">上传失败，您已经上传过此视频</string>
+    <string name="upload_alert_network">当前正在使用运营商网络上传！</string>
+    <string name="uploaded">上传成功</string>
+    <string name="uploading_tips1">视频正在上传，您可在我的上传内查看状态</string>
+    <string name="player_bt_retry">重试</string> <!-- Player tips -->
+    <string name="player_tip_loading">即将为您播放</string>
+    
+    <!-- 播放器_Pad -->
+    <string name="share">分享</string>
+    <string name="favor">收藏</string>
+
+    <string name="hour">"h"</string>
+    <string name="minute">" m"</string>
+    <string name="second">"s"</string>
+    <string name="pull_to_refresh_pull_label">下拉刷新</string>
+    <string name="pull_to_refresh_release_label">松手刷新</string>
+    <string name="pull_to_refresh_refreshing_label">载入中</string>
+    <string name="filter_title">筛选条件</string>
+    <string name="text_login_err_email_not_verified">邮箱未验证,请先验证再登录</string>
+    
+    <string name="welcome_go_download">本地视频</string>
+    
+    <!-- 下载页 v3.0—————————————————————————————————————————————————————————————— -->
+    
+    <string name="download_add_more">添加下载更多剧集</string>
+    <string name="download_exist_not_finished">该视频已在您的下载列表中</string>
+    <string name="download_exist_finished">该视频已下载完成</string>
+    <string name="download_add_success">添加下载成功</string>
+    <string name="download_no_sdcard">木有发现存储设备，请插入SD卡试试</string>
+    <string name="download_no_space">空间不足，请删除些内容再下载</string>
+    <string name="download_timeout">网络不给力，正在下载的视频已暂停。</string>
+	<string name="download_no_network">网络已断开，正在下载的视频将在网络连接恢复后续传。</string>
+    <string name="download_unknown_error">该视频暂不支持下载</string>
+    <string name="download_write_fail">储存本地视频信息失败</string>
+    <string name="download_many_fail">S个正下载，F个暂无下载版权</string>
+    <string name="download_many_fail_timeout">S个正下载，F个因断网添加失败</string>
+    <string name="download_many_fail_no_space">S个正下载，空间不足F个未下载，请删些内容</string>
+    <string name="download_many_fail_unknown_error">S个正下载，F个不明原因失败</string>
+    <string name="download_cannot_ues_3g">已设置为2G/3G/4G下不允许下载视频</string>
+    
+    <!-- 个人中心v3.8修改——————————————————————————————————————————————————————————————  -->
+    
+    <string name="my_cache">我的下载</string>
+    <string name="my_history">观看记录</string>
+    <string name="my_favorite">我的收藏</string>
+    <string name="my_subscribe">我的订阅</string>
+    <string name="user_login_tip_subscribe">订阅请先登录</string>
+    
+    <string name="mycenter_favorite_empty">还未收藏任何内容</string>
+    <string name="mycenter_upload_upload_empty">还未上传任何内容</string>
+    <string name="tips_no_cache">还未下载任何视频</string>
+	<string name="mycenter_setting_success">设置成功</string>
+    <string name="mycenter_setting_cache_success">缓存已清除 </string>
+    <string name="mycenter_setting_already_latest_version">当前版本是最新版</string>
+    <string name="user_login_tip_favorite">收藏请先登录</string>
+    <string name="user_login_tip_upload">上传请先登录</string>
+    <string name="mycenter_upload_video_tip_sdcard_local">请插入SD卡</string>
+    <string name="mycenter_upload_video_tip_sdcard_new">请插入SD卡来存储您拍摄的视频</string>
+	<string name="upload_no_network">网络已断开，正在上传的视频将在网络连接后恢复续传</string>  
+	<string name="webview_mail_app_not_found">您的手机木有安装邮箱</string>
+    <!-- end————————————————————————————————————————————————————————————————————————————  -->
+
+    <string name="mycenter_setting_play_setting">播放设置</string>
+    <string name="mycenter_setting_play_prefer_hd2">优先播放超清</string>
+    <string name="mycenter_setting_play_prefer_hd">优先播放高清</string>
+    <string name="mycenter_setting_play_prefer_flv">优先播放标清</string>
+    <string name="mycenter_setting_play_open_volumn_gesture">开启音量调节手势</string>
+    <string name="mycenter_setting_play_open_light_gesture">开启亮度调节手势 </string>
+    <string name="mycenter_setting_play_open_speed_gesture">开启快进快退手势</string>
+    <string name="mycenter_setting_play_language">优先播放</string>
+    <string name="mycenter_setting_cache_item_text">下载设置</string>
+    <string name="mycenter_setting_cache_prefer_hd2">优先下载超清</string>
+    <string name="mycenter_setting_cache_prefer_hd">优先下载高清</string>
+    <string name="mycenter_setting_cache_prefer_flv">优先下载标清</string>
+    <string name="mycenter_setting_cache_language">优先下载</string>
+    <string name="mycenter_setting_play_skip_head_and_tail">跳过片头片尾</string>
+    <string name="mycenter_setting_play_auto_play">进入详情页自动播放</string>
+    <string name="mycenter_setting_play_is_open_gesture_control">是否开启手势播放控制</string>
+    <string name="mycenter_setting_play_close_starter_play">开启启动页播放器</string>
+    <string name="mycenter_setting_play_full_screen_play">优先进入全屏播放</string>
+    <string name="mycenter_setting_play_suggest_disable">建议非wifi时不勾选</string>
+    <string name="mycenter_setting_play_suggest_close">建议2G/3G/4G时关闭</string>
+    <string name="mycenter_setting_play_always_loop">始终连播</string>
+    <string name="mycenter_setting_play_no_loop">不连播</string>
+    <string name="mycenter_setting_play_single_loop">单视频循环</string>
+    <string name="mycenter_setting_wifi_setting">网络设置</string>
+    <string name="mycenter_setting_wifi_allow_play_under_3g">允许2G/3G/4G下在线播放</string>
+    <string name="mycenter_setting_wifi_allow_cache_under_3g">允许2G/3G/4G下下载视频</string>
+    <string name="mycenter_setting_notification_setting">消息设置</string>
+    <string name="mycenter_setting_notification_video">消息通知</string>
+    <string name="mycenter_setting_app_version_update">版本更新</string>
+    <string name="mycenter_setting_clear">清除应用缓存</string>
+    <string name="mycenter_upload_upload_new_item">上传新作品</string>
+    <string name="mycenter_upload_upload_state_0">转码中</string>
+    <string name="mycenter_upload_upload_state_1">转码失败</string>
+    <string name="mycenter_upload_upload_state_2">审核中</string>
+    <string name="mycenter_upload_upload_state_4">已屏蔽</string>
+    <string name="mycenter_upload_video_tip">快来上传您满意的作品吧！</string>
+    <string name="mycenter_upload_video_localbtn">本地视频</string>
+    <string name="mycenter_upload_video_newbtn">拍摄一段</string>
+    <string name="mycenter_upload_video_name">视频名称</string>
+    <string name="mycenter_upload_video_desc">视频介绍</string>
+    <string name="mycenter_upload_video_post">发布</string>
+	<string name="mycenter_upload_video_dialog_title"> 选择您要上传的类型</string>
+    <string name="mycenter_upload_delete_dialog_title">删除上传</string>
+    <string name="webview_wrong_address">地址错误</string>
+    <string name="mycenter_logout_tip">确认登出吗？</string>
+    <string name="delete_my_tag_title">删除分类</string>
+    <string name="delete_my_tag_message">确认删除吗？</string>
+    <string name="channel_filter_network_error_refresh">未获取到分类,请刷新页面</string>
+    <string name="mycenter_favorite_delete_dialog_title">删除收藏</string>
+    <string name="mycenter_refresh_tip_request">正在请求列表，请稍后刷新</string>
+    <string name="common_no_content">未获取到内容，去看看本地视频吧！点击图片可刷新。</string>
+         
+    <!-- 详情页v3.2修改—————————————————————————————————————————————————————————————————————— -->
+    <string name="detail_3g_play_toast">已设置为2G/3G/4G下不允许播放视频</string>
+    <string name="detail_series_list">选集</string>
+    <string name="detail_series_desc">剧情</string>
+    <string name="detail_related_vedio">相关</string>
+    <string name="detail_related_spot">看点</string>
+    
+    
+    <string name="detail_3g_tips">您设置了2G/3G/4G下禁止在线播放</string>
+    <string name="detail_comment_input_hint">你还可以输入300字</string>
+    <string name="detail_user_name">用户名称：</string>
+    <string name="detail_reply">回复</string>
+    <string name="detail_share">分享</string>
+    <string name="detail_special_list">专辑列表</string>
+    <string name="detail_special_list_cache">下载列表</string>
+    <string name="detail_music">音乐</string>
+    <string name="detail_ugc">ugc</string>
+    <string name="detail_tv">电视剧</string>
+    <string name="detail_movie">电影</string>
+    <string name="detail_variety">综艺</string>
+    <string name="detail_cartoon">动漫</string>
+    <string name="detail_memory">纪录片</string>
+    <string name="detail_education">教育</string>
+    <string name="detail_game">游戏</string>
+    <string name="detail_special">专辑</string>
+    <string name="detail_news">资讯</string>
+    <string name="detail_entertainment">娱乐</string>
+    <string name="detail_cache_confirm">开始下载</string>
+    <string name="detail_weak_network">弱网提示</string>
+    <string name="detail_pay_demond">会员价 ： </string>
+    <string name="detail_pay_discount">点播价 ： </string>
+    <string name="detail_pay_buy">购买</string>
+    <string name="detail_pay_vip_buy">开通</string>
+    <string name="detail_pay_watch">是否马上观看？</string>
+    <string name="detail_pay_success">交易成功!</string>
+    <string name="detail_pay_fail">交易失败</string>
+    <string name="detail_pay_again">重新购买吗？</string>
+    <string name="detail_pay_search_fail">请点击右上角刷新支付状态</string>
+    <string name="detail_pay_already">已购买</string>
+    <!-- 加密视频 -->
+    <!-- 评论 -->
+    <string name="comment_add_alert_empty">评论内容不能为空</string>
+    <string name="comment_alert_word_stat">您的评论字数已超过#</string>
+    <string name="detail_comment_success">发表成功，已进入评论审核。</string>
+    <string name="detail_comment_fail">发表失败，请稍后再试</string>
+
+    <string name="comment_add_error_400">请不要发布重复内容</string>
+    
+    <string name="comment_add_alert_yes">是</string>
+    <string name="comment_add_alert_cancel">否</string>
+
+	<!-- end————————————————————————————————————————————————————————————————————————————— -->
+	
+
+    <string name="detail_comment_empty">该视频还没有任何评论</string>
+    <string name="detail_comment_max">您的评论字数已超过300</string>
+    <!-- 详情页结束 -->
+
+    
+    <!-- 播放历史页 -->
+    <string name="replay">重播</string>
+    <string name="play_continue">续播</string>
+    <string name="play_next">下集</string>
+    <string name="cached">已下载</string>
+    
+
+    <!-- 搜索菜单 -->
+    <string name="search_label">请输入</string>
+    
+    <!-- 首页v3.2修改—————————————————————————————————————————————————————————————————————— -->
+    <string name="Homepage_tab_channel">频道分类</string>
+    <string name="Homepage_tab_home">优酷首页</string>
+    <string name="Homepage_tab_myyouku">个人中心</string>
+    <!-- 当展示优酷猜时候TAB文字替换-->
+    <string name="Homepage_tab_guess">推荐</string>
+    <string name="Homepage_tab_channel_on_4tab">频道</string>
+    <string name="Homepage_tab_home_on_4tab">首页</string>
+    <string name="Homepage_tab_myyouku_on_4tab">我的</string>
+    <!-- end————————————————————————————————————————————————————————————————————————————  -->
+
+	<string name="choice_download_mode">下载默认设置</string>
+	<string name="filter_no_result_top">抱歉！没有找到任何结果</string>
+	<string name="filter_no_result_bottom">建议您把一些条件设为全部试试</string>
+	
+	<!-- 大词页v3.2修改—————————————————————————————————————————————————————————————————————— -->
+	
+    <string name="tips_add_tag_need_login">添加标签请先登录</string>
+	<string name="tag_maximum_characters">标签最多6个中文字符</string>
+	<string name="too_many_tag">您最多只能拥有10个标签</string>
+	<string name="already_add">标签已存在</string>
+	<string name="my_tag_add_title">请输入你的兴趣分类</string>
+	<string name="my_tag_add_content_hint">例如，你喜欢的音乐风格、你喜欢的某人、你正在追的剧...</string>
+	<string name="channel_rank_main_title">今日排行榜</string>
+	<!-- end————————————————————————————————————————————————————————————————————————————  -->
+   
+	<!-- menu-->
+	<string name="menu_feedback">问题反馈</string>
+	<string name="menu_recommend">应用推荐</string>
+	<string name="menu_gamecenter">游戏中心</string>
+	<string name="menu_rating">为我评分</string>
+	<string name="current_namespace">http://youku.com/youku</string>
+	<string name="youku_title_filter">筛选</string>
+	
+	
+  <string name="preferences_name">设置</string>
+  <string name="home_btn_recommend">为我推荐</string>
+  <string name="home_btn_editor">返回首页</string>
+	
+	
+  <string name="myyouku_hd">高清</string>
+  <string name="myyouku_ud">超清</string>
+  <!-- V3.3新增 -->
+
+  <string name="txt_searchresult_top_qc_tag">智能匹配至\"</string>
+  <string name="txt_searchresult_top_qc_tag1">\"。仍然搜索：</string>
+  
+  
+  <string name="searchresult_recommend_empty">没有找到结果，请搜索其他词试试？</string>
+  <string name="txt_error_emptyview">暂时没有获取到数据，请稍后再试</string>
+  <string name="txt_error_emptyview_click">点击图片可刷新</string>
+  <string name="searchresult_noresult_empty">没有这类视频，将筛选条件设为全部试试？</string>
+  <string name="searchresult_recommend_empty_more">更多精彩内容:</string>
+  <string name="searchdirect_other_site_source">来源</string>
+  <string name="txt_searchresult_filter_ob_synthesize">综合排序</string>
+  <string name="searchdirect_bottom_play">立即播放</string>
+  <string name="soku_dialog_txt_cancel">取消</string>
+  <string name="soku_dialog_txt_goplay">去观看</string>
+  <string name="soku_dialog_txt">优酷网暂时没有《%1$s》相关内容,我们建议您可以到%2$s观看此节目,或返回查看其他优酷视频内容.</string>
+  <string name="searchmain_history">搜索历史</string>
+  <string name="searchmain_recommend">热词推荐</string>
+  <string name="searchmain_history_clear">清空</string>
+  <string name="searchmain_history_clear_tip">确认清空搜索历史吗？</string>
+
+  <string name="share_third_weixin">微信</string>
+  <string name="share_third_weixin_timeline">微信朋友圈</string>
+  <string name="share_video_title">分享视频标题</string>
+  <string name="videoinfo_share_use_weixin_install_title">您还没有安装微信，需要安装吗？</string>
+  <string name="videoinfo_share_use_weixin_upinstall_title">您的微信不是最新版，需要安装最新版吗？</string>
+  <string name="webview_gotoweb">跳转</string>
+  <string name="webview_refresh">刷新</string>
+  <string name="webview_tip">部分设备无法播放，可尝试跳转至其他浏览器播放</string>
+  <string name="camera_error_tip">未找到摄像头，您的设备不支持该功能</string>
+  <string name="camera_error_check_tip">摄像头故障，请检查摄像头功能</string>
+  <string name="tv_control">TV遥控器</string>
+  
+  
+  <!--V3.4 dlna -->
+  
+  <string name="confirm_install_hint">"安装提示"</string>
+  <string name="confirm_install">"为保证您的交易安全，需要您安装移动快捷支付，才能进行付款。\n\n点击确定，立即安装。"</string>
+  
+  <string name="alipay_request_error">服务器开小差了，请您稍后再试。</string>
+  <string name="alipay_error_system_exception">操作未成功。</string>
+  <string name="alipay_error_data_format_error">服务器开小差了，请您稍后再试。</string>
+  <string name="alipay_error_account_freeze">支付宝账号被冻结，请至支付宝网站处理</string>
+  <string name="alipay_error_user_unbind">支付宝账号绑定失败，请至支付宝网站处理</string>
+  <string name="alipay_error_bindfail_unbind">支付宝账号绑定失败，请至支付宝网站处理</string>
+  <string name="alipay_error_order_pay_fail">支付失败，请重新支付</string>
+  <string name="alipay_error_rebind_account">支付宝账号绑定失败，请至支付宝网站处理 </string>
+  <string name="alipay_error_pay_server_upgrade">服务器开小差了，请您稍后再试。</string>
+  <string name="alipay_error_pay_cancel">支付中断，请重新支付</string>
+  <string name="alipay_error_network_error">网络不给力，请稍后再试。</string>
+  
+  <string name="huanyihuan">换一换</string>
+  <string name="pay">付费</string>
+  <string name="alipay_login_success">已通过支付宝账号登录到您的优酷账号%1$s</string>
+  <string name="myyouku_default_username">优酷用户</string>
+  
+  
+  <string name="menu_cache">下载视频</string>
+  <string name="dlna_has_find_device">已经为您检测到以下设备</string>
+  <string name="dlna_is_disconnect_dlna_device">是否断开DLNA连接？</string>
+  <string name="dlna_fail_init_dlna_device">DLNA设备初始化失败</string>
+  <string name="dlna_fail_init_dlna_playing_status">初始化DLNA设备播放状态失败</string>
+  <string name="dlna_no_supported_video_source">该视频没有设备支持格式的片源</string>
+  <string name="dlna_cant_get_dlna_inital_station">无法获取DLNA设备初始化状态</string>
+  <string name="dlna_is_exchange_current_content">是否要切换当前播放内容</string>
+  
+  <string name="channel_sub_no_tab">未获取到内容，请点击图片重试</string>
+  <string name="channel_sub_no_data">未获取到内容，请刷新重试</string>
+  <string name="channel_sub_no_result">筛选无结果，请换个条件试试</string>
+  
+  <string name="v_version_name">V4.3</string>
+  <string name="app_aggreement_done_text">同意</string>
+  <string name="app_aggreement_disclaimer_text">优酷Youku软件最终用户\n使用许可协议</string>
+  <string name="app_aggreement_disclaimer_content">
+\t\t优酷Youku软件最终用户使用许可协议（以下简称“协议”）是最终用户和合一信息技术（北京）有限公司及其关联方（以下简称“优酷YOUKU”）之间关于最终用户使用“优酷YOUKU软件”（以下简称“本软件”）相关服务所订立的协议，是最终用户和优酷YOUKU关于本软件服务相关事项订立的最终的、完整的且排他的协议。本《协议》描述最终用户与优酷YOUKU之间关于本软件服务相关方面的权利义务，相关的权利义务以本《协议》为准。\n
+\t\t本《协议》将对最终用户使用本软件的行为产生法律约束力。最终用户承诺和保证有权利和能力订立本《协议》，安装使用本软件将视为最终用户已经知悉、理解并接受本《协议》的全部内容。因此，请最终用户认真阅读本《协议》中各条款（未成年人审阅时应由法定监护人陪同），包括免除和限制优酷YOUKU责任的免责条款和对最终用户权利的限制条款，如果最终用户不能接受本《协议》中的全部条款，请勿安装、复制或使用本软件。\n
+\t\t本《协议》可由优酷YOUKU随时更新，更新后的协议条款一旦公布即代替原来的协议条款，恕不再另行通知，最终用户可在优酷YOUKU网站（http://youku.com）查阅最新版本的协议条款。在优酷YOUKU修改《协议》条款后，如果最终用户不接受修改后的条款，请立即停止使用相关服务，如果最终用户继续使用本软件，将被视为已接受修改后的协议条款。\n\n
+
+一、权利声明\n
+\t\t优酷YOUKU拥有本软件的版权，该版权受《中华人民共和国著作权法》、《计算机软件保护条例》等中国法律及相关国际公约的保护，任何未经授权而擅自修改、复制、发行、出租、传播、翻译、反向编译或反向工程本软件程序的全部或部分，均属于侵权行为，优酷YOUKU保留依法追究其法律责任的权利。
+\n\n
+二、“优酷YOUKU软件”提供的服务\n
+1. 本软件为最终用户提供包括但不限于如下服务或功能：信息网络视频的推送、检索、播放、收藏等功能及服务（以下简称“服务”）。除非另有明确规定，基于增强或强化目前服务目的所新增的任何新功能、服务、新产品，均无条件地适用本《协议》。\n
+2. 优酷YOUKU不保证服务一定会满足最终用户的使用要求，也不保证服务不会中断，对服务的及时性、安全性、准确性也不作担保。\n
+3. 为使用本服务，最终用户必须自行配备接入国际互联网所必需的设备，包括计算机、手机、掌上电脑及其他存取装置或接受服务所需其它设备，并自行支付与此服务有关的费用。\n
+4. 优酷YOUKU保留在日后对全部或部分服务项目收取费用的权利。\n\n
+
+三、“优酷YOUKU软件”使用授权范围\n
+1．最终用户可以基于非商业目的在任何符合计算机标准的，具有网络接入功能终端设备上安装、使用、显示、运行本软件。但最终用户不得基于任何商业运营目的安装、使用、运行本软件；不得对本软件或者本软件运行过程中释放到任何无线手持终端内存中的数据及本软件运行过程中客户端与服务器端的交互数据进行复制、更改、修改、挂接运行或创作任何衍生作品，具体实施方式包括但不限于：未经优酷YOUKU许可使用网页插件、外挂或非经授权的第三方工具/服务接入本软件和相关系统。\n
+2．最终用户不得未经优酷YOUKU许可，将本软件安装在未经优酷YOUKU明示许可的其他终端设备上进行使用。\n
+3．保留权利：任何未明示授权的其他一切权利仍归优酷YOUKU所有，最终用户使用前述权利时须另外取得优酷YOUKU的书面同意。\n
+4．最终用户在遵守法律及本《协议》的前提下可依本《协议》使用本软件，最终用户不得实施如下行为，包括但不限于：\n
+4.1 删除本软件及其他副本上一切关于版权的信息；\n
+4.2 对本软件进行反向工程，如反汇编、反编译等；\n
+4.3 修改、破坏本软件原状；\n
+4.4 进行任何危害网络安全的行为，包括但不限于：使用未经许可的数据；或进入未经许可的服务器/账户；或未经允许进入公众网络或者他人操作系统并删除、修改、增加存储信息；或未经许可企图探查、扫描、测试本软件系统或网络的弱点或其它实施破坏网络安全的行为； 或企图干涉、破坏本软件系统或网站的正常运行，故意传播恶意程序或病毒以及其他破坏干扰正常网络信息服务的行为；或伪造TCP/IP数据包名称或部分名称；\n
+4.5通过非优酷YOUKU开发、授权或认可的第三方兼容软件、系统登录或使用优酷YOUKU软件及服务，最终用户针对优酷YOUKU的软件和服务使用非优酷YOUKU开发、授权或认证的插件和外挂；\n
+4.6未经优酷YOUKU书面同意，对于本软件相关信息等擅自实施以下的行为，包括但不限于下列：使用、出租、出借、复制、修改、链接、转载、汇编、发表、出版，建立镜像站点、擅自借助本软件发展与之有关的衍生产品、作品、服务、插件、外挂、兼容、互联等；\n
+4.7 利用本软件发表、传送、传播、储存违反国家法律、危害国家安全、祖国统一、社会稳定、公序良俗的内容，或任何不当的、侮辱诽谤的、淫秽的、暴力的及任何违反国家法律法规政策的内容；\n
+4.8 利用本软件发表、传送、传播、储存侵害他人知识产权、商业秘密权等合法权利的内容；\n
+4.9 利用本软件批量发表、传送、传播广告信息及垃圾信息；\n
+4.10 传送或散布以其他方式实现传送含有受到知识产权法律保护的图像、相片、软件或其他资料的文件，作为举例（但不限于此）：包括版权或商标法，除非最终用户拥有或控制着相应的权利或已得到所有必要的认可；\n
+4.11 使用任何通过侵犯商标、版权、专利、商业机密或任何一方的其他专有权利的方式利用本软件获得的图像或相片的资料或信息；\n
+4.12 通过修改或伪造软件作品运行中的指令、数据、数据包，增加、删减、变动软件的功能或运行效果，将用于上述用途的软件通过信息网络向公众传播或者运营；\n
+4.13 将本软件及优酷YOUKU提供的服务用于核设施运行、生命维持或其他会使人类及其财产处于危险之中的重大设备。最终用户明白本软件及优酷YOUKU提供的服务并非为以上目的而设计，如果因为软件和服务的原因导致以上操作失败而带来的人员伤亡、严重的财产损失和环境破坏，优酷YOUKU将不承担任何责任；\n
+4.14 在未经优酷YOUKU书面明确授权前提下，出售、出租、出借、散布、转移或转授权本软件或从通过使用本软件从中获得利益，而无论以上使用是否为直接经济或金钱收益；\n
+4.15 其他以任何不合法的方式、为任何不合法的目的、或以任何与本《协议》不一致的方式使用本软件。\n
+如果最终用户若违反上述规定，优酷YOUKU有权采取终止、完全或部分中止、限制最终用户使用本软件的功能。\n
+5．使用本软件必须遵守国家有关法律和政策等，维护国家利益，保护国家安全，并遵守本《协议》。对于最终用户违法或违反本《协议》的使用而引起的一切责任，由最终用户负全部责任，一概与优酷YOUKU及合作单位无关；导致优酷YOUKU及合作单位损失的，优酷YOUKU及合作单位有权要求最终用户赔偿。\n
+6．如果最终用户未遵守本《协议》的任何一项条款，优酷YOUKU有权立即终止本《协议》，并保留通过法律途径追究责任的权利。\n
+7．本软件为免费软件。最终用户可以非商业性地下载、安装、复制和散发本软件产品。如果需要进行商业性的销售、复制和散发，例如软件预装和捆绑，必须获得优酷YOUKU的书面授权和许可。\n
+8．本软件为免费软件，使用本软件由最终用户承担风险，最终用户应具备本软件产品运行所需的条件，最终用户必须保证有权使用其运行所需操作系统。在适用法律允许的最大范围内，优酷YOUKU在任何情况下不就最终用户因使用或不能使用本软件产品所发生的特殊的、意外的、直接的或间接的侵权或遭致损失承担赔偿责任。即使已事先被告知该损害发生的可能性。\n\n
+
+四、“优酷YOUKU软件”使用规则\n
+\t\t特别提醒最终用户，通过本软件接入互联网时必须遵守国家有关的政策和法律，包括但不限于：《中华人民共和国刑法》、《中华人民共和国国家安全法》、《中华人民共和国保密法》、《中华人民共和国计算机信息系统安全保护条例》、《中华人民共和国著作权法》、《中华人民共和国专利法》、《中华人民共和国商标法》、《中华人民共和国反不正当竞争法》等，保护国家利益，保护国家安全，对于违法使用互联网络而引起的一切责任，由最终用户负全部责任。\n
+1．最终用户不得使用本软件进行违反国家法律制度的行为。\n
+2．本软件同大多数移动通讯终端软件一样，可能受到各种安全及使用问题的困扰，优酷YOUKU均不承担相关责任。包括但不限于：\n
+2.1下载安装的其它软件中含有类似于“特洛伊木马”等盗取最终用户及优酷YOUKU信息的病毒或代码，威胁到个人信息和数据的安全，继而威胁对本软件的运行或使用；\n
+2.3 由于被下载文件提供者或网络、最终用户使用的软件及硬件设备等原因，导致无法正常下载。\n
+3．本软件的替换、修改和升级：优酷YOUKU保留在任何时候通过为最终用户提供本软件替换、修改、升级版本的权利以及为替换、修改或升级收取费用的权利。另外，本软件为最终用户默认开通“升级提示”功能，视最终用户使用的“软件”版本差异，优酷YOUKU提供给最终用户自行选择是否需要开通此功能。在本软件的新版本发布后，优酷YOUKU不保证旧版本软件的继续可用。优酷YOUKU保留因业务发展需要，单方面对软件的部分功能效果进行改变或进行限制，而无须向最终用户承担前述行为所带来的法律责任。\n
+4．任何无民事行为能力或限制民事行为能力的最终用户，应该在使用本软件的主动接受其法定或指定监护人的监督和指导，正确学习使用本软件。而对于未成年人的最终用户，优酷YOUKU提醒您：请避免沉迷虚拟的网络世界而影响了日常的学习生活；\n
+5．优酷YOUKU敬请最终用户通过优酷YOUKU的指定网站或按照指定方式下载安装本软件产品。谨防在非指定网站下载本软件，以免移动通讯终端感染能破坏最终用户数据和获取最终用户隐私信息的恶意程序。\n
+6. 最终用户可使用本软件及服务发表属于最终用户原创或最终用户有权发表的观点看法、数据、文字、信息、最终用户名、图片、照片、个人信息、音频、视频文件、链接等。最终用户必须保证，最终用户拥有其对所上传内容的著作权或已获得合法授权，最终用户使用本软件及服务的任何行为未侵犯任何第三方之合法权益。\n
+7. 最终用户了解并且同意只要最终用户使用本软件及服务，最终用户将遵守本条款中的权利义务。最终用户对所有在最终用户的注册名下发生的一切行为负责。\n
+8. 最终用户了解并且同意优酷YOUKU不能对最终用户行为负责。所以，当最终用户基于用户自主行为在使用本软件所产生之相关风险概由最终用户个人承担，优酷YOUKU不对本软件及服务的适用性、安全性、无毒性做任何形式的保证。如果最终用户在使用本软件的过程中发现任何违法违规行为，有义务及时向优酷YOUKU举报。\n
+9. 最终用户不得利用本软件及服务故意制作、传播计算机病毒等破坏性程序，不得针对本软件及服务连接的服务器或网络制造干扰、混乱，或违反连接本软件的网络的任何要求、程序、政策或规则，否则优酷YOUKU将保留追究其法律责任的权利并有权将其提交给相关部门处理。\n
+10. 最终用户不得利用本软件及服务传播、复制、发送、上传和发布任何妨碍社会治安或非法、虚假、骚扰性、侮辱性、恐吓性、伤害性、破坏性、挑衅性、淫秽色情性等内容的信息。\n
+11. 最终用户依本《协议》条款所取得的权利未经优酷YOUKU以书面方式许可，不得以任何方式，直接或间接地转让。\n
+12. 如最终用户违反国家法律法规或本《协议》条款，优酷YOUKU或其合作公司将有权停止向最终用户提供服务而不需承担任何责任。如导致优酷YOUKU或其合作公司遭受任何损害或遭受任何来自第三方的纠纷、诉讼、索赔要求等，最终用户须向优酷YOUKU或合作公司赔偿相应的损失，最终用户并需对其违反服务条款所产生的一切后果负全部法律责任。优酷YOUKU有权认定和删除最终用户所发表的任何不符合国家法律、法规和政策、本服务条款的任何文章、资料、图片、图表等内容，且不需要对最终用户另行通知。\n
+13. 优酷YOUKU保留在任何时候因为任何原因拒绝向任何人提供服务的权利。\n
+14. 最终用户须遵守不通过本软件从事以下严禁之事宜，包括但不限于：\n
+14.1 利用本软件传播反对宪法所确定的基本原则的内容；\n
+14.2 利用本软件传播危害国家安全，泄露国家秘密，颠覆国家政权，破坏国家统一的内容；\n
+14.3 利用本软件传播损害国家荣誉和利益的内容；\n
+14.4 利用本软件传播煽动民族仇恨、民族歧视，破坏民族团结的内容；\n
+14.5 利用本软件传播破坏国家宗教政策，宣扬邪教和封建迷信的内容；\n
+14.6 利用本软件散布谣言，扰乱社会秩序，破坏社会稳定的内容；\n
+14.7 利用本软件散布淫秽、色情、赌博、暴力、凶杀、恐怖或者教唆犯罪的内容；\n
+14.8 利用本软件传播侮辱或者诽谤他人，侵害他人合法权益的内容；\n
+14.9 利用本软件传播含有法律、行政法规禁止的其他内容；\n
+14.10 利用本软件上传任何病毒，木马，或者蠕虫等危害网络健康的内容；\n
+14.11 制作、发布、传播用于窃取任何第三方用户的个人专属信息、财产、保密信息的软件；\n
+14.12 其他以任何不合法的方式、为任何不合法的目的、或以任何与本《协议》不一致的方式使用本软件和和优酷YOUKU提供的其他服务。\n
+15. 优酷YOUKU有权在提供服务中或经过服务投放各种广告和宣传信息。\n
+16. 如因最终用户不遵守本条上述任意一款或者几款的规定，优酷YOUKU有权在不事先通知最终用户的情况下将相应的内容删除或采取终止、完全或部分中止或停止最终用户使用本软件。如因前述原则造成优酷YOUKU损失的，优酷YOUKU有权要求最终用户给予相应的赔偿，包括但不限于：优酷YOUKU因此被国家机关予以行政处罚，或者被第三方通过诉讼或其他的方式索赔，赔偿范围包括但不限于罚款、赔偿金以及优酷YOUKU支付的相应的诉讼费、律师费。\n
+17. 优酷YOUKU保留因业务发展需要，有在任何时候不经任何通知的情况下变更、暂停、限制、终止或撤销“优酷YOUKU软件”全部或部分服务的权利。\n
+18. “优酷YOUKU软件”提供的服务中可能包括广告，最终用户同意在使用过程中显示“优酷YOUKU软件”和/或第三方供应商、合作伙伴提供的广告。\n
+19．优酷YOUKU可依其合理判断，对违反有关法律法规或本《协议》约定，或侵犯、妨害、威胁任何人权利或安全的内容，或者假冒他人的行为，优酷YOUKU有权停止传输任何前述内容，并有权依其合理判断对存在前述行为的任何人士采取适当的法律行动，包括但不限于，从“优酷YOUKU软件”的网络服务中删除具有违法性、侵权性、不当性等内容，终止违反者的成员资格，阻止其使用“优酷YOUKU软件”全部或部分服务，并且依据法律法规保存有关信息向有关部门报告等。\n\n
+
+五、最终用户信息的使用、限制及隐私保护\n
+\t\t尊重最终用户隐私权是优酷YOUKU的一贯制度，优酷YOUKU将会采取合理的措施保护最终用户的个人隐私信息。优酷YOUKU保证不向第三方提供最终用户的个人隐私信息。 最终用户与优酷YOUKU及合作单位之间就最终用户个人隐私信息公开或使用另有约定的除外。同时最终用户应自行承担因此可能产生的任何风险，优酷YOUKU对此不予负责。\n
+优酷YOUKU制定了以下四项隐私权保护原则：\n
+（1） 利用收集的信息为最终用户提供有价值的产品和服务。\n
+（2） 开发符合隐私权标准和隐私权惯例的产品或技术。\n
+（3） 将个人信息的收集透明化。\n
+（4） 尽最大的努力保护已掌握的信息。 最终用户可以查看《优酷YOUKU软件隐私保护声明》。\n\n
+
+六、“优酷YOUKU软件”的商标信息\n
+\t\t“优酷YOUKU软件”服务中所涉及的优酷、YOUKU、 “优酷YOUKU软件”logo等图形、文字或其组成，以及其他优酷YOUKU标志及产品、服务名称，均为优酷YOUKU之合法持有之商标（以下简称“优酷YOUKU标识”）。未经优酷YOUKU事先书面同意，最终用户不得将优酷YOUKU标识以任何方式展示或使用或作其他处理，也不得向他人表明最终用户有权展示、使用、或其他有权处理优酷YOUKU标识的行为。\n\n
+
+七、服务风险及免责条款\n
+1．利用的许可\n
+1.1许可利用最终用户的符合计算机标准的，具有网络接入功能终端设备：为了得到本软件所提供的利益，用户在此许可优酷YOUKU利用本软件在最终用户的符合计算机标准的，具有网络接入功能终端设备，在不违反《优酷YOUKU软件隐私保护声明》的前提下收集、保存、积累用户信息，以达到增强本软件应用之目的。\n
+1.2 保护最终用户的符合计算机标准的，具有网络接入功能终端设备资源：最终用户认可“优酷YOUKU软件”软件将会尽其商业上的合理努力以保护最终用户的移动通讯终端资源及移动通讯终端通讯的隐私性和完整性，但是，最终用户承认和同意优酷YOUKU不能就此事提供任何保证。\n
+2．优酷YOUKU特别提请最终用户注意：优酷YOUKU为了保障公司业务发展和调整的自主权，优酷YOUKU拥有随时修改或中断服务而不需通知最终用户的权利，优酷YOUKU行使修改或中断服务的权利不需对最终用户或任何第三方负责。最终用户必须在同意本条款的前提下，优酷YOUKU才开始对最终用户提供服务。\n
+3．当最终用户违反本《协议》或相关的服务条款的规定，导致或产生的任何第三方主张的任何索赔、要求或损失，包括合理的律师费，最终用户同意赔偿优酷YOUKU与合作公司、关联公司，并使之免受损害。\n
+4．如因第三方如通讯线路故障、技术问题、网络、移动通讯终端故障、系统不稳定性及其他各种不可抗力原因而致使最终用户遭受的一切损失，优酷YOUKU及合作单位不承担责任。\n
+5．因技术故障等不可抗事件影响到服务的正常运行的，优酷YOUKU及合作单位承诺在有效时间内与相关单位配合，及时处理进行修复，但最终用户因此而遭受的一切损失，优酷YOUKU概不承担责任。\n
+6．本软件同大多数互联网软件一样，受包括但不限于最终用户原因、网络服务质量、社会环境等因素的差异影响，可能受到各种安全问题的侵扰，如他人利用最终用户的资料，造成现实生活中的骚扰；最终用户下载安装的其它软件或访问的其他网站中含有“特洛伊木马”等病毒，威胁到最终用户的移动通讯终端信息和数据的安全，继而影响本软件的正常使用等等。最终用户应加强信息安全及使用者资料的保护意识，要注意加强密码保护，以免遭致损失和骚扰。\n
+7．非经优酷YOUKU或优酷YOUKU授权开发并正式发布的其它任何由本软件衍生的软件均属非法，下载、安装、使用此类软件，将可能导致不可预知的风险，由此产生的一切法律责任与纠纷一概与优酷YOUKU无关。\n
+8．最终用户须明白，使用本软件产品涉及到Internet服务，可能会受到各个环节不稳定因素的影响。因此服务存在因不可抗力、移动通讯终端病毒或黑客攻击、系统不稳定、最终用户所在位置、最终用户关机以及其他任何技术、互联网络、通信线路原因等造成的服务中断或不能满足最终用户要求的风险。最终用户须承担以上风险，优酷YOUKU不作担保。对因此导致最终用户不能发送和接受阅读信息、或接发错信息，优酷YOUKU不承担任何责任。\n
+9．最终用户须明白，在使用本软件产品存在有来自任何他人的包括威胁性的、诽谤性的、令人反感的或非法的内容或行为或对他人权利的侵犯（包括知识产权）的匿名或冒名的信息的风险，最终用户须承担以上风险，优酷YOUKU和合作公司对服务不作任何类型的担保，不论是明确的或隐含的，包括所有有关信息真实性、适商性、适于某一特定用途、所有权和非侵权性的默示担保和条件，对因此导致任何因最终用户不正当或非法使用服务产生的直接、间接、偶然、特殊及后续的损害，不承担任何责任。\n
+10．因最终用户使用本软件或要求优酷YOUKU提供特定服务时，本软件可能会调用第三方系统支持最终用户的使用或访问，使用或访问的结果由该第三方提供，优酷YOUKU不保证通过第三方系统支持实现的结果的安全性、准确性、有效性及其他不确定的风险，由此若引发的任何争议及损害，与优酷YOUKU无关，优酷YOUKU不承担任何责任。\n
+11. 优酷YOUKU定义的信息内容包括：文字、软件、声音、相片、录像、图表；在广告中全部内容；优酷YOUKU为最终用户提供的商业信息，所有这些内容受版权、商标权、和其它知识产权和所有权法律的保护。所以，最终用户只能在优酷YOUKU和广告商授权下才能使用这些内容，而不能擅自复制、修改、编撰这些内容、或创造与内容有关的衍生产品。\n
+12. 最终用户在使用本软件及服务时，须自行承担如下包括但不限于来自优酷YOUKU不可掌控的风险内容：\n
+12.1 由于不可抗拒因素引起的名片、短信等个人信息丢失、泄漏等风险；\n
+12.2 最终用户必须选择与所安装手机相匹配的“优酷YOUKU软件”版本，否则，由于软件与手机型号不相匹配所导致的任何软件问题、手机问题或损害，均由最终用户自行承担。\n
+12.3 最终用户手机隐私信息在使用本软件及服务时可能产生的信息安全风险。\n
+12.4 最终用户在使用本软件访问第三方网站时遇到内容质量及安全问题等，均由最终用户自行承担。\n
+13. 优酷YOUKU在此特别提醒：\n
+13.1 使用本软件必须遵守国家有关法律和政策等，维护国家利益，保护国家安全，并遵守本《协议》。对于最终用户违法或违反本《协议》的使用而引起的一切责任，由最终用户负全部责任，一概与优酷YOUKU及合作单位无关；导致优酷YOUKU及合作单位损失的，优酷YOUKU及合作单位有权要求最终用户赔偿，并有权保留相关记录。而且，对于最终用户违法或违反本《协议》以及违反了利用本软件非法获得优酷YOUKU的服务，或优酷YOUKU的合作单位之其它服务及相关协议条款，优酷YOUKU有权视最终用户的行为性质，在不事先通知最终用户的情况下，采取包括但不限于中断使用许可、停止提供服务、限制使用、回收最终用户对“优酷YOUKU软件”的使用权、法律追究等措施。\n
+13.2 非经优酷YOUKU或优酷YOUKU授权开发并正式发布的其它任何由本软件衍生的软件均属非法，下载、安装、使用此类软件，将可能导致不可预知的风险，由此产生的一切法律责任与纠纷一概与优酷YOUKU无关。最终用户不得轻易下载、安装、使用此类软件。\n
+13.3 最终用户须明白，优酷YOUKU依据法律规定或相关政府部门的要求提供最终用户的个人信息，优酷YOUKU不承担因此造成的一切法律责任。\n
+13.4 最终用户须明白，他人匿名或冒名使用“优酷YOUKU软件”传播的含有威胁、诽谤、令人反感或非法内容的信息而招致的风险，优酷YOUKU不承担因此造成的一切法律责任。\n
+13.5 最终用户须明白，最终用户之间通过“优酷YOUKU软件”与其他最终用户交往，因受误导或欺骗而导致或可能导致的任何心理、生理上的伤害以及经济上的损失，优酷YOUKU不承担因此造成的一切法律责任。\n
+14.优酷YOUKU已经明确声明：不以明示或默示及以任何形式对“优酷YOUKU软件”及其合作公司服务之及时性、安全性、准确性做出担保。\n
+15. 最终用户违反本《协议》或相关的服务条款的规定，导致或产生的任何第三方主张的任何索赔、要求或损失，包括合理的律师费，最终用户同意赔偿优酷YOUKU与合作公司、关联公司，并使之免受损害。\n
+16. 优酷YOUKU定义的信息内容包括：文字、软件、声音、相片、录像、图表；在广告中全部内容；优酷YOUKU为最终用户提供的商业信息，所有这些内容受版权、商标权、和其它知识产权和所有权法律的保护。所以，最终用户只能在优酷YOUKU和广告商授权下才能使用这些内容，而不能擅自复制、修改、编纂这些内容、或创造与内容有关的衍生产品。\n\n
+
+八、其他条款\n
+1. 优酷YOUKU郑重提醒最终用户注意本《协议》中免除优酷YOUKU责任和加重最终用户义务的条款，请最终用户仔细阅读，自主考虑风险。未成年人应在法定监护人的陪同下阅读本《协议》。\n
+2. 本《协议》所定的任何条款的部分或全部无效者，不影响其它条款的效力。\n
+3. 本《协议》签订地为北京市海淀区。本《协议》的解释、效力及纠纷的解决，适用于中华人民共和国法律。若最终用户和优酷YOUKU之间发生任何纠纷或争议，首先应友好协商解决，协商不成的，最终用户在此完全同意将纠纷或争议提交至北京市海淀区人民法院进行排他管辖。\n
+4. 若最终用户对优酷YOUKU及本服务有任何意见，欢迎垂询优酷YOUKU客服中心。
+</string>
+
+	<string name="egg_dialog_txt_set">设置</string>
+	<string name="egg_dialog_txt_cancel">取消</string>
+	<string name="btn_egg_dialog_api_test">测试</string>
+	<string name="btn_egg_dialog_api_test1">测试1</string>
+	<string name="btn_egg_dialog_api_official">正式</string>
+	<string name="chk_egg_dialog_switch_log">打印日志开关</string>
+	
+	
+	<string name="txt_vip_product_info_tag">购买会员</string>
+	<string name="btn_vip_product_layout_item_open">立即开通</string>
+	<string name="btn_vip_product_layout_item_renew">立即续费</string>
+	<string name="vip_dialog_txt_gopay">立即支付</string>
+	<string name="vip_dialog_txt_use">立即使用</string>
+	<string name="vip_dialog_txt_rebuy">重新购买</string>
+	<string name="vip_dialog_txt_go">立即享受尊贵会员服务</string>
+	<string name="vip_dialog_txt_close">关闭</string>
+	<string name="vip_dialog_txt_cancel">取消</string>
+	<string name="vip_dialog_txt_no">否</string>
+	<string name="vip_dialog_buy_success">购买成功!</string>
+	<string name="vip_dialog_buy_fail">购买失败!</string>
+	<string name="vip_dialog_buy_query_fail">订单查询失败!</string>
+	<string name="vipbuy_dialog_title_txt">您正在购买优酷会员</string>
+	<string name="vipbuy_dialog_buy_failtip">重新购买%1$s会员吗?</string>
+	<string name="vipbuy_dialog_buy_queryfailtip">请点右上角刷新查询</string>
+	<string name="btn_myyouku_reglogin">登录/注册</string>
+	<string name="ticket_pay_dialog_account">优酷账号：</string>
+	<string name="ticket_pay_dialog_name">购买影片：</string>
+	<string name="ticket_pay_dialog_count">支付观影券：</string>
+	<string name="ticket_pay_dialog_date">观影有效期：</string>
+	<string name="ticket_pay_dialog_count_one">1张</string>
+	<string name="ticket_pay_dialog_date_48">购买后48小时</string>
+		
+	<string name="wxapp_not_install_tip">您还未安装微信\n确认立即安装吗？</string>
+	<string name="wxapp_not_new_tip">需升级微信版本才能支持付款\n确认立即升级吗？</string>
+	
+	<string name="persondirect_item_more">查看更多</string>
+	<string name="pgcdirect_item_enter_txt">进入官网</string>
+	<string name="download_login_tips">马上登录&#160;\n升级视频观看体验！</string>
+	<string name="download_login_left">稍后再说</string>
+	<string name="download_login_right">马上登录</string>
+	<string name="havebuy_no_data">您暂未购买点播付费影片，或原购买影片已过期</string>
+	<string name="persondirect_more_no_data">该分类下暂无优酷版权视频</string>
+	<string name="searchmain_no_data">未获取到推荐热词，请直接搜索感兴趣的内容</string>
+	
+	<!-- 个人中心 -->
+	
+	<string name="usercenter_more_menu_top">置顶</string>
+	<string name="usercenter_more_menu_seeall">查看全部</string>
+	
+	<!-- push相关文字 -->
+	
+	<string name="push_play_immediately">立即播放</string>
+	<string name="push_cache_later_see">下载稍后看</string>
+	<!-- 二维码登录 -->
+	<string name="qrcode_scan_pc_or_tv_login">扫一扫，让优酷网站也登录</string>
+	<string name="qrcode_scan_phone_login">扫一扫，让APP登录（请先在优酷网站登录） </string>
+	<string name="qrcode_scan_app_play_login">扫一扫，优酷网站视频在APP续播</string>
+	<string name="qrcode_scan_app_tv_login">扫一扫，让优酷TV APP登录，享受优酷云服务</string>
+	<!-- 二维码扫描结果-->
+	<string name="qrcode_result_no_right_tt">该视频无移动设备版权，优酷将为您跳到浏览器播放</string>
+	<string name="qrcode_result_no_result_white_tt">非常抱歉，没有扫描到视频或登录信息</string>
+	<string name="qrcode_result_restart_scan">重新扫描</string>
+	<string name="qrcode_result_bellow_player">二维码在Youku页面播放器的下方</string>
+	<string name="qrcode_result_need_network">需要有网络连接才能扫到视频地址</string>
+	<string name="qrcode_result_keep_camera_no_tilt">尽量保持摄像头不要倾斜</string>
+	
+	<!-- Android 4.4 外置 SD 卡切换提示 -->
+	<string name="sdcard_tips_44">由于您的安卓系统在 V4.4 以上，切换到 SD 卡存储后所下载的视频，会在您卸载优酷后自动删除</string>
+	
+	<string name="buffering_txt_tips">正在缓冲，请稍候</string>
+	<string name="plugin_loading_title_txt">即将播放：%1$s</string>
+	<string name="plugin_loading_title_txt_tips">加载中</string>
+	<string name="plugin_loading_title_txt_vip_tips">视频加载中，已为您跳过广告</string>
+	<string name="plugin_loading_error_txt">优酷君也不知道怎么了，重试一下？</string>
+	<string name="plugin_live_center_txt">优酷直播，精彩稍后为您呈现</string>
+	<string name="plugin_loading_play_txt">已设置不自动播放</string>
+	<string name="plugin_loading_live_complete_txt">直播已结束</string>
+	<string name="fullscreen_top_series_btn">剧集</string>
+	<string name="fullscreen_top_definition_btn">标清</string>
+	<string name="series_trailer">预告</string>
+	
+	
+	<string name="setting_canvas_tips">画布</string>
+	<string name="setting_bright_tips">亮度</string>
+	<string name="setting_canvas_50">50%</string>
+	<string name="setting_canvas_75">75%</string>
+	<string name="setting_canvas_100">100%</string>
+	<string name="setting_canvas_full">满屏</string>
+	<string name="setting_view_jump_chk">跳过片头片尾</string>
+	<string name="setting_decode_hardware">优先硬解</string>
+	<string name="setting_decode_software">优先软解</string>
+	<string name="setting_continue_forever">始终连播</string>
+	<string name="setting_continue_none">不连播</string>
+	<string name="setting_continue_one">单视频循环</string>
+	<string name="setting_continue">连播设置</string>
+	<string name="setting_decode">播放器解码</string>
+	<string name="setting_decode_tips">硬解码方式将更省电量、画面更清晰</string>
+	<string name="setting_language">语言设置</string>
+	<string name="setting_subtitle">字幕设置</string>
+	<string name="detail_cache_fragment_tips">正片已下载%1$s集</string>
+	<string name="series_fragment_empty_txt">加载失败，请刷新重试</string>
+	<string name="cache_fragment_layout_cache_txt">开始下载</string>
+	
+	<string name="cache_fragment_isCached_tips">该视频已在下载列表</string>
+	<string name="cache_fragment_isLimit_tips">暂无下载版权</string>
+	<string name="cache_fragment_clickCache_tips">请选择您要下载的剧集</string>
+	<string name="pgcdirect_item_subscibe_txt">订阅</string>
+	
+	<string name="pgcdirect_item_official_resume">认证原因:%1$s</string>
+	<string name="pgcdirect_item_title_second">播放数:%1$s</string>
+	<string name="pgcdirect_item_title_third">视频数:%1$s</string>
+	
+	<string name="interactpoint_login_tips">参与互动请先登录</string>
+	
+	<string name="level_login_tips">累计观看等级请先登录</string>
+	
+	<string name="pay_card_top_tag">开通会员</string>
+	<string name="pay_card_top_more">更多特权</string>
+	<string name="pay_card_top_activate">激活会员卡</string>
+	<string name="pay_card_pay_txt">立即支付</string>
+	<string name="txt_searchdirect_updating">更新中</string>
+	<string name="txt_searchdirect_top_right_play">播放</string>
+	
+	<string name="ticket_success_consume">购买成功</string>
+	<string name="ticket_err_param">参数错误</string>
+	<string name="ticket_err_sign">签名错误</string>
+	<string name="ticket_err_create_trade">创建交易失败</string>
+	<string name="ticket_err_show_middle_invoke">从官方库中间层取得节目失败</string>
+	<string name="ticket_err_ticket">观影券消费失败</string>
+	<string name="ticket_err_ticket_used">观影券已被使用过</string>
+	<string name="ticket_err_ticket_inactive">观影券未生效</string>
+	<string name="ticket_err_ticket_expired">观影券已过期</string>
+	<string name="ticket_err_is_ticket_show_no">观影券未绑定该节目</string>
+	<string name="ticket_err_ticket_not_exists">观影券不存在</string>
+	<string name="ticket_err_ticket_state">观影券状态异常</string>
+	<string name="ticket_err_ticket_show_verify">观影券节目校验失败</string>
+	<string name="ticket_err_common">服务异常,请重试</string>
+	
+	<string name="card_err_card_used">会员卡已被使用过</string>
+	<string name="card_err_card_expired">会员卡已过期</string>
+	<string name="card_err_card_no_exits">会员卡不存在</string>
+	<string name="card_err_card">购买失败</string>
+	<string name="card_err_captcha_wrong">验证码错误</string>
+	<string name="card_err_captcha_timeout">验证码过期</string>
+	<string name="card_err_card_not_effect">会员卡未生效</string>
+
+	<!-- V4.1登录，注册界面 -->	
+	<string name="tips_change_digit_nick_name">昵称为纯数字，不安全，请尽快到 http://i.youku.com/u/ 修改</string>
+	<string name="tips_please_input_phone_number">输入手机号</string>
+	<string name="tips_write_auth_code_by_phone_number">输入手机验证码</string>
+	<string name="tips_phone_number_not_fit_rule">请输入有效的11位手机号码</string>
+	<string name="tips_auth_code_cannot_empty">验证码不能为空</string>
+	<string name="tips_auth_code_not_fit_rule">验证码错误</string>
+	<string name="tips_auth_code_has_been_send">验证码已发送</string>
+	<string name="tips_auth_code_fail_send">验证码发送失败，请重试</string>
+	<string name="tips_regist_phone_number">手机注册</string>
+	<string name="tips_regist_email_address">邮箱注册</string>
+	<string name="tips_send_auth_code">发送验证码</string>
+	<string name="tips_forget_password">忘记密码？</string>
+	<string name="tips_sns_sina_weibo">新浪微博</string>
+	<string name="tips_account_login">帐号登录</string>
+	<string name="tips_sns_qq_account">QQ</string>
+	<string name="webview_tv">遥控器</string>
+  
+</resources>

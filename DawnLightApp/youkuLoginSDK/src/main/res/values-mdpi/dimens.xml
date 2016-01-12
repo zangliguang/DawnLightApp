@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	
+    <dimen name="filter_cancel_height">27dp</dimen>
+	<dimen name="filter_cancel_width">55dp</dimen>
+	
+	
+	<!--search    160 md-->
+	<!--search  160 md-->
+	<dimen name="fullscreen_player_volume_progress_length">122dp</dimen>
+	<dimen name="fullscreen_player_setting__width">400dp</dimen>
+    <dimen name="fullscreen_player_setting__height">242dp</dimen>
+    <dimen name="fullscreen_player_setting__titile_height">30dp</dimen>
+    <dimen name="fullscreen_player_setting__margin_left_right">15dp</dimen>
+    <dimen name="fullscreen_player_setting__light_bar_width">265dp</dimen>
+    <dimen name="fullscreen_player_setting__radio_margin_left">5dp</dimen>
+    <dimen name="fullscreen_player_setting__swith_tab_height">27dp</dimen>
+    <dimen name="fullscreen_player_setting__head_text_size">19sp</dimen>
+    <dimen name="fullscreen_player_setting__normal_text_size">18sp</dimen>
+    
+    <dimen name="fullscreen_player_header_height">32dp</dimen>
+    <dimen name="fullscreen_player_header_padding">1dp</dimen>
+    <dimen name="fullscreen_player_header_return_width">13dp</dimen>
+    <dimen name="fullscreen_player_header_download_padding">13dp</dimen>
+    <dimen name="fullscreen_player_header_setting_padding">13dp</dimen>
+    <dimen name="fullscreen_player_setting__checkbox_padding">22dp</dimen>
+    <dimen name="actionbar_img_height">40px</dimen>
+    <dimen name="actionbar_vip_img_height">16px</dimen>
+    <dimen name="actionbar_img_height_half">20px</dimen>
+    <dimen name="actionbar_ico_height">33px</dimen>    
+    <dimen name="actionbar_item_extra_width">76px</dimen>
+    <dimen name="dialog_activity_login_to_regist_more_margin_top">0dip</dimen>
+    <dimen name="dialog_activity_total_width">290dip</dimen>
+    
+</resources>

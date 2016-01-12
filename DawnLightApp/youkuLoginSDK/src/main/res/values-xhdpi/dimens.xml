@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="myyouku_top_margin_left">9dp</dimen>
+    <dimen name="myyouku_setting_text_margin_left">6dp</dimen>
+    <dimen name="myyouku_setting_bar_height">33dp</dimen>
+    <dimen name="myyouku_setting_list_text_margin_left">8dp</dimen>
+    <dimen name="myyouku_setting_list_item_height">39dp</dimen>
+    <dimen name="myyouku_setting_wifi_bar_height">39dp</dimen>
+    <dimen name="myyouku_setting_list_item_btn_margin_right">1dp</dimen>
+    <dimen name="myyouku_setting_lists_gap">10dp</dimen>
+    <dimen name="myyouku_setting_divider">1dp</dimen>
+    
+     <dimen name="login_blue_line_Margin_top">27dp</dimen>
+    <dimen name="login_blue_line_Margin_right">39dp</dimen>
+    <dimen name="login_login_btn_height">40dp</dimen>
+    <dimen name="login_edit_magin_left">9dp</dimen>
+    <dimen name="login_tips_margin_top_register">1dp</dimen>
+    <dimen name="login_edit_magin_bottom">6dp</dimen>
+    <dimen name="login_btn_magin_top_register">15dp</dimen>
+    <dimen name="regist_text_margin_top">20dp</dimen>
+    <dimen name="regist_reback_login_page_imageview_width">35dp</dimen>
+    <dimen name="regist_reback_login_page_imageview_heigth">50dp</dimen>
+    <dimen name="layout_regist_page_top_height">40dp</dimen>
+    <dimen name="layout_regist_item_spacing">16dp</dimen>
+    <dimen name="login_layout_margin_bottom">5dp</dimen>
+    <dimen name="login_regist_pswd_txt_text_size">12sp</dimen>
+    <dimen name="user_forget_password_view_margin_right">6dip</dimen>
+    <dimen name="layout_regist_item_top_margin_right_spacing">27dp</dimen>
+    <dimen name="login_top_layout_margin_top_bottom">20dp</dimen>
+    <dimen name="login_top_layout_margin_line_margin_right">55dip</dimen>
+    <dimen name="login_top_layout_regist_txt_margin_right">10dip</dimen>
+    <dimen name="login_bottom_sns_icon_center_line_height_width">36dip</dimen>
+    <dimen name="login_user_sns_saosao_text_margin_top">7dip</dimen>
+    <dimen name="login_user_sns_text_layout_padding_right_left">15dip</dimen>
+    <dimen name="login_user_sns_block_margin_top_left">3dip</dimen>
+    <dimen name="regist_top_right_layout_line_margin_right">-10dip</dimen>
+    <dimen name="regist_top_left_item_width">100dip</dimen>
+    <dimen name="login_regist_top_line_margin_right">8dip</dimen>
+    
+    
+	<dimen name="login_bottom_saosao_imageview_height_width">125dip</dimen>
+	<dimen name="login_bottom_sns_icon_height_width">40dip</dimen>
+	<dimen name="login_user_sns_text_size">13dip</dimen>
+	<dimen name="login_user_sns_below_text_size">9dip</dimen>
+	<dimen name="actionbar_img_height">78px</dimen>
+    <dimen name="actionbar_vip_img_height">32px</dimen>    
+    <dimen name="actionbar_img_height_half">39px</dimen>
+    <dimen name="actionbar_ico_height">65px</dimen>
+    <dimen name="actionbar_item_extra_width">160px</dimen>
+    
+    <!-- 字体适配 -->
+    <dimen name="text_size_1">9sp</dimen>
+    <dimen name="text_size_2">11sp</dimen>
+    <dimen name="text_size_3">12sp</dimen>
+    <dimen name="text_size_4">13sp</dimen>
+    <dimen name="text_size_5">14sp</dimen>
+    <dimen name="text_size_6">15sp</dimen>
+    <dimen name="text_size_7">18sp</dimen>
+    <dimen name="text_size_8">25sp</dimen>
+    
+    <dimen name="homepage_title_height">36dp</dimen>
+    <dimen name="subtitle_margin">12dp</dimen>
+    <dimen name="homepage_item_spacing">8dp</dimen>
+    <dimen name="icon_not_loaded_width">32dp</dimen>
+    <dimen name="icon_not_loaded_height">30dp</dimen>
+    
+<!-- 
+    <dimen name="more_pop_item_height">116dp</dimen>
+    <dimen name="more_pop_item_marginTop">20dp</dimen>
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">25dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">10dp</dimen>
+
+    title values-xhdpi
+    <dimen name="homepage_title_height">36dp</dimen>
+    <dimen name="homepage_item_height">263dp</dimen>
+    <dimen name="homepage_item_width">392dp</dimen>
+    <dimen name="homepage_item_half_width">194dp</dimen>
+    <dimen name="homepage_item_spacing">8dp</dimen>
+    <dimen name="homepage_item_text_margin_left">7dp</dimen>
+    <dimen name="homepage_change_btn_margin_left">28dp</dimen>
+
+    通用        values-xhdpi
+
+    <dimen name="myyouku_item_line_margin_left">6dp</dimen>
+
+    设置        values-xhdpi
+
+    <dimen name="myyouku_top_margin_left">9dp</dimen>
+    <dimen name="myyouku_setting_text_margin_left">6dp</dimen>
+    <dimen name="myyouku_setting_bar_height">33dp</dimen>
+    <dimen name="myyouku_setting_list_text_margin_left">8dp</dimen>
+    <dimen name="myyouku_setting_list_item_height">39dp</dimen>
+    <dimen name="myyouku_setting_wifi_bar_height">39dp</dimen>
+    <dimen name="myyouku_setting_list_item_btn_margin_right">1dp</dimen>
+    <dimen name="myyouku_setting_lists_gap">10dp</dimen>
+    <dimen name="myyouku_setting_divider">1dp</dimen>
+
+    个人中心        values-xhdpi
+
+    <dimen name="myouku_video_layout_width">168dp</dimen>
+    <dimen name="btn_myyouku_setting_width">30dp</dimen>
+    <dimen name="myouku_setting_padding">10dp</dimen>
+    <dimen name="myouku_video_progress_icon_height">22.5dp</dimen>
+    <dimen name="myouku_video_yf_tx_padding_bot">4dp</dimen>
+    <dimen name="myyouku_video_sou_maxLength">90dp</dimen>
+    <dimen name="usercenter_progress_radius">30dip</dimen>
+    <dimen name="usercenter_level_info_text_size">10dp</dimen>
+    <dimen name="usercenter_level_now_width">32dp</dimen>
+    <dimen name="usercenter_level_next_width">27dp</dimen>
+    <dimen name="usercenter_level_layout_marginLeft">6dp</dimen>
+    <dimen name="usercenter_level_now_marginLeft">15.2dp</dimen>
+    <dimen name="usercenter_level_now_text_size">10.2dp</dimen>
+    <dimen name="usercenter_level_next_text_size">8.2dp</dimen>
+    <dimen name="txt_myyouku_renew_info_textsize">8dp</dimen>
+
+    上传        values-xhdpi
+
+    <dimen name="myyouku_upload_video_image_block_height">247dp</dimen>
+    <dimen name="myyouku_upload_video_image_margin_left">8dp</dimen>
+    <dimen name="myyouku_upload_video_image_margin_right">8dp</dimen>
+    <dimen name="myyouku_upload_video_image_margin_top">12dp</dimen>
+    <dimen name="myyouku_upload_video_image_height">216dp</dimen>
+    <dimen name="myyouku_upload_video_uploadbtn_width">76dp</dimen>
+    <dimen name="myyouku_upload_video_upload_gap">8dp</dimen>
+    <dimen name="myyouku_upload_video_detail_height">35dp</dimen>
+    <dimen name="myyouku_upload_video_detail_text_padding_left">15dp</dimen>
+    <dimen name="myyouku_upload_video_detail_type_height">33dp</dimen>
+    <dimen name="myyouku_upload_video_detail_type_padding_left">10dp</dimen>
+    <dimen name="myyouku_upload_video_checkbox_margin_top">7dp</dimen>
+    <dimen name="myyouku_upload_video_checktext_margin_left">7dp</dimen>
+    <dimen name="myyouku_upload_video_more_margin_left">4dp</dimen>
+    <dimen name="myyouku_upload_video_cacel_margin_top">25dp</dimen>
+    <dimen name="myyouku_upload_video_cacel_height">39dp</dimen>
+    <dimen name="myyouku_upload_video_cacel_gap">5dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_top_height">41dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_title_top_margin">20dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_title_left_margin">9dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_lines_left_margin">8dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_other_line_top_margin">12dp</dimen>
+    <dimen name="myyouku_upload_video_dialog_btns_top_margin">48dp</dimen>
+    <dimen name="filter_btn_margin">50dp</dimen>
+    <dimen name="upload_item_width">188dp</dimen>
+    <dimen name="upload_item_height">138dp</dimen>
+    <dimen name="upload_item_img_height">106dp</dimen>
+
+    个人中心精彩应用右上角
+
+    频道页面        values-xhdpi
+    <dimen name="channel_rank_top_three_size">50dp</dimen>
+
+    values-xhdpi
+
+    <dimen name="subtitle_height">40dp</dimen>
+    <dimen name="subtitle_margin">12dp</dimen>
+    <dimen name="btn_switch_margin">5dp</dimen>
+    <dimen name="gridview_spacing">8dp</dimen>
+    <dimen name="gridview_pading_horizontal">8dp</dimen>
+    <dimen name="gridview_pading_top">8dp</dimen>
+    <dimen name="gridview_item_width">228dp</dimen>
+    <dimen name="gridview_item_height">169dp</dimen>
+    <dimen name="gridview_item_iv_height">123dp</dimen>
+    <dimen name="filter_cancel_height">37dp</dimen>
+    <dimen name="filter_cancel_width">44dp</dimen>
+    <dimen name="youku_mytag_item_tv_marginTop">5dp</dimen>
+    <dimen name="youku_mytag_item_marginTop">5dp</dimen>
+    <dimen name="stripe_bottom_tv_port_marginTop">2dp</dimen>
+    <dimen name="gridview_item_tv_height_port">40dp</dimen>
+    <dimen name="gridview_item_title_marginTop">2dp</dimen>
+    <dimen name="filter_top_padding">8dp</dimen>
+    <dimen name="tag_icon_dimen">50dp</dimen>
+    <dimen name="shadow_height">1dp</dimen>
+    <dimen name="btn_switch_dimen">8dp</dimen>
+    <dimen name="heart_view_width">26dp</dimen>
+    <dimen name="heart_view_height">23dp</dimen>
+    <dimen name="icon_not_loaded_width">32dp</dimen>
+    <dimen name="icon_not_loaded_height">30dp</dimen>
+
+    全屏播放 頭部
+    <dimen name="fullscreen_player_header_height">33dp</dimen>
+    <dimen name="fullscreen_player_header_padding">1dp</dimen>
+    <dimen name="fullscreen_player_header_return_width">22dp</dimen>
+    <dimen name="fullscreen_player_header_download_padding">22dp</dimen>
+    <dimen name="fullscreen_player_header_setting_padding">25dp</dimen>
+    全屏播放 右側聲音
+    <dimen name="fullscreen_player_volume_progress_length">122dp</dimen>
+    <dimen name="fullscreen_player_volume_length">210dp</dimen>
+    全屏播放 底部
+    <dimen name="fullscreen_player_footer_height">50dp</dimen>
+    <dimen name="fullscreen_player_footer_height_bottom_buttons">50dp</dimen>
+    <dimen name="fullscreen_player_footer_right_padding">8dp</dimen>
+    <dimen name="fullscreen_player_footer_dlna_padding">47dp</dimen>
+    <dimen name="fullscreen_player_footer_quality_padding">24dp</dimen>
+    全屏播放 連播
+
+    全屏播放 设置
+    <dimen name="fullscreen_player_setting__checkbox_padding">22dp</dimen>
+
+    全屏播放 剧集选择
+    <dimen name="fullscreen_player_episode_item_text_size">15sp</dimen>
+    <dimen name="fullscreen_player_episode_item_small_text_size">10sp</dimen>
+
+    全屏播放 设置字体
+
+    历史页面
+    <dimen name="history_line_height">14dp</dimen>
+    search   320 ldpi
+    <dimen name="search_grid_title">10sp</dimen>
+
+    缓存页面
+    <dimen name="download_grid_item_add_height">40dp</dimen>
+    search 320 ldpi
+    detail page
+
+	<dimen name="pay_card_layout_width">328dp</dimen>
+
+    详情页结束 重播
+    详情页Replay固定的
+    <dimen name="replay_replay_item_playcount_top">0dp</dimen>
+    <dimen name="replay_replay_current_title_paddleft">0dp</dimen>
+    <dimen name="replay_replay_item_text_size">12sp</dimen>
+    <dimen name="replay_replay_item_text_size_simall">8sp</dimen>
+    <dimen name="replay_replay_item_text_padd_h">3dp</dimen>
+    <dimen name="replay_replay_item_text_padd_v">5dp</dimen>
+    <dimen name="replay_small_divide_width">1px</dimen>
+    <dimen name="replay_small_divide_margin_h">4dp</dimen>
+    <dimen name="replay_item_videos_width">132dp</dimen>
+    <dimen name="replay_item_videos_height">128dp</dimen>
+    <dimen name="replay_item_videos_image_height">75dp</dimen>
+    <dimen name="replay_item_videos_title_height">29dp</dimen>
+    <dimen name="replay_item_videos_playcount_height">13dp</dimen>
+    <dimen name="replay_full_page_ctrl_width">5dp</dimen>
+
+    详情页Replay小屏的
+    <dimen name="replay_small_width">360dp</dimen>
+    <dimen name="replay_small_height">202dp</dimen>
+    <dimen name="replay_small_title_height">37dp</dimen>
+    <dimen name="replay_small_back_btn_width">60dp</dimen>
+    <dimen name="replay_small_replay_container_width">72dp</dimen>
+    <dimen name="replay_small_replay_text_width">40dp</dimen>
+    <dimen name="replay_small_replay_text_size">14dp</dimen>
+    <dimen name="replay_small_replay_videos_width">346dp</dimen>
+    <dimen name="replay_small_replay_videos_height">128dp</dimen>
+    <dimen name="replay_small_replay_videos_margin_top">13dp</dimen>
+    <dimen name="replay_small_replay_videos_margin_left">14dp</dimen>
+
+    详情页Replay 小屏拉伸的
+    <dimen name="replay_small_width_midsize">424dp</dimen>
+    <dimen name="replay_small_height_midsize">238dp</dimen>
+    <dimen name="replay_small_title_height_midsize">40dp</dimen>
+    <dimen name="replay_small_replay_videos_width_midsize">412dp</dimen>
+    <dimen name="replay_small_replay_videos_height_midsize">122dp</dimen>
+    <dimen name="replay_small_replay_videos_margin_left_midsize">12dp</dimen>
+    <dimen name="replay_small_replay_videos_margin_top_midsize">31dp</dimen>
+    <dimen name="replay_item_videos_width_midsize">129dp</dimen>
+    <dimen name="replay_item_videos_height_midsize">122dp</dimen>
+    <dimen name="replay_item_videos_title_height_midsize">27dp</dimen>
+    <dimen name="replay_replay_item_text_padd_v_midsize">4dp</dimen>
+    <dimen name="replay_item_videos_playcount_height_midsize">13dp</dimen>
+    <dimen name="replay_replay_item_text_padd_h_midsize">4dp</dimen>
+    <dimen name="replay_replay_item_text_size_midsize">11sp</dimen>
+
+    详情页Replay 大屏的
+    <dimen name="replay_full_width">640dp</dimen>
+    <dimen name="replay_full_height">400dp</dimen>
+    <dimen name="replay_full_back_btn_width">85dp</dimen>
+    <dimen name="replay_full_title_height">53dp</dimen>
+    <dimen name="replay_full_replay_videos_width">441dp</dimen>
+    <dimen name="replay_full_replay_videos_height">284dp</dimen>
+    <dimen name="replay_full_replay_videos_item_width">147dp</dimen>
+    <dimen name="replay_full_replay_videos_item_height">142dp</dimen>
+    <dimen name="replay_full_replay_videos_margin_left">12dp</dimen>
+    <dimen name="replay_full_replay_videos_margin_right">5dp</dimen>
+    <dimen name="replay_replay_item_text_padd_h_full">5dp</dimen>
+    <dimen name="replay_full_replay_videos_page_ctrl_height">24dp</dimen>
+    <dimen name="replay_full_replay_interact_width">170dp</dimen>
+    <dimen name="replay_full_replay_interact_margin_right">12dp</dimen>
+    <dimen name="replay_full_replay_cur_title_height">55dp</dimen>
+    <dimen name="replay_full_replay_cur_image_height">95dp</dimen>
+    <dimen name="replay_full_replay_interact_text_height">43dp</dimen>
+    <dimen name="replay_full_replay_interact_btn_width">85dp</dimen>
+    <dimen name="replay_full_replay_interact_btn_height">67dp</dimen>
+    <dimen name="replay_full_replay_interact_btn_padd_h">27dp</dimen>
+    <dimen name="replay_full_replay_interact_btn_padd_top">11dp</dimen>
+    <dimen name="replay_full_replay_interact_btn_padd_bottom">25dp</dimen>
+
+    详情页面 pad 竖屏 1280*800
+    <dimen name="detail_play_padding_top_bottom">9.5dp</dimen>
+    <dimen name="detail_play_padding_left_right">8dp</dimen>
+    <dimen name="detail_play_title_height">37dp</dimen>
+    <dimen name="detail_play_title_margin_left_right">6.5dp</dimen>
+    <dimen name="detail_titles_list_height">38dp</dimen>
+
+    详情页播放器底部控制区
+    <dimen name="detail_play_content_padding_top">7.5dp</dimen>
+    <dimen name="detail_play_content_padding_bottom">7.5dp</dimen>
+    <dimen name="detail_play_full_margin_right">12.5dp</dimen>
+    <dimen name="detail_play_progress_margin_left">10dp</dimen>
+    <dimen name="detail_play_progress_margin_right">10dp</dimen>
+    pop up
+    <dimen name="detail_boder">0.5dp</dimen>
+    分集剧情
+    <dimen name="series_desc_list_padding_top">13.5dp</dimen>
+    <dimen name="series_desc_list_divider">8.5dp</dimen>
+
+    播放控制区
+
+    缓存剧集
+    <dimen name="detail_cache_type_width_all">122dp</dimen>
+    <dimen name="detail_cache_type_height">35dp</dimen>
+    <dimen name="detail_cache_setting_height">18dp</dimen>
+    <dimen name="detail_cache_type_margin_left">11dp</dimen>
+    <dimen name="detail_cache_list_margintop">14.5dp</dimen>
+    <dimen name="detail_cache_type_width">88dp</dimen>
+    <dimen name="detail_cache_type_divider">0.5dp</dimen>
+    <dimen name="detail_cache_item_divider">10dp</dimen>
+    <dimen name="detail_cache_golist_width">90dp</dimen>
+    new 2012-12-7 17:45:41
+
+
+    综艺剧集列表
+    <dimen name="detail_zy_series_item_content_paddinglr">12dp</dimen>
+    <dimen name="detail_zy_series_item_content_between">22dp</dimen>
+
+    播放评论
+    
+    <dimen name="detail_comment_input_height_dialog">60dp</dimen>
+    <dimen name="detail_comment_item_user_marginl">10.5dp</dimen>
+    <dimen name="detail_comment_item_user_height">36dp</dimen>
+    <dimen name="detail_comment_item_time_marginl">8.5dp</dimen>
+    <dimen name="detail_comment_item_reply_width">49dp</dimen>
+
+    评论对话框
+    prevue scene relatedVideo
+    <dimen name="detail_video_item_height">39.5dp</dimen>
+
+    new cache
+    introduction
+    detail page end
+    <dimen name="capture_tishi_margin">10dp</dimen>
+
+    字体适配
+    <dimen name="text_size_1">9sp</dimen>
+    <dimen name="text_size_2">11sp</dimen>
+    <dimen name="text_size_3">12sp</dimen>
+    <dimen name="text_size_4">13sp</dimen>
+    <dimen name="text_size_5">14sp</dimen>
+    <dimen name="text_size_6">15sp</dimen>
+    <dimen name="text_size_7">18sp</dimen>
+    <dimen name="text_size_8">25sp</dimen>
+    <dimen name="detail_plugin_small_play_btn_height">90dp</dimen>
+    <dimen name="detail_plugin_small_play_btn_height_land">45dp</dimen>
+    <dimen name="other_person_top_layout_height">160dip</dimen>
+    <dimen name="other_person_top_fans_count_lineayout_height">30dip</dimen>
+    <dimen name="other_person_top_fans_count_line_height">13dip</dimen>
+    <dimen name="other_person_layout_myyouku_avatar_width_height">45dip</dimen>
+    <dimen name="other_person_layout_myyouku_avatar_parent_layout_width">66dip</dimen>
+    <dimen name="other_person_img_myyouku_avatar_width_height">21dp</dimen>
+    <dimen name="other_person_top_layout_center_height">72dip</dimen>
+    <dimen name="other_person_top_layout_center_left_layout_width">82dip</dimen>
+    <dimen name="other_person_top_layout_center_content_margin_right">10dip</dimen>
+    <dimen name="other_person_top_layout_center_follow_layout_width">81dip</dimen>
+    <dimen name="other_person_top_layout_center_follow_layout_height">35dip</dimen>
+    <dimen name="other_person_item_gridview_verticalspacing">8dip</dimen>
+    <dimen name="other_person_item_gridview_item_textsize">10dip</dimen>
+    <dimen name="other_person_item_gridview_item_imageview_width">168dip</dimen>
+    <dimen name="other_person_item_gridview_item_imageview_height">95dip</dimen>
+    <dimen name="other_person_item_gridview_item_lineaylayout_height">25dip</dimen>
+    <dimen name="other_person_item_gridview_item_padding_left_right">5dip</dimen>
+    <dimen name="other_person_item_gridview_item_bottom_padding_left_right">11dip</dimen>
+    <dimen name="other_person_layout_myyouku_avatar_padding_top_bottom">9dp</dimen>
+    <dimen name="other_person_layout_myyouku_avatar_padding_left">1dp</dimen>
+    <dimen name="other_person_layout_myyouku_avatar_height">61dp</dimen>
+    <dimen name="other_person_layout_myyouku_follow_padding_left">13dp</dimen>
+    <dimen name="other_person_layout_myyouku_avatar_lineaylayout">2dp</dimen>
+    <dimen name="other_person_top_layout_center_avater_margin_right_top">-11dip</dimen>
+    <dimen name="other_person_top_layout_center_avater_margin_top">-22dip</dimen>
+    <dimen name="otherperson_info_gridview_right_title_line_space">2dp</dimen>
+    <dimen name="otherperson_bottom_gridview_item_linearlayout_paddingleft">18dp</dimen>
+    <dimen name="otherperson_bottom_gridview_item_linearlayout_paddingtop_bottom">9dp</dimen>
+    <dimen name="otherperson_info_gridview_item_view_count_textview_textsize">11dp</dimen>
+    <dimen name="otherperson_info_gridview_title_textview_textsize">14dp</dimen>
+    <dimen name="otherperson_info_gridview_count_textview_textsize">10dp</dimen>
+    <dimen name="otherperson_top_center_layout_marginleft">0dip</dimen>
+    <dimen name="otherperson_top_center_title_textview_textsize">24dip</dimen>
+    
+    <dimen name="detail_card_related_video_item_video_width">156dp</dimen>
+
+    
+    
+        login
+    <dimen name="login_blue_line_Margin_top">27dp</dimen>
+    <dimen name="login_blue_line_Margin_right">39dp</dimen>
+    <dimen name="login_login_btn_height">40dp</dimen>
+    <dimen name="login_edit_magin_left">9dp</dimen>
+    <dimen name="login_tips_margin_top_register">1dp</dimen>
+    <dimen name="login_edit_magin_bottom">6dp</dimen>
+    <dimen name="login_btn_magin_top_register">15dp</dimen>
+    <dimen name="regist_text_margin_top">20dp</dimen>
+    <dimen name="regist_reback_login_page_imageview_width">35dp</dimen>
+    <dimen name="regist_reback_login_page_imageview_heigth">50dp</dimen>
+    <dimen name="layout_regist_page_top_height">40dp</dimen>
+    <dimen name="layout_regist_item_spacing">16dp</dimen>
+    <dimen name="login_layout_margin_bottom">5dp</dimen>
+    <dimen name="login_regist_pswd_txt_text_size">12sp</dimen>
+    <dimen name="user_forget_password_view_margin_right">6dip</dimen>
+    <dimen name="layout_regist_item_top_margin_right_spacing">27dp</dimen>
+    <dimen name="login_top_layout_margin_top_bottom">20dp</dimen>
+    <dimen name="login_top_layout_margin_line_margin_right">55dip</dimen>
+    <dimen name="login_top_layout_regist_txt_margin_right">10dip</dimen>
+    <dimen name="login_bottom_sns_icon_center_line_height_width">36dip</dimen>
+    <dimen name="login_user_sns_saosao_text_margin_top">7dip</dimen>
+    <dimen name="login_user_sns_text_layout_padding_right_left">15dip</dimen>
+    <dimen name="login_user_sns_block_margin_top_left">3dip</dimen>
+    <dimen name="regist_top_right_layout_line_margin_right">-10dip</dimen>
+    <dimen name="regist_top_left_item_width">100dip</dimen>
+    <dimen name="login_regist_top_line_margin_right">8dip</dimen>
+    
+    
+	<dimen name="login_bottom_saosao_imageview_height_width">125dip</dimen>
+	<dimen name="login_bottom_sns_icon_height_width">40dip</dimen>
+	<dimen name="login_user_sns_text_size">13dip</dimen>
+	<dimen name="login_user_sns_below_text_size">9dip</dimen>
+	<dimen name="actionbar_img_height">78px</dimen>
+    <dimen name="actionbar_vip_img_height">32px</dimen>    
+    <dimen name="actionbar_img_height_half">39px</dimen>
+    <dimen name="actionbar_ico_height">65px</dimen>
+    <dimen name="actionbar_item_extra_width">160px</dimen> -->
+</resources>

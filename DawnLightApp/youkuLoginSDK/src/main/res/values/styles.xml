@@ -1,0 +1,89 @@
+<resources>
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+	
+	<style name="Font3_red_ff5a5a">
+        <item name="android:textSize">@dimen/text_size_3</item>
+        <item name="android:textColor">@color/text_color_red_1</item>
+    </style>
+    
+	<style name="Font6_white">
+        <item name="android:textSize">@dimen/text_size_6</item>
+        <item name="android:textColor">@color/text_color_white</item>
+    </style>
+    
+	<style name="LoadingDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+    
+  	<style name="NotificationText">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="NotificationTitle">
+        <item name="android:textColor">?android:attr/textColorPrimaryInverse</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="regist_title_txt">
+        <item name="android:shadowColor">#ffffffff</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:textSize">@dimen/dialog_activity_regist_title_text_size</item>
+    </style>
+        <style name="FontC">
+        <item name="android:textSize">@dimen/text_size_c</item>
+    </style>
+    <style name="login_edit" parent="FontC">
+        <item name="android:textColor">#333333</item>
+    </style>
+    <style name="channel_custom_title_txt">
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">#ff3d3d3d</item>
+        <item name="android:textSize">@dimen/channel_custom_title_txt_textsize</item>
+    </style>
+    
+    <style name="OverflowButton">
+        <item name="android:src">@android:drawable/ic_menu_view</item>
+    </style>
+    <style name="homepagetitle" parent="FontD">
+        <item name="android:textColor">#333333</item>
+    </style>
+    <style name="soku_dialog_txt_cancel">
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">#ff747474</item>
+        <item name="android:textSize">@dimen/soku_dialog_txt_cancel_textsize</item>
+    </style>
+    <style name="soku_dialog_txt_goplay">
+        <item name="android:gravity">center</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">#ff0177ae</item>
+        <item name="android:textSize">@dimen/soku_dialog_txt_cancel_textsize</item>
+    </style>
+    <style name="SoKuDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+    <style name="ShareDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+</resources>

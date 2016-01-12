@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--     <integer name="text_font_in_code">26</integer>
+	<integer name="numColumns">4</integer>
+	<integer name="search_filter_item_wrapper_textview_textsize">26</integer>
+	<integer name="search_filter_orderarea_textview_textsize">26</integer>
+	
+	homepage weight    
+    <integer name="homepage_gallery_layout_galleryview_weight">1</integer>
+    <integer name="homepage_gallery_layout_bottom_layout_weight">6</integer> -->
+</resources>

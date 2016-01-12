@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- 字体适配 -->
+    <dimen name="text_size_1">12sp</dimen>
+    <dimen name="text_size_2">15sp</dimen>
+    <dimen name="text_size_3">16sp</dimen>
+    <dimen name="text_size_4">17sp</dimen>
+    <dimen name="text_size_5">19sp</dimen>
+    <dimen name="text_size_6">20sp</dimen>
+    <dimen name="text_size_7">24sp</dimen>
+    <dimen name="text_size_8">33sp</dimen>
+     <dimen name="homepage_title_height">70dp</dimen>
+    <!-- 
+    适配 nexus 7 竖屏
+    <dimen name="detail_cache_type_height">35dp</dimen>
+    <dimen name="detail_cache_setting_height">18dp</dimen>
+
+    首页
+    <dimen name="homepage_item_height">460dp</dimen>
+
+    缓存页面
+    <dimen name="download_grid_item_add_height">66dp</dimen>
+    <dimen name="download_grid_item_image_padding_right">6dp</dimen>
+
+    7寸 1024x600 LF
+    <dimen name="fullscreen_player_footer_blank_height">12px</dimen>
+    <dimen name="fullscreen_player_footer_textsize">14sp</dimen>
+    <dimen name="fullscreen_player_footer_length_textsize">16sp</dimen>
+    <dimen name="fullscreen_player_btn_mute_size">37px</dimen>
+    <dimen name="fullscreen_player_volumn_width">85px</dimen>
+
+    全屏播放 设置框  LF
+    <dimen name="fullscreen_player_setting__width">574px</dimen>
+    <dimen name="fullscreen_player_setting__light_bar_width">385px</dimen>
+    <dimen name="fullscreen_player_setting__radio_margin_left">7px</dimen>
+    <dimen name="plugin_detail_play_pause_pandding">55dp</dimen>
+    <dimen name="fullscreen_player_setting__checkbox_padding">22dp</dimen>
+
+    频道页
+    <dimen name="subtitle_height">54dp</dimen>
+    <dimen name="gridview_item_tv_height_port">62dp</dimen>
+    <dimen name="stripe_bottom_tv_port_marginLeft">7.5dp</dimen>
+    <dimen name="more_pop_item_height">189dp</dimen>
+    <dimen name="more_item_iv_width">82dp</dimen>
+    <dimen name="more_item_iv_height">79dp</dimen>
+    <dimen name="more_pop_item_marginTop">20dp</dimen>
+    <dimen name="more_pop_item_tv_marginTop">13dp</dimen>
+    <dimen name="filter_bg_stroke_width">1.5dp</dimen>
+
+    个人中心      values-large-tvdpi
+
+    <dimen name="homepage_title_height">70dp</dimen>
+    <dimen name="myyouku_upload_video_image_height">380dp</dimen>
+    <dimen name="myyouku_upload_video_image_block_height">425dp</dimen>
+    <dimen name="myyouku_upload_video_uploadbtn_width">132dp</dimen>
+    <dimen name="myyouku_upload_video_detail_height">59dp</dimen>
+    <dimen name="myyouku_upload_video_detail_type_height">56dp</dimen>
+    <dimen name="myyouku_upload_video_cacel_height">66dp</dimen>
+    <dimen name="myyouku_setting_bar_height">55dp</dimen>
+    <dimen name="myyouku_setting_wifi_bar_height">68dp</dimen>
+    <dimen name="myyouku_setting_lists_gap">18dp</dimen>
+    <dimen name="myyouku_setting_list_item_height">68dp</dimen>
+
+    字体适配
+    <dimen name="text_size_1">12sp</dimen>
+    <dimen name="text_size_2">15sp</dimen>
+    <dimen name="text_size_3">16sp</dimen>
+    <dimen name="text_size_4">17sp</dimen>
+    <dimen name="text_size_5">19sp</dimen>
+    <dimen name="text_size_6">20sp</dimen>
+    <dimen name="text_size_7">24sp</dimen>
+    <dimen name="text_size_8">33sp</dimen>
+
+    个人中心        values-large-tvdpi
+
+    <dimen name="activity_myyouku_paddingbottom">11px</dimen>
+    <dimen name="activity_myyouku_paddingleft">12px</dimen>
+    <dimen name="activity_myyouku_gridview_verticalspacing">6px</dimen>
+    
+    <dimen name="myyouku_list_item_second_textsize">17px</dimen>
+    <dimen name="myyouku_list_item_third_textsize">17px</dimen>
+    <dimen name="myyouku_list_item_third_maxwidth">166px</dimen>
+
+    myyouku_history_emptyview
+    <dimen name="img_myyouku_history_norecord_width">76px</dimen>
+    <dimen name="img_myyouku_history_norecord_height">68px</dimen>
+    <dimen name="txt_myyouku_history_norecord_tip_marginleft">17px</dimen>
+    <dimen name="txt_myyouku_history_norecord_tip_textsize">18px</dimen>
+    <dimen name="actionbar_img_height">51px</dimen>
+    <dimen name="actionbar_vip_img_height">21px</dimen>    
+    <dimen name="actionbar_img_height_half">25px</dimen>
+    <dimen name="actionbar_ico_height">42px</dimen>
+    <dimen name="actionbar_item_extra_width">104px</dimen> -->
+</resources>

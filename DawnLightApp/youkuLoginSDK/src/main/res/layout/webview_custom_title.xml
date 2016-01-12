@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:id="@+id/left_webview_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="@dimen/webview_top_padding_left_right" >
+
+        <ImageView
+            android:id="@+id/webview_close_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@drawable/topbar_close_icon" />
+ 
+        <com.youku.login.util.ui.AlwaysMarqueeTextView
+            android:id="@+id/webview_custom_title_txt"
+            style="@style/channel_custom_title_txt"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:minLines="1"
+	        android:focusable="true"
+	        android:focusableInTouchMode="true"
+	        android:marqueeRepeatLimit="1"
+            android:layout_width="@dimen/webview_top_title_layout_width"
+            android:scrollHorizontally="true"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/webview_top_title_margin_left"
+            android:layout_toRightOf="@+id/webview_close_icon" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/left_webview_layout"
+        android:gravity="right|center_vertical"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/webview_top_padding_left_right">
+
+
+            <ImageView
+                android:id="@+id/webview_refresh_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:duplicateParentState="true"
+                android:layout_marginRight="@dimen/webview_top_margin_left_right"
+                android:src="@drawable/topbar_refresh_icon" />
+
+
+            <ImageView
+                android:id="@+id/webview_share_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:duplicateParentState="true"
+                android:layout_marginRight="@dimen/webview_top_margin_left_right"
+                android:src="@drawable/topbar_share_icon" />
+
+
+            <ImageView
+                android:id="@+id/webview_more_icon"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:duplicateParentState="true"
+                android:src="@drawable/btn_more" />
+    </LinearLayout>
+
+</RelativeLayout>

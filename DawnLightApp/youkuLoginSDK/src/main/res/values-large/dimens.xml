@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text Size -->
+
+    <dimen name="text_size_a">16sp</dimen>
+    <dimen name="text_size_b">18sp</dimen>
+    <dimen name="text_size_c">20sp</dimen>
+    <dimen name="text_size_d">24sp</dimen>
+    <dimen name="text_size_e">30sp</dimen>
+    <dimen name="text_size_f">36sp</dimen>
+    <dimen name="text_size_g">48sp</dimen>
+    <dimen name="text_size_h">54sp</dimen>
+    <dimen name="text_size_i">60sp</dimen>
+    <dimen name="text_size_j">28sp</dimen>
+    <dimen name="text_size_l">38sp</dimen>
+
+    <!-- 字体适配 -->
+    <dimen name="text_size_1">10sp</dimen>
+    <dimen name="text_size_2">12sp</dimen>
+    <dimen name="text_size_3">13sp</dimen>
+    <dimen name="text_size_4">14sp</dimen>
+    <dimen name="text_size_5">15sp</dimen>
+    <dimen name="text_size_6">16sp</dimen>
+    <dimen name="text_size_7">19sp</dimen>
+    <dimen name="text_size_8">27sp</dimen>
+     <dimen name="detail_share_pop_title_height">80dip</dimen>
+    <!-- 
+    <dimen name="homepage_item8_margin_bottom">60dp</dimen>
+
+    detail page
+    详情页面 pad 竖屏 1280*800
+    <dimen name="detail_play_padding_top_bottom">19dp</dimen>
+    <dimen name="detail_play_padding_left_right">16dp</dimen>
+    <dimen name="detail_play_title_height">60dp</dimen>
+    <dimen name="detail_play_title_margin_left_right">13dp</dimen>
+
+    详情页播放器底部控制区
+    <dimen name="detail_play_content_padding_top">15dp</dimen>
+    <dimen name="detail_play_content_padding_bottom">15dp</dimen>
+    <dimen name="detail_play_full_margin_right">25dp</dimen>
+    <dimen name="detail_play_progress_margin_left">20dp</dimen>
+    <dimen name="detail_play_progress_margin_right">20dp</dimen>
+    pop up
+    <dimen name="detail_boder">1dp</dimen>
+    分集剧情
+    <dimen name="series_desc_list_padding_top">27dp</dimen>
+    <dimen name="series_desc_list_divider">17dp</dimen>
+
+    播放控制区
+
+    缓存剧集
+    <dimen name="detail_cache_type_width_all">244dp</dimen>
+    <dimen name="detail_cache_type_height">53dp</dimen>
+    <dimen name="detail_cache_setting_height">25dp</dimen>
+    <dimen name="detail_cache_type_margin_left">22dp</dimen>
+    <dimen name="detail_cache_list_margintop">29dp</dimen>
+    <dimen name="detail_cache_type_width">176dp</dimen>
+    <dimen name="detail_cache_type_divider">1dp</dimen>
+    <dimen name="detail_cache_item_divider">20dp</dimen>
+    <dimen name="detail_cache_golist_width">140dp</dimen>
+    new 2012-12-7 17:45:41
+
+
+    综艺剧集列表
+    <dimen name="detail_zy_series_item_content_paddinglr">24dp</dimen>
+    <dimen name="detail_zy_series_item_content_between">44dp</dimen>
+
+    播放评论
+    
+    <dimen name="detail_comment_input_height_dialog">68dp</dimen>
+    <dimen name="detail_comment_input_line_width">1.2dp</dimen>
+    <dimen name="detail_comment_input_line_height">6.4dp</dimen>
+    <dimen name="detail_comment_item_user_marginl">21dp</dimen>
+    <dimen name="detail_comment_item_user_height">62dp</dimen>
+    <dimen name="detail_comment_item_time_marginl">17dp</dimen>
+    <dimen name="detail_comment_item_reply_width">98dp</dimen>
+    评论对话框
+    prevue scene relatedVideo
+    <dimen name="detail_video_item_height">79dp</dimen>
+
+    new cache
+    introduction
+    detail page end
+
+
+    缓存页面    竖屏 1280*800
+
+    <dimen name="download_grid_item_add_height">127dp</dimen>
+    <dimen name="download_grid_item_image_padding_right">7dp</dimen>
+
+    全屏播放  LF
+
+
+    全屏播放 设置框  LF
+    <dimen name="plugin_detail_play_pause_pandding">0dp</dimen>
+
+    Text Size
+
+    <dimen name="text_size_a">16sp</dimen>
+    <dimen name="text_size_b">18sp</dimen>
+    <dimen name="text_size_c">20sp</dimen>
+    <dimen name="text_size_d">24sp</dimen>
+    <dimen name="text_size_e">30sp</dimen>
+    <dimen name="text_size_f">36sp</dimen>
+    <dimen name="text_size_g">48sp</dimen>
+    <dimen name="text_size_h">54sp</dimen>
+    <dimen name="text_size_i">60sp</dimen>
+    <dimen name="text_size_j">28sp</dimen>
+    <dimen name="text_size_l">38sp</dimen>
+
+    字体适配
+    <dimen name="text_size_1">10sp</dimen>
+    <dimen name="text_size_2">12sp</dimen>
+    <dimen name="text_size_3">13sp</dimen>
+    <dimen name="text_size_4">14sp</dimen>
+    <dimen name="text_size_5">15sp</dimen>
+    <dimen name="text_size_6">16sp</dimen>
+    <dimen name="text_size_7">19sp</dimen>
+    <dimen name="text_size_8">27sp</dimen>
+
+    播放广告
+    <dimen name="player_ad_head_padding">15dp</dimen>
+    <dimen name="player_ad_count_text_padding">7dp</dimen>
+    <dimen name="player_ad_more_height">33dp</dimen>
+    <dimen name="player_ad_more_padding">10dp</dimen>
+    <dimen name="player_ad_go_full_margin_bottom">8dp</dimen>
+    <dimen name="player_ad_go_full_margin_right">15dp</dimen>
+    <dimen name="player_ad_go_full_padding">7dp</dimen>
+
+    个人中心        values-large
+
+    <dimen name="activity_myyouku_paddingbottom">14px</dimen>
+    <dimen name="activity_myyouku_paddingleft">16px</dimen>
+    <dimen name="activity_myyouku_gridview_verticalspacing">8px</dimen>
+    
+    <dimen name="myyouku_list_item_second_textsize">22px</dimen>
+    <dimen name="myyouku_list_item_third_textsize">22px</dimen>
+    <dimen name="myyouku_list_item_third_maxwidth">220px</dimen>
+
+    myyouku_history_emptyview
+    <dimen name="img_myyouku_history_norecord_width">100px</dimen>
+    <dimen name="img_myyouku_history_norecord_height">90px</dimen>
+    <dimen name="txt_myyouku_history_norecord_tip_marginleft">22px</dimen>
+    <dimen name="txt_myyouku_history_norecord_tip_textsize">24px</dimen>
+
+    V3.3新增的
+    <dimen name="detail_share_pop_title_height">80dip</dimen>
+    
+     视频详情页        values-large
+     
+    <dimen name="detail_card_interaction_land_icon_height">38.4dp</dimen>
+     -->
+
+</resources>
