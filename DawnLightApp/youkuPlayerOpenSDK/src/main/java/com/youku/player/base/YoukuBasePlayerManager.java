@@ -89,6 +89,7 @@ import com.youku.uplayer.OnTimeoutListener;
 import com.youku.uplayer.OnVideoIndexUpdateListener;
 
 import java.io.UnsupportedEncodingException;
+import java.lang.ref.WeakReference;
 import java.net.URLDecoder;
 
 
@@ -144,8 +145,7 @@ public abstract class YoukuBasePlayerManager extends IBasePlayerManager implemen
     YoukuPlayerView mYoukuPlayerView;
     PluginManager pluginManager;
     PluginOverlay mPluginSmallScreenPlay;
-
-//	public ImageWorker getImageWorker(YoukuBasePlayerManager context) {
+    //	public ImageWorker getImageWorker(YoukuBasePlayerManager context) {
 //		if (null == mImageWorker) {
 //			final int height = Device.ht;
 //			final int width = Device.wt;
@@ -165,6 +165,7 @@ public abstract class YoukuBasePlayerManager extends IBasePlayerManager implemen
     boolean isPause;
     String currentVid;
     boolean isPauseADShowing = false;
+    private WeakReference<Activity> activityWeakReference;
     private boolean isSendPlayBreakEvent = false; //是否发送播放中断，只发送一�?
     // 是否第一次加载成�?
     private boolean firstLoaded = false;
@@ -2174,6 +2175,12 @@ public abstract class YoukuBasePlayerManager extends IBasePlayerManager implemen
         surfaceView.recreateSurfaceHolder();
     }
 
+    @Override
+    public Activity getBaseActivity() {
+        activityWeakReference = new WeakReference<Activity>(super.getBaseActivity());
+        return activityWeakReference.get();
+    }
+
     class DialogPositiveClick implements OnPositiveClickListener {
 
         @Override
@@ -2181,6 +2188,4 @@ public abstract class YoukuBasePlayerManager extends IBasePlayerManager implemen
             doPositiveClick(passWord);
         }
     }
-
-
 }
