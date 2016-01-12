@@ -136,5 +136,6 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
 
     public interface fragmentListener {
         public SQLiteDatabase getDatabase();
+        public void showDragPanel();
     }
 }

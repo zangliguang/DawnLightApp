@@ -11,4 +11,10 @@
 
     <dimen name="tab_height">48dp</dimen>
     <dimen name="tab_width">300dp</dimen>
+
+    <!--DragPanel-->
+    <dimen name="top_fragment_height">200dip</dimen>
+    <dimen name="top_fragment_margin">5dip</dimen>
+    <item name="x_scale_factor" format="float" type="dimen">2.3</item>
+    <item name="y_scale_factor" format="float" type="dimen">2.3</item>
 </resources>

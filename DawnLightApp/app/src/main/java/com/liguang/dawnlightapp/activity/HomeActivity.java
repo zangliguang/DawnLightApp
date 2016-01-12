@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
@@ -16,9 +17,12 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
 
+import com.github.pedrovgs.DraggableListener;
+import com.github.pedrovgs.DraggableView;
 import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
@@ -32,6 +36,7 @@ import butterknife.ButterKnife;
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, BaseFragment.fragmentListener {
 
+    private static final int DELAY_MILLIS = 10;
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.nav_view)
@@ -43,6 +48,10 @@ public class HomeActivity extends AppCompatActivity
 
     DawnLightSQLiteHelper dlsh;
     SQLiteDatabase database;
+    @Bind(R.id.iv_thumbnail)
+    ImageView ivThumbnail;
+    @Bind(R.id.draggable_view)
+    DraggableView draggableView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +61,33 @@ public class HomeActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         initDB();
         initViews();
+        initializeDraggableView();
+        hookDraggableViewListener();
+    }
+
+    private void hookDraggableViewListener() {
+        draggableView.setDraggableListener(new DraggableListener() {
+            @Override
+            public void onMaximized() {
+
+            }
+
+            //Empty
+            @Override
+            public void onMinimized() {
+                //Empty
+            }
+
+            @Override
+            public void onClosedToLeft() {
+
+            }
+
+            @Override
+            public void onClosedToRight() {
+
+            }
+        });
     }
 
     private void initDB() {
@@ -189,6 +225,26 @@ public class HomeActivity extends AppCompatActivity
         return database;
     }
 
+    @Override
+    public void showDragPanel() {
+        if(draggableView.getVisibility()!=View.VISIBLE){
+            draggableView.setVisibility(View.VISIBLE);
+        }
+        draggableView.maximize();
+    }
 
+    /**
+     * Initialize DraggableView.
+     */
+    private void initializeDraggableView() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                draggableView.setVisibility(View.GONE);
+                draggableView.closeToRight();
+            }
+        }, DELAY_MILLIS);
+    }
 }
 

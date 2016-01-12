@@ -1,9 +1,7 @@
 package com.liguang.dawnlightapp.fragment;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +12,6 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.liguang.dawnlightapp.R;
-import com.liguang.dawnlightapp.activity.video.PlayerActivity;
 import com.liguang.dawnlightapp.fragment.dummy.DummyContent;
 import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 
@@ -27,7 +24,7 @@ import com.liguang.dawnlightapp.interf.OnTabReselectListener;
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class VideoFragment extends Fragment implements AbsListView.OnItemClickListener, OnTabReselectListener {
+public class VideoFragment extends BaseFragment implements AbsListView.OnItemClickListener, OnTabReselectListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,7 +35,8 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
+    private OnFragmentInteractionListener mItemListener;
+    fragmentListener mListener;
 
     /**
      * The fragment's ListView/GridView.
@@ -80,12 +78,13 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
         // TODO: Change Adapter to display your content
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
                 android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
-        mListener = new OnFragmentInteractionListener() {
+        mItemListener = new OnFragmentInteractionListener() {
             @Override
             public void onFragmentInteraction(String id) {
-                Intent i = new Intent(getContext(), PlayerActivity.class);
-                i.putExtra("vid", "XMjIzMjM2");
-                getActivity().startActivity(i);
+//                Intent i = new Intent(getContext(), PlayerActivity.class);
+//                i.putExtra("vid", "XMjIzMjM2");
+//                getActivity().startActivity(i);
+                mListener.showDragPanel();
 
             }
         };
@@ -109,20 +108,26 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
+        try {
+            mListener = (fragmentListener) getActivity();
+        } catch (ClassCastException e) {
+            throw new ClassCastException(getActivity().toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
+        mItemListener = null;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (null != mListener) {
+        if (null != mItemListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
+            mItemListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
         }
     }
 
