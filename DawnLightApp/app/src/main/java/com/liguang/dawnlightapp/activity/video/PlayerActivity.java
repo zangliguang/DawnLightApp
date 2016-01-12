@@ -236,7 +236,7 @@ public class PlayerActivity extends Activity {
         if (isFromLocal) { // 播放本地视频
             youkuPlayer.playLocalVideo(local_vid);
         } else { // 播放在线视频
-            youkuPlayer.playVideo("XMTQ0MTgyODg5Ng");
+            youkuPlayer.playVideo("XMjIzMjM2");
         }
 
         // XNzQ3NjcyNDc2
