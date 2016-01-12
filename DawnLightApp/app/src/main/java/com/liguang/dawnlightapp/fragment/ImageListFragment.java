@@ -35,7 +35,7 @@ import java.util.List;
 public class ImageListFragment extends BaseFragment implements ImageDetailAdapter.SQLOperator {
 
     public static final String EXTRA_POSITION = "EXTRA_POSITION";
-
+    public static int pageContentNum = 30;
     DawnLightSQLiteHelper dlsh;
     SQLiteDatabase database;
     Cursor cursor;
@@ -44,7 +44,6 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
     ImageDetailAdapter simpleRecyclerViewAdapter;
     fragmentListener mListener;
     int index = 0;
-    public static int pageContentNum = 30;
 
     @Override
     protected int getLayoutId() {
@@ -67,12 +66,9 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE)
-                {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
                     SamplePicassoFactory.getPicasso(getContext()).with(getContext()).resumeTag(simpleRecyclerViewAdapter.tag);
-                }
-                else
-                {
+                } else {
                     SamplePicassoFactory.getPicasso(getContext()).with(getContext()).pauseTag(simpleRecyclerViewAdapter.tag);
                 }
             }
@@ -257,7 +253,7 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
 
             }
         }).run();
-        if(loadmore){
+        if (loadmore) {
             refreshData();
         }
 //        Toast.makeText(getContext(),"插入结果是"+resultInsert+",删除结果是"+resultDelete,Toast.LENGTH_SHORT).show();
@@ -282,7 +278,7 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
 
             }
         }).run();
-        if(loadmore){
+        if (loadmore) {
             refreshData();
         }
 

@@ -16,9 +16,8 @@ package com.liguang.dawnlightapp.configs;
 public class ConfigConstants {
     public static final int KB = 1024;
     public static final int MB = 1024 * KB;
-    private static final int MAX_HEAP_SIZE = (int) Runtime.getRuntime().maxMemory();
-
     public static final int MAX_DISK_CACHE_SIZE = 240 * MB;
+    private static final int MAX_HEAP_SIZE = (int) Runtime.getRuntime().maxMemory();
     public static final int MAX_MEMORY_CACHE_SIZE = MAX_HEAP_SIZE / 4;
 }
 

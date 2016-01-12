@@ -196,7 +196,7 @@ public class PluginADPlay extends PluginOverlay implements DetailMessage {
                 .findViewById(R.id.gofullscreen);
         mSwitchParent = containerView.findViewById(R.id.gofulllayout);
 /*		ad_more = (TextView) containerView.findViewById(R.id.ad_more);
-		ad_more.setBackgroundColor(sAdMoreBackgroundColor);*/
+        ad_more.setBackgroundColor(sAdMoreBackgroundColor);*/
         play_adButton = (ImageButton) containerView
                 .findViewById(R.id.ib_detail_play_control_ad_play);
         play_adButton.setOnClickListener(new OnClickListener() {

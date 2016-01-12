@@ -256,7 +256,7 @@ public class PluginSimplePlayer extends PluginOverlay implements DetailMessage {
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
-			/*
+            /*
 			 * case MSG_LOADING: { if (!autoPlay && null != mMediaPlayerDelegate
 			 * && !mMediaPlayerDelegate.changeAutoPlay) return; ((Activity)
 			 * mActivity).runOnUiThread(new Runnable() {

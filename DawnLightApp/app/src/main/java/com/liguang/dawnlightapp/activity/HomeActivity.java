@@ -30,7 +30,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,BaseFragment.fragmentListener {
+        implements NavigationView.OnNavigationItemSelectedListener, BaseFragment.fragmentListener {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
@@ -98,10 +98,10 @@ public class HomeActivity extends AppCompatActivity
         mTabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
-                LogUtils.v("changed to tabId="+tabId);
+                LogUtils.v("changed to tabId=" + tabId);
 
                 Fragment currentFragment = getCurrentFragment();
-                if(currentFragment instanceof BaseFragment){
+                if (currentFragment instanceof BaseFragment) {
                     ((BaseFragment) currentFragment).onTabReselect();
                 }
 
@@ -176,7 +176,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     protected void onDestroy() {
-        if(database.isOpen()){
+        if (database.isOpen()) {
             database.close();
         }
         super.onDestroy();
@@ -188,7 +188,6 @@ public class HomeActivity extends AppCompatActivity
     public SQLiteDatabase getDatabase() {
         return database;
     }
-
 
 
 }

@@ -19,7 +19,7 @@ public class ImageListFragmentAdapter extends FragmentPagerAdapter {
 
     public ImageListFragmentAdapter(FragmentManager fm, List<ImageListFragment> lists) {
         super(fm);
-        this.fragmentList=lists;
+        this.fragmentList = lists;
     }
 
     @Override

@@ -21,8 +21,8 @@ import android.content.Context;
 
 public class ImageLoaderHelper {
 
-    private Context mContext = null;
     private static volatile ImageLoaderHelper instance = null;
+    private Context mContext = null;
 
     private ImageLoaderHelper(Context context) {
         mContext = context;
@@ -38,10 +38,6 @@ public class ImageLoaderHelper {
         }
         return instance;
     }
-
-
-
-
 
 
 }

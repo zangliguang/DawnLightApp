@@ -16,9 +16,22 @@ import com.youku.player.YoukuPlayerBaseConfiguration;
  */
 //public class DawnLightApplication extends Application {
 public class DawnLightApplication extends Application {
+    public static YoukuPlayerBaseConfiguration configuration;
     private static DawnLightApplication instance;
     private RefWatcher refWatcher;
-    public static YoukuPlayerBaseConfiguration configuration;
+
+    // 单例模式获取唯一的MyApplication实例
+    public static DawnLightApplication getInstance() {
+        if (null == instance) {
+            instance = new DawnLightApplication();
+        }
+        return instance;
+    }
+
+    public static RefWatcher getRefWatcher(Context context) {
+        DawnLightApplication application = (DawnLightApplication) context.getApplicationContext();
+        return application.refWatcher;
+    }
 
     @Override
     public void onCreate() {
@@ -64,19 +77,5 @@ public class DawnLightApplication extends Application {
                 return "/myapp/videocache/";            //举例
             }
         };
-    }
-
-
-    // 单例模式获取唯一的MyApplication实例
-    public static DawnLightApplication getInstance() {
-        if (null == instance) {
-            instance = new DawnLightApplication();
-        }
-        return instance;
-    }
-
-    public static RefWatcher getRefWatcher(Context context) {
-        DawnLightApplication application = (DawnLightApplication) context.getApplicationContext();
-        return application.refWatcher;
     }
 }

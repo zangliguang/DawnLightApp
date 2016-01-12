@@ -15,12 +15,13 @@ public class DawnLightSQLiteHelper extends SQLiteOpenHelper {
     private SQLiteDatabase mDatabase = null;
 
     public DawnLightSQLiteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version, DatabaseErrorHandler errorHandler) {
-        super(context,  LocalConstants.Paths.DB_PATH, factory, DATABASE_VERSION, errorHandler);
+        super(context, LocalConstants.Paths.DB_PATH, factory, DATABASE_VERSION, errorHandler);
     }
 
     public DawnLightSQLiteHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, LocalConstants.Paths.DB_PATH, null, DATABASE_VERSION);
     }
+
     public DawnLightSQLiteHelper(Context context) {
         super(context, LocalConstants.Paths.DB_PATH, null, DATABASE_VERSION);
     }

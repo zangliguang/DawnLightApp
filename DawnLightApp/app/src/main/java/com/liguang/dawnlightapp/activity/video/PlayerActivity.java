@@ -114,7 +114,7 @@ public class PlayerActivity extends Activity {
         getIntentData(getIntent());
 
         if (TextUtils.isEmpty(id)) {
-            vid = "XMTQzOTk5NTMwNA"; // 默认视频
+            vid = "XOTI4ODEwMTYw"; // 默认视频
         } else {
             vid = id;
         }
@@ -236,7 +236,7 @@ public class PlayerActivity extends Activity {
         if (isFromLocal) { // 播放本地视频
             youkuPlayer.playLocalVideo(local_vid);
         } else { // 播放在线视频
-            youkuPlayer.playVideo(vid);
+            youkuPlayer.playVideo("XMTQ0MTgyODg5Ng");
         }
 
         // XNzQ3NjcyNDc2

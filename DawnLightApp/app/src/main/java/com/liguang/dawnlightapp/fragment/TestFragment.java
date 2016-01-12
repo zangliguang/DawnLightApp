@@ -19,7 +19,7 @@ import com.liguang.dawnlightapp.interf.OnTabReselectListener;
  * Use the {@link TestFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TestFragment extends Fragment implements OnTabReselectListener{
+public class TestFragment extends Fragment implements OnTabReselectListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -30,6 +30,10 @@ public class TestFragment extends Fragment implements OnTabReselectListener{
     private String mParam2;
 
     private OnFragmentInteractionListener mListener;
+
+    public TestFragment() {
+        // Required empty public constructor
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -47,10 +51,6 @@ public class TestFragment extends Fragment implements OnTabReselectListener{
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    public TestFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -97,7 +97,7 @@ public class TestFragment extends Fragment implements OnTabReselectListener{
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

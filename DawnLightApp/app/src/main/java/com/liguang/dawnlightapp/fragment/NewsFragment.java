@@ -12,8 +12,8 @@ import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 
 /**
  * A fragment representing a list of Items.
- * <p>
- * <p>
+ * <p/>
+ * <p/>
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
@@ -30,6 +30,13 @@ public class NewsFragment extends ListFragment implements OnTabReselectListener 
 
     private OnFragmentInteractionListener mListener;
 
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public NewsFragment() {
+    }
+
     // TODO: Rename and change types of parameters
     public static NewsFragment newInstance(String param1, String param2) {
         NewsFragment fragment = new NewsFragment();
@@ -38,13 +45,6 @@ public class NewsFragment extends ListFragment implements OnTabReselectListener 
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public NewsFragment() {
     }
 
     @Override
@@ -94,7 +94,7 @@ public class NewsFragment extends ListFragment implements OnTabReselectListener 
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

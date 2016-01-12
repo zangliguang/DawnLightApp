@@ -18,36 +18,39 @@ import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 
 /**
  * A fragment representing a list of Items.
- * <p>
+ * <p/>
  * Large screen devices (such as tablets) are supported by replacing the ListView
  * with a GridView.
- * <p>
+ * <p/>
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class BaseListFragment extends Fragment implements AbsListView.OnItemClickListener ,OnTabReselectListener {
+public class BaseListFragment extends Fragment implements AbsListView.OnItemClickListener, OnTabReselectListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    /**
+     * The Adapter which will be used to populate the ListView/GridView with
+     * Views.
+     */
+    protected BaseAdapter mAdapter;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
-
     /**
      * The fragment's ListView/GridView.
      */
     private AbsListView mListView;
 
     /**
-     * The Adapter which will be used to populate the ListView/GridView with
-     * Views.
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
      */
-    protected BaseAdapter mAdapter;
+    public BaseListFragment() {
+    }
 
     // TODO: Rename and change types of parameters
     public static BaseListFragment newInstance(String param1, String param2) {
@@ -57,13 +60,6 @@ public class BaseListFragment extends Fragment implements AbsListView.OnItemClic
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public BaseListFragment() {
     }
 
     @Override
@@ -147,7 +143,7 @@ public class BaseListFragment extends Fragment implements AbsListView.OnItemClic
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

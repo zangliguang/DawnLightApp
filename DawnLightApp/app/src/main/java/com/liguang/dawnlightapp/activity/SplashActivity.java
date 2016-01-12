@@ -10,6 +10,7 @@ import android.view.animation.Animation;
 
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.constants.LocalConstants;
+import com.liguang.dawnlightapp.utils.LogUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -59,6 +60,7 @@ public class SplashActivity extends Activity {
                 // 开始复制testDatabase.db文件
                 while ((count = is.read(buffer)) > 0) {
                     fos.write(buffer, 0, count);
+                    LogUtils.v("已经复制" + count);
                 }
                 fos.close();
                 is.close();

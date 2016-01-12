@@ -28,25 +28,28 @@ public class ImageFragment extends BaseFragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    private OnFragmentInteractionListener mListener;
-
+    protected RecyclerTabLayout mRecyclerTabLayout;
     /**
      * The fragment's ListView/GridView.
      */
     List<ImageListFragment> fragmentList;
-    protected RecyclerTabLayout mRecyclerTabLayout;
-
+    // TODO: Rename and change types of parameters
+    private String mParam1;
+    private String mParam2;
+    private OnFragmentInteractionListener mListener;
     /**
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
     private ListAdapter mAdapter;
 
+
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public ImageFragment() {
+    }
 
     // TODO: Rename and change types of parameters
     public static ImageFragment newInstance(String param1, String param2) {
@@ -58,13 +61,6 @@ public class ImageFragment extends BaseFragment {
         return fragment;
     }
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public ImageFragment() {
-    }
-
     @Override
     protected int getLayoutId() {
         return R.layout.fragment_image_content;
@@ -73,7 +69,7 @@ public class ImageFragment extends BaseFragment {
 
     @Override
     protected void initView() {
-        if(null!=fragmentList&&fragmentList.size()>0){
+        if (null != fragmentList && fragmentList.size() > 0) {
             return;
         }
         String[] BeautyTitles = getContext().getResources().getStringArray(R.array.beauty_image_titles);

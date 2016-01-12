@@ -27,6 +27,4 @@ public class ImagePageModel extends BaseModel {
     Date create_time;
 
 
-
-
 }

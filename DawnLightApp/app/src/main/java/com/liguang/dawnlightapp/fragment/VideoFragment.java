@@ -20,10 +20,10 @@ import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 
 /**
  * A fragment representing a list of Items.
- * <p>
+ * <p/>
  * Large screen devices (such as tablets) are supported by replacing the ListView
  * with a GridView.
- * <p>
+ * <p/>
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
@@ -51,6 +51,13 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
      */
     private ListAdapter mAdapter;
 
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public VideoFragment() {
+    }
+
     // TODO: Rename and change types of parameters
     public static VideoFragment newInstance(String param1, String param2) {
         VideoFragment fragment = new VideoFragment();
@@ -59,13 +66,6 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public VideoFragment() {
     }
 
     @Override
@@ -149,7 +149,7 @@ public class VideoFragment extends Fragment implements AbsListView.OnItemClickLi
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

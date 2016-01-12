@@ -1,4 +1,3 @@
-
 package com.liguang.dawnlightapp.utils;
 
 import android.util.Log;
@@ -8,8 +7,8 @@ import android.util.Log;
  */
 public class LogUtils {
 
-    public static boolean isDebug = true;// 是否需要打印bug，可以在application的onCreate函数里面初始化
     private static final String TAG = "DawnLight";
+    public static boolean isDebug = true;// 是否需要打印bug，可以在application的onCreate函数里面初始化
 
     // 下面四个是默认tag的函数
     public static void i(String msg) {

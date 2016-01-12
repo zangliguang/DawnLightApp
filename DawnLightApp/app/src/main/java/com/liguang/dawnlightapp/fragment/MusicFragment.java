@@ -18,14 +18,14 @@ import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 
 /**
  * A fragment representing a list of Items.
- * <p>
+ * <p/>
  * Large screen devices (such as tablets) are supported by replacing the ListView
  * with a GridView.
- * <p>
+ * <p/>
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class MusicFragment extends Fragment implements AbsListView.OnItemClickListener,OnTabReselectListener {
+public class MusicFragment extends Fragment implements AbsListView.OnItemClickListener, OnTabReselectListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -49,6 +49,13 @@ public class MusicFragment extends Fragment implements AbsListView.OnItemClickLi
      */
     private ListAdapter mAdapter;
 
+    /**
+     * Mandatory empty constructor for the fragment manager to instantiate the
+     * fragment (e.g. upon screen orientation changes).
+     */
+    public MusicFragment() {
+    }
+
     // TODO: Rename and change types of parameters
     public static MusicFragment newInstance(String param1, String param2) {
         MusicFragment fragment = new MusicFragment();
@@ -57,13 +64,6 @@ public class MusicFragment extends Fragment implements AbsListView.OnItemClickLi
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
-    public MusicFragment() {
     }
 
     @Override
@@ -138,7 +138,7 @@ public class MusicFragment extends Fragment implements AbsListView.OnItemClickLi
      * fragment to allow an interaction in this fragment to be communicated
      * to the activity and potentially other fragments contained in that
      * activity.
-     * <p>
+     * <p/>
      * See the Android Training lesson <a href=
      * "http://developer.android.com/training/basics/fragments/communicating.html"
      * >Communicating with Other Fragments</a> for more information.

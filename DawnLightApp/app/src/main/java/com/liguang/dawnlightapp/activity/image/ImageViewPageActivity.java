@@ -25,11 +25,11 @@ public class ImageViewPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_image_view_page);
         String urls_str = getIntent().getStringExtra(URL_ARGUMENTS_EXTRA);
         String title_str = getIntent().getStringExtra(TITLE_ARGUMENTS_EXTRA);
-        android.support.v7.app.ActionBar actionBar =getSupportActionBar();
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(title_str);
         String[] urls_array = urls_str.split(",");
         ViewPager pager = (ViewPager) findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(urls_array.length-1);
+        pager.setOffscreenPageLimit(urls_array.length - 1);
 //        pager.setOffscreenPageLimit();
         pager.setAdapter(new ImageAdapter(this, urls_array));
     }
@@ -64,7 +64,7 @@ public class ImageViewPageActivity extends AppCompatActivity {
             SamplePicassoFactory.getPicasso(context).load(IMAGE_URLS[position]).placeholder(context.getResources().getDrawable(R.drawable.error_pic))
                     .error(context.getResources().getDrawable(R.drawable.error_pic))
                     .into(imageView);
-            LogUtils.v("加载url==>"+IMAGE_URLS[position]);
+            LogUtils.v("加载url==>" + IMAGE_URLS[position]);
             container.addView(imageLayout, 0);
             return imageLayout;
         }

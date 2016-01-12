@@ -1,10 +1,10 @@
 package com.liguang.dawnlightapp.fragment;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.support.v4.app.Fragment;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,13 +25,15 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    protected View mView;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private OnFragmentInteractionListener mListener;
-    protected View mView;
+
+    public BaseFragment() {
+        // Required empty public constructor
+    }
 
     /**
      * Use this factory method to create a new instance of
@@ -49,10 +51,6 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
-    }
-
-    public BaseFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -102,6 +100,25 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
 //        initView();
     }
 
+    protected void initView() {
+
+    }
+
+    protected View findViewById(int resId) {
+        if (mView != null) {
+            return mView.findViewById(resId);
+        }
+        return null;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+//        if(null!=mView){
+//            ((ViewGroup)mView.getParent()).removeView(mView);
+//        }
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -117,26 +134,7 @@ public class BaseFragment extends Fragment implements OnTabReselectListener {
         public void onFragmentInteraction(Uri uri);
     }
 
-    protected void initView() {
-
-    }
-
-    protected View findViewById(int resId) {
-        if (mView != null) {
-            return mView.findViewById(resId);
-        }
-        return null;
-    }
-
     public interface fragmentListener {
         public SQLiteDatabase getDatabase();
-    }
-
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-//        if(null!=mView){
-//            ((ViewGroup)mView.getParent()).removeView(mView);
-//        }
     }
 }

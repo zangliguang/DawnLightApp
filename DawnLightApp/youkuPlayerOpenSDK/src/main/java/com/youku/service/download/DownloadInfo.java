@@ -73,7 +73,9 @@ public final class DownloadInfo implements Parcelable, Comparable<DownloadInfo> 
     public final static String[] FORMAT_POSTFIX = new String[]{"", "mp4",
             "3gp", "flv", "3gp", "flv", "m3u8", "hd2"};
 
-    /** **************************** 以下为必须字段 ******************************************/
+    /**
+     * *************************** 以下为必须字段
+     ******************************************/
     @SuppressWarnings("unused")
     public static final Parcelable.Creator<DownloadInfo> CREATOR = new Parcelable.Creator<DownloadInfo>() {
         @Override
@@ -100,13 +102,17 @@ public final class DownloadInfo implements Parcelable, Comparable<DownloadInfo> 
 
     /** **************************** end ******************************************/
 
-    /** **************************** 下载未完成时的必须字段 ******************************************/
+    /**
+     * *************************** 下载未完成时的必须字段
+     ******************************************/
     private static final String KEY_segsseconds = "segsseconds";
     private static final String KEY_segssize = "segssize";
     private static final String KEY_taskid = "taskid";
     private static final String KEY_downloadedsize = "downloadedsize";
     private static final String KEY_segdownloadedsize = "segdownloadedsize";
-    /** -------------分片信息---------------- */
+    /**
+     * -------------分片信息----------------
+     */
     private static final String KEY_segID = "segstep";
     private static final String KEY_createtime = "createtime";
     private static final String KEY_starttime = "starttime";
@@ -121,7 +127,9 @@ public final class DownloadInfo implements Parcelable, Comparable<DownloadInfo> 
 
     /** **************************** end ******************************************/
 
-    /** **************************** 以下为非必须字段 ******************************************/
+    /**
+     * *************************** 以下为非必须字段
+     ******************************************/
     private static final String KEY_lastPlayTime = "lastPlayTime";
     private static final String KEY_savepath = "savepath";
     /**
@@ -277,12 +285,14 @@ public final class DownloadInfo implements Parcelable, Comparable<DownloadInfo> 
     public int iseditState;
     private int exceptionId;
     private double lastProgress = 0;
+
     /**
      * *************************** end
      ******************************************/
 
     public DownloadInfo() {
     }
+
     protected DownloadInfo(Parcel in) {
         title = in.readString();
         videoid = in.readString();

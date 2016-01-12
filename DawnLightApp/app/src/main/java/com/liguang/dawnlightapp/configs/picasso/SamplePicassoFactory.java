@@ -24,15 +24,15 @@ import com.squareup.picasso.Picasso;
  */
 public class SamplePicassoFactory {
 
-  private static Picasso sPicasso;
+    private static Picasso sPicasso;
 
-  public static Picasso getPicasso(Context context) {
-    if (sPicasso == null) {
-        sPicasso = new Picasso.Builder(context)
-            .downloader(new OkHttpDownloader(context, ConfigConstants.MAX_DISK_CACHE_SIZE))
-            .memoryCache(new LruCache(ConfigConstants.MAX_MEMORY_CACHE_SIZE))
-            .build();
+    public static Picasso getPicasso(Context context) {
+        if (sPicasso == null) {
+            sPicasso = new Picasso.Builder(context)
+                    .downloader(new OkHttpDownloader(context, ConfigConstants.MAX_DISK_CACHE_SIZE))
+                    .memoryCache(new LruCache(ConfigConstants.MAX_MEMORY_CACHE_SIZE))
+                    .build();
+        }
+        return sPicasso;
     }
-    return sPicasso;
-  }
 }

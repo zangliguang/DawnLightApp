@@ -26,17 +26,11 @@ import java.util.List;
 
 
 public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.ViewHolder> implements View.OnClickListener {
-    List<ImageDetailModel> dataList;
+    public static String tag = ImageDetailAdapter.class.getSimpleName();
     private final Picasso mPicasso;
-    private SQLOperator sqlOperator;
+    List<ImageDetailModel> dataList;
     Context context;
-
-    public ImageDetailAdapter(Context context, List<ImageDetailModel> dataList) {
-        this.dataList = dataList;
-        this.context = context;
-        mPicasso = SamplePicassoFactory.getPicasso(context);
-    }
-
+    private SQLOperator sqlOperator;
     private int mDuration = 300;
     private Interpolator mInterpolator = new LinearInterpolator();
     private int mLastPosition = 5;
@@ -44,7 +38,11 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
     private boolean isFirstOnly = true;
     private OnRecyclerViewItemClickListener mOnItemClickListener = null;
     private boolean loadImage = true;
-    public  static  String tag=ImageDetailAdapter.class.getSimpleName();
+    public ImageDetailAdapter(Context context, List<ImageDetailModel> dataList) {
+        this.dataList = dataList;
+        this.context = context;
+        mPicasso = SamplePicassoFactory.getPicasso(context);
+    }
 
     @Override
     public void onBindViewHolder(ImageDetailAdapter.ViewHolder holder, final int position) {
@@ -200,26 +198,6 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
         }
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView image;
-        TextView title;
-        Button deleteNull;
-        Button deleteBrowsed;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-            image = (ImageView) itemView.findViewById(R.id.pic);
-            title = (TextView) itemView.findViewById(R.id.name);
-            deleteNull = (Button) itemView.findViewById(R.id.delete_null);
-            deleteBrowsed = (Button) itemView.findViewById(R.id.delete_browsed);
-        }
-    }
-
-    //define interface
-    public static interface OnRecyclerViewItemClickListener {
-        void onItemClick(View view, String data);
-    }
-
     public void setOnItemClickListener(OnRecyclerViewItemClickListener listener) {
         this.mOnItemClickListener = listener;
     }
@@ -240,6 +218,20 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
         super.onViewRecycled(holder);
     }
 
+    public void setSqlOperator(SQLOperator sqlOperator) {
+        this.sqlOperator = sqlOperator;
+    }
+
+    public void addDataList(List<ImageDetailModel> dataList) {
+        this.dataList.addAll(dataList);
+    }
+
+    //define interface
+    public static interface OnRecyclerViewItemClickListener {
+        void onItemClick(View view, String data);
+    }
+
+
     public interface SQLOperator {
         public void deleteNUll(ImageDetailModel imageDetailModel, boolean loadmore);
 
@@ -247,13 +239,18 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
 
     }
 
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView image;
+        TextView title;
+        Button deleteNull;
+        Button deleteBrowsed;
 
-    public void setSqlOperator(SQLOperator sqlOperator) {
-        this.sqlOperator = sqlOperator;
-    }
-
-
-    public void addDataList(List<ImageDetailModel> dataList) {
-        this.dataList.addAll(dataList);
+        public ViewHolder(View itemView) {
+            super(itemView);
+            image = (ImageView) itemView.findViewById(R.id.pic);
+            title = (TextView) itemView.findViewById(R.id.name);
+            deleteNull = (Button) itemView.findViewById(R.id.delete_null);
+            deleteBrowsed = (Button) itemView.findViewById(R.id.delete_browsed);
+        }
     }
 }

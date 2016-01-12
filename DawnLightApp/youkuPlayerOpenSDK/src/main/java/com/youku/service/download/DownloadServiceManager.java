@@ -81,7 +81,7 @@ public class DownloadServiceManager extends BaseDownload {
             } else {// 有网络
                 cleanRetry();
                 /*
-				 * if (getP2p_switch() == 1 &&
+                 * if (getP2p_switch() == 1 &&
 				 * IAcceleraterService.isACCEnable(YoukuPlayerConfiguration.context)) { if
 				 * (YoukuUtil.isWifi()) {// wifi可用加速器 switch
 				 * (Accstub.isAvailable()) { case -1:
