@@ -11,9 +11,9 @@
             android:icon="@android:drawable/ic_menu_gallery"
             android:title="Gallery" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/youku_video"
             android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:title="YoukuVideo" />
         <item
             android:id="@+id/nav_manage"
             android:icon="@android:drawable/ic_menu_manage"

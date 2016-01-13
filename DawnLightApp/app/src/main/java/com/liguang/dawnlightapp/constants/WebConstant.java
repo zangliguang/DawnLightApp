@@ -33,6 +33,19 @@ public class WebConstant {
         public static final String channelId = "channelId";
         public static final String channelTitle = "channelTitle";
 
+
+        /**
+         * 优酷api
+         */
+
+        public static final String client_id = "8a1b605d597dca4e";
+        //搞笑
+        public static final String categoryVideo1 = "https://openapi.youku.com/v2/searches/show/top_unite.json?client_id=8a1b605d597dca4e&category=综艺&headnum=0&tailnum=0&count=50&page=1&genre=3009";
+        //汽车
+        public static final String categoryVideo2 = "https://openapi.youku.com/v2/searches/show/top_unite.json?client_id=8a1b605d597dca4e&category=综艺&headnum=0&tailnum=0&count=50&page=1&genre=3006";
+        public static final String KeyWordTop = "https://openapi.youku.com/v2/searches/keyword/top.json?client_id=8a1b605d597dca4e&count=100";
+
+
     }
 
 }

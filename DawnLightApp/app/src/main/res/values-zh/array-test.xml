@@ -25,6 +25,20 @@
         <item>明星美图</item>
     </string-array>
 
+    <string-array name="youku_category_titles">
+        <item>搞笑</item>
+        <item>电影</item>
+        <item>音乐</item>
+        <item>游戏</item>
+        <item>汽车</item>
+        <item>科技</item>
+        <item>电视剧</item>
+        <item>微电影</item>
+        <item>网剧</item>
+        <item>拍客</item>
+        <item>自拍</item>
+    </string-array>
+
 
     <string-array name="items">
         <item>Normal List</item>

@@ -25,6 +25,7 @@ import com.github.pedrovgs.DraggableListener;
 import com.github.pedrovgs.DraggableView;
 import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
+import com.liguang.dawnlightapp.activity.video.YoukuVideoActivity;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
 import com.liguang.dawnlightapp.fragment.BaseFragment;
 import com.liguang.dawnlightapp.ui.MainTab;
@@ -189,8 +190,9 @@ public class HomeActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
-
+        } else if (id == R.id.youku_video) {
+            Intent intent = new Intent(this, YoukuVideoActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {

@@ -10,7 +10,6 @@ import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -145,10 +144,8 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
     }
 
     private List<ImageDetailModel> loadData() {
-        LogUtils.v("开始加载了");
         List<ImageDetailModel> dataList = new ArrayList<>();
         cursor = database.rawQuery("select * from " + tableName + " where image_order = 0 ORDER BY create_time asc limit ?,30", new String[]{String.valueOf(index * pageContentNum + index)});
-        Log.v("zangliguang", cursor.getCount() + "");
         index++;
         ImageDetailModel imageDetailModel = new ImageDetailModel();
         if (cursor.getCount() > 0) {
@@ -157,7 +154,6 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
         do {
             imageDetailModel = new ImageDetailModel(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getInt(4), null);
             dataList.add(imageDetailModel);
-            Log.v("zangliguang", cursor.getString(0) + "==" + cursor.getString(1) + "==" + cursor.getString(2) + "==" + cursor.getString(3));
         } while (cursor.moveToNext());
         return dataList;
     }

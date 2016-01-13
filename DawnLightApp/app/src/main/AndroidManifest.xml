@@ -7,7 +7,6 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
-
     <application
         android:name=".DawnLightApplication"
         android:allowBackup="true"
@@ -36,9 +35,9 @@
             android:name=".activity.ScrollingActivity"
             android:label="@string/title_activity_scrolling"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.image.ImageViewPageActivity"></activity>
+        <activity android:name=".activity.image.ImageViewPageActivity" />
 
-        <!--优酷-->
+        <!-- 优酷 -->
         <!-- 播放界面demo -->
 
         <activity
@@ -46,7 +45,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:exported="true"
             android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Black.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
 
         <!-- 已经缓存的视频界面demo -->
         <activity
@@ -76,6 +75,10 @@
             android:name="client_secret"
             android:value="71e3ca633c9ae7ab914198442ecbede1" />
 
+        <activity
+            android:name=".activity.video.YoukuVideoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"></activity>
     </application>
 
 </manifest>

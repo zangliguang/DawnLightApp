@@ -1,12 +1,14 @@
 package com.liguang.dawnlightapp.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.liguang.dawnlightapp.activity.video.YoukuVideoActivity;
 import com.liguang.dawnlightapp.fragment.dummy.DummyContent;
 import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 
@@ -77,6 +79,8 @@ public class NewsFragment extends ListFragment implements OnTabReselectListener 
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
 
+        Intent intent = new Intent(getContext(), YoukuVideoActivity.class);
+        startActivity(intent);
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
