@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal">
 
         <com.nshmura.recyclertablayout.RecyclerTabLayout
@@ -15,17 +16,17 @@
             android:layout_width="0dp"
             android:layout_height="@dimen/tab_height"
             android:layout_weight="1.0"
-            android:background="@color/colorPrimary"
             android:theme="@style/RecyclerTabLayoutTheme.Basic"
             app:rtl_tabMaxWidth="@dimen/tab_width"
             app:rtl_tabSelectedTextColor="@android:color/white" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/button_more_columns"
-            android:layout_width="40.0dip"
-            android:layout_height="40.0dip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/channel_glide_day_bg" />
+            android:background="@drawable/tab_icon_add"
+            android:visibility="gone" />
 
     </LinearLayout>
 
