@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.configs.picasso.SamplePicassoFactory;
 import com.liguang.dawnlightapp.db.dao.ImageDetailModel;
@@ -50,10 +51,12 @@ public class ImageDetailAdapter extends UltimateViewAdapter<ImageDetailAdapter.V
             holder.title.setText(dataList.get(position).getImage_title());
             if (loadImage) {
                 LogUtils.v(dataList.get(position).toString());
-                mPicasso.load(dataList.get(position).getImage_link())
-                        .placeholder(context.getResources().getDrawable(R.drawable.error_pic))
-                        .error(context.getResources().getDrawable(R.drawable.error_pic)).tag(tag)
-                        .into(holder.image);
+//                mPicasso.load(dataList.get(position).getImage_link())
+//                        .placeholder(context.getResources().getDrawable(R.drawable.error_pic))
+//                        .error(context.getResources().getDrawable(R.drawable.error_pic)).tag(tag)
+//                        .into(holder.image);
+
+                Glide.with(context).load(dataList.get(position).getImage_link()).placeholder(context.getResources().getDrawable(R.drawable.error_pic)).crossFade().into(holder.image);
             }
 
         }

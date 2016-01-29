@@ -10,8 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
 import com.liguang.dawnlightapp.R;
-import com.liguang.dawnlightapp.configs.picasso.SamplePicassoFactory;
 import com.liguang.dawnlightapp.utils.LogUtils;
 
 public class ImageViewPageActivity extends AppCompatActivity {
@@ -61,9 +61,10 @@ public class ImageViewPageActivity extends AppCompatActivity {
             View imageLayout = inflater.inflate(R.layout.item_pager_image, container, false);
             assert imageLayout != null;
             ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
-            SamplePicassoFactory.getPicasso(context).load(IMAGE_URLS[position]).placeholder(context.getResources().getDrawable(R.drawable.error_pic))
-                    .error(context.getResources().getDrawable(R.drawable.error_pic))
-                    .into(imageView);
+//            SamplePicassoFactory.getPicasso(context).load(IMAGE_URLS[position]).placeholder(context.getResources().getDrawable(R.drawable.error_pic))
+//                    .error(context.getResources().getDrawable(R.drawable.error_pic))
+//                    .into(imageView);
+            Glide.with(context).load(IMAGE_URLS[position]).placeholder(context.getResources().getDrawable(R.drawable.error_pic)).crossFade().into(imageView);
             LogUtils.v("加载url==>" + IMAGE_URLS[position]);
             container.addView(imageLayout, 0);
             return imageLayout;

@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Toast;
@@ -17,7 +16,6 @@ import android.widget.Toast;
 import com.liguang.dawnlightapp.DawnLightApplication;
 import com.liguang.dawnlightapp.R;
 import com.liguang.dawnlightapp.activity.image.ImageViewPageActivity;
-import com.liguang.dawnlightapp.configs.picasso.SamplePicassoFactory;
 import com.liguang.dawnlightapp.db.DawnLightSQLiteHelper;
 import com.liguang.dawnlightapp.db.dao.ImageDetailModel;
 import com.liguang.dawnlightapp.ui.adapter.ImageDetailAdapter;
@@ -61,17 +59,17 @@ public class ImageListFragment extends BaseFragment implements ImageDetailAdapte
                 loadMoreData();
             }
         });
-        mRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    SamplePicassoFactory.getPicasso(getContext()).with(getContext()).resumeTag(simpleRecyclerViewAdapter.tag);
-                } else {
-                    SamplePicassoFactory.getPicasso(getContext()).with(getContext()).pauseTag(simpleRecyclerViewAdapter.tag);
-                }
-            }
-        });
+//        mRecycleView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+//                    SamplePicassoFactory.getPicasso(getContext()).with(getContext()).resumeTag(simpleRecyclerViewAdapter.tag);
+//                } else {
+//                    SamplePicassoFactory.getPicasso(getContext()).with(getContext()).pauseTag(simpleRecyclerViewAdapter.tag);
+//                }
+//            }
+//        });
     }
 
     protected void initData() {

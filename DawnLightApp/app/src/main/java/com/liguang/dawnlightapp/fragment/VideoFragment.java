@@ -1,6 +1,7 @@
 package com.liguang.dawnlightapp.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.liguang.dawnlightapp.R;
+import com.liguang.dawnlightapp.activity.video.PlayerActivity;
 import com.liguang.dawnlightapp.fragment.dummy.DummyContent;
 import com.liguang.dawnlightapp.interf.OnTabReselectListener;
 
@@ -81,10 +83,10 @@ public class VideoFragment extends BaseFragment implements AbsListView.OnItemCli
         mItemListener = new OnFragmentInteractionListener() {
             @Override
             public void onFragmentInteraction(String id) {
-//                Intent i = new Intent(getContext(), PlayerActivity.class);
-//                i.putExtra("vid", "XMjIzMjM2");
-//                getActivity().startActivity(i);
-                mListener.showDragPanel();
+                Intent i = new Intent(getContext(), PlayerActivity.class);
+                i.putExtra("vid", "XMjIzMjM2");
+                getActivity().startActivity(i);
+//                mListener.showDragPanel();
 
             }
         };
